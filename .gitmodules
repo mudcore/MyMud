@@ -1,3 +1,6 @@
 [submodule "mudcore"]
 	path = mudcore
 	url = https://github.com/oiuv/mudcore.git
+[submodule "www"]
+	path = www
+	url = git@github.com:MudRen/www.git

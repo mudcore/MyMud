@@ -1,2 +1,0 @@
-#/system/daemons/dbase_d.c
-save_dbase (["/system/daemons/time_d":(["gametime":0,]),])
