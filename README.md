@@ -30,9 +30,11 @@ www|websocket服务，由 fluffos 驱动提供
 
     .
     ├── config.cfg              # 运行时配置文件
+    ├── cmds                    # 指令目录
     ├── data                    # 存档目录(框架会自动生成)
     ├── include                 # 头文件目录
     │   └── globals.h           # 全局包含头文件
+    ├── help                    # 帮助目录
     ├── log                     # 日志记录目录(框架会自动生成)
     ├── mudcore                 # MudCore 框架
     ├── README.md               # 当前说明文档
