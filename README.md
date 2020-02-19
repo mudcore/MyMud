@@ -29,10 +29,11 @@ www|websocket服务，由 fluffos 驱动提供
 根据 config.ini 运行时配置文件的需求，准备如下目录和文件。
 
     .
-    ├── config.ini              # 运行时配置文件
+    ├── config.cfg              # 运行时配置文件
+    ├── data                    # 存档目录(框架会自动生成)
     ├── include                 # 头文件目录
     │   └── globals.h           # 全局包含头文件
-    ├── log                     # 日志记录目录
+    ├── log                     # 日志记录目录(框架会自动生成)
     ├── mudcore                 # MudCore 框架
     ├── README.md               # 当前说明文档
     ├── system                  # 系统目录
@@ -40,3 +41,6 @@ www|websocket服务，由 fluffos 驱动提供
     │       ├── master.c        # 主宰对象
     │       └── simul_efun.c    # 模拟外部函数对象
     └── www                     # WEBSOCKET HTTP 目录，FluffOS 驱动提供
+
+ * mudcore 框架地址：https://github.com/oiuv/mudcore
+ * www 项目地址：https://github.com/MudRen/www
