@@ -1,6 +1,6 @@
 ## MyMud 游戏
 
-> 当前版本:v1.2
+> 当前版本:v2.0
 
 ### 目录结构
 
@@ -47,6 +47,7 @@ www|websocket服务，由 fluffos 驱动提供
     │   └── kernel              # 核心文件目录
     │       ├── master.c        # 主宰对象
     │       └── simul_efun.c    # 模拟外部函数对象
+    ├── world                   # 游戏世界目录
     └── www                     # WEBSOCKET HTTP 目录，FluffOS 驱动提供
 
  * mudcore 框架地址：https://github.com/oiuv/mudcore
