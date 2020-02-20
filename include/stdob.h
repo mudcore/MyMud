@@ -4,9 +4,9 @@
 
 // 标准环境对象模板
 #define STD_ROOM        "/std/room/room"
-#define STD_wild        "/std/room/wild"
+#define STD_WILD        "/std/room/wild"
 #define STD_OUTDOORS    "/std/room/outdoors"
-#define STD_dungeon     "/std/room/dungeon"
+#define STD_DUNGEON     "/std/room/dungeon"
 // 标准生物对象模板
 #define STD_NPC         "/std/living/npc"
 #define STD_MOB         "/std/living/mob"
