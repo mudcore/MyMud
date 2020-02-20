@@ -1,4 +1,6 @@
-## MyMud 游戏开发基本准备
+## MyMud 游戏
+
+> 当前版本:v1.2
 
 ### 目录结构
 
@@ -24,19 +26,22 @@ wizard|游戏管理员工作目录
 world|游戏世界地区文件
 www|websocket服务，由 fluffos 驱动提供
 
-### 基本目录结构
+### 目录结构
 
-根据 config.ini 运行时配置文件的需求，准备如下目录和文件。
+当前版本主要目录和文件:
 
     .
     ├── config.cfg              # 运行时配置文件
     ├── cmds                    # 指令目录
     ├── data                    # 存档目录(框架会自动生成)
+    ├── help                    # 帮助目录
     ├── include                 # 头文件目录
     │   └── globals.h           # 全局包含头文件
-    ├── help                    # 帮助目录
+    ├── inherit                 # 功能模块接口
     ├── log                     # 日志记录目录(框架会自动生成)
     ├── mudcore                 # MudCore 框架
+    ├── obj                     # 通用游戏对象
+    ├── std                     # 标准对象模板
     ├── README.md               # 当前说明文档
     ├── system                  # 系统目录
     │   └── kernel              # 核心文件目录
