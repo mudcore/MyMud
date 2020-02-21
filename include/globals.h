@@ -5,6 +5,10 @@
 // 系统目录
 #define WORLD_DIR   "/world/"
 
+// 核心对象
+#define LOGIN_OB    "/obj/login"
+#define USER_OB     "/obj/user"
+
 // 功能模块
 #include "inherit.h"
 // 守护进程

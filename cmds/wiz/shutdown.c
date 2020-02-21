@@ -2,7 +2,8 @@ int main(object me, string arg)
 {
     if (!wizardp(me)) return 0;
 
-    // todo 玩家存档处理
+    // 玩家存档处理
+    users()->remove();
 
     shutdown(0);
     return 1;
