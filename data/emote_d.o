@@ -1,0 +1,2 @@
+#/mudcore/system/daemons/emote_d.c
+emote (["hi":({"$ME热情的和大家打招呼：hi~ ","$ME热情的和$YOU打招呼：hi~",}),])
