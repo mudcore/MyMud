@@ -41,7 +41,7 @@ int look_room(object me, object env)
     str = sprintf(HIC + "\n%s" + NOR + "%s\n    %s\n" + NOR,
                   env->short(),
                   wizardp(me) ? " - " + env : "",
-                  break_string(env->long(), 39));
+                  break_string(env->long(), 38));
 
     if (mapp(exits = env->query("exits")))
     {

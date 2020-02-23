@@ -48,6 +48,7 @@ www|websocket服务，由 fluffos 驱动提供
     │       ├── master.c        # 主宰对象
     │       └── simul_efun.c    # 模拟外部函数对象
     ├── world                   # 游戏世界目录
+    ├── wizard                  # 开发者工作目录
     └── www                     # WEBSOCKET HTTP 目录，FluffOS 驱动提供
 
  * mudcore 框架地址：https://github.com/oiuv/mudcore
