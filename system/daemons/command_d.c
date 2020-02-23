@@ -2,7 +2,7 @@ inherit CORE_COMMAND_D;
 
 void create()
 {
-    set_alias(([
+    add_alias(([
         "sc" : "score",
         "hp" : "score -s",
     ]));
