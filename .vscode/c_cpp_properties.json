@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "LPC",
+            "includePath": [
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/mudcore/include"
+            ],
+            "forcedInclude": [
+                "${workspaceFolder}/include/globals.h"
+            ],
+            "defines": [],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
