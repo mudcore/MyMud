@@ -38,10 +38,10 @@ int look_room(object me, object env)
         return 1;
     }
 
-    str = sprintf(HIC + "\n%s" + NOR + "%s\n    %s\n" + NOR,
+    str = sprintf(HIC + "\n%s" + NOR + "%s\n    %s" + NOR,
                   env->short(),
                   wizardp(me) ? " - " + env : "",
-                  break_string(env->long(), 38));
+                  sort_string(env->long(), 78));
 
     if (mapp(exits = env->query("exits")))
     {

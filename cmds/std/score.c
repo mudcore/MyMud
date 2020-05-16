@@ -33,8 +33,8 @@ string score_hp(object me)
 {
     string msg, hpbar, mpbar;
 
-    hpbar = GRAPH_D->draw(me->query_hp(),me->query_max_hp(), 2, 1, 10);
-    mpbar = GRAPH_D->draw(me->query_mp(),me->query_max_mp(), 4, 7, 10);
+    hpbar = graph_draw(me->query_hp(),me->query_max_hp(), 2, 1, 10);
+    mpbar = graph_draw(me->query_mp(),me->query_max_mp(), 4, 7, 10);
     msg = sprintf(HIG "生命：%s\t灵力：%s\n" NOR, hpbar, mpbar);
 
     return msg;
