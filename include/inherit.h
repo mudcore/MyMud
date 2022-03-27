@@ -2,6 +2,7 @@
 #ifndef INHERIT_H
 #define INHERIT_H
 
+#define AREA        "/inherit/area"
 #define ATTRIBUTE   "/inherit/attribute"
 #define CLEAN_UP    "/inherit/clean_up"
 #define COMMAND     "/inherit/command"
