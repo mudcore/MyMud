@@ -1,6 +1,6 @@
 ## MyMud 游戏
 
-> 当前版本:v2.3
+> 当前版本: v3.1
 
 ### 目录结构
 
@@ -51,5 +51,5 @@ www|websocket服务，由 fluffos 驱动提供
     ├── wizard                  # 开发者工作目录
     └── www                     # WEBSOCKET HTTP 目录，FluffOS 驱动提供
 
- * mudcore 框架地址：https://github.com/oiuv/mudcore
- * www 项目地址：https://github.com/MudRen/www
+ * mudcore 框架地址：https://github.com/mudcore/mudcore
+ * www http项目地址：https://github.com/MudRen/www

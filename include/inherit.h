@@ -14,5 +14,7 @@
 #define NAME        "/inherit/name"
 #define ROOM        "/inherit/room"
 #define SAVE        "/inherit/save"
+#define USER        "/inherit/user"
+#define USER_VOCATION   "/inherit/user_vocation"
 
 #endif

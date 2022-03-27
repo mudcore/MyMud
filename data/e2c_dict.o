@@ -1,2 +1,2 @@
 #/mudcore/system/daemons/chinese_d.c
-dict (["common":"平民",])
+dict (["martial-artist":"武斗家","warrior":"战士","minstrel":"旅艺人","paladin":"圣骑士","thief":"盗贼","ranger":"游侠","armament-alist":"魔法战士","mage":"魔法师","sage":"贤者","gladiator":"战斗大师","priest":"僧侣","luminary":"超级明星","common":"平民",])
