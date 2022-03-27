@@ -1,12 +1,10 @@
 // 标准地牢环境模板STD_DUNGEON
-inherit STD_WILD;
+inherit STD_ROOM;
 
-protected void create()
+void create()
 {
     ::create();
-    set("short", "阿蒙陵寝");
-    set("long",@LONG
-这里是天使之王阿蒙隐藏在贝克兰德郊外的地下陵寝，大量被污染的魔物和失控成怪物的冒险者躲在里面。
-LONG);
-    set("outdoors", 0); // 设置是否户外
+    set("short", "地牢");
+    set("long", "这里是废弃地牢，四周雾蒙蒙一片，什么也看不清。");
+    set("no_fight", 0);
 }
