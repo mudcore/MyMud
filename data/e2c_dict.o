@@ -1,2 +1,2 @@
 #/mudcore/system/daemons/chinese_d.c
-dict ([])
+dict (["common":"平民",])

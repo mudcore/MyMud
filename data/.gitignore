@@ -1,3 +1,4 @@
-user
-login
-dbase_d.o
+*
+!.gitignore
+!e2c_dict.o
+!emote_d.o
