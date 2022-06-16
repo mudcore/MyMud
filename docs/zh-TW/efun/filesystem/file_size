@@ -1,0 +1,15 @@
+名稱：
+	file_size() - 取得檔案的大小。
+語法：
+	int file_size( string file );
+
+	整數 file_size( 字串 檔案 );
+用法：
+	file_size() 傳回檔案 file 的位元數。傳回 -1 代表 file 不存在，或是
+	無法讀取。傳回 -2 則代表 file 是一個目錄。
+參考：
+	stat, get_dir
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.27.	v22 版

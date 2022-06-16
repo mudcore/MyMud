@@ -1,0 +1,28 @@
+名稱：
+	keys - 傳回一個陣列，是映射 (key, value)〈 即 (關鍵字, 內容值)〉資
+	       料中全部的 key〈關鍵字〉。
+語法：
+	array keys( mapping m );
+
+	陣列 keys( 映射 m );
+用法：
+	keys() 傳回儲存在映射 m 的 (關鍵字, 內容值) 資料之所有關鍵字〈索引
+	〉的陣列。
+
+	範例：
+
+	mapping m;
+	m = (["hp" : 35, "sp" : 42, "mass" : 100]);
+
+	則:
+
+	keys(m) == ({"hp", "sp", "mass"})
+
+	請注意：關鍵字之間不會有任何順序。不過其順序與 values() 傳回內容值
+		所對應的順序相同。
+參考：
+	values
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.20.	v22 版

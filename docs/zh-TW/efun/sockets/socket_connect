@@ -1,0 +1,57 @@
+名稱：
+	socket_connect - 初始化一個 socket 上的連接 (connection)。
+語法：
+	int socket_connect( int s, string address, string read_callback,
+		string write_callback );
+
+	整數 socket_connect( 整數 s, 字串 位址, 字串 讀取回呼,
+		字串 寫入回呼 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	參數 s 是一個 socket。s 必須是一個 STREAM 型態或是一個 MUD 型態的 
+	socket。address 是這個 socket 將要嘗試連接的位址。位址是 
+	"127.0.0.1 23" 這種格式。
+
+	read_callback 參數是給驅動程式在由它的另一端 (peer) 得到資料時呼叫
+	的函式名稱。這個讀取回呼 (callback) 函式應該是如下格式：
+
+	void read_callback( int fd, mixed message )
+
+	這裡的 fd 是要接收資料的 socket，而 message 是接收到的資料。
+
+	write_callback 參數是給驅動程式在 socket 已準備好寫入時呼叫的函式名
+	稱。這個寫入回呼函式應該是如下格式：
+
+	void write_callback( int fd )
+
+	這裡的 fd 是已準備好寫入的 socket。
+
+	socket_connect() 傳回：
+
+	成功時是 EESUCCESS。
+
+	失敗時是一個含有如下意義的負值。
+
+	錯誤值 - 定義在「socket_err.h」
+
+	EEFDRANGE	描述值 (descriptor) 超出範圍。
+	EEBADF		無效的描述值。
+	EESECURITY	企圖違反安全。
+	EEMODENOTSUPP	不支援此 socket 型態。
+	EEISLISTEN	socket 正在傾聽 (listening)。
+	EEISCONN	socket 已連接。
+	EEBADADDR	位址格式的問題。
+	EEINTR		中斷的系統呼叫。
+	EEADDRINUSE	位址已被使用。
+	EEALREADY	操作已在進行中。
+	EECONNREFUSED	連接被拒絕。
+	EECONNECT	連接的問題。
+參考：
+	socket_accept, socket_close, socket_create
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.27
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

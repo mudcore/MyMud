@@ -1,0 +1,24 @@
+名稱：
+	stat() - 傳回與一個檔案或一個目錄相關的資訊。
+語法：
+	mixed stat( string str );
+	mixed stat( string str, int x );
+
+	混合 stat( 字串 字串 );
+	混合 stat( 字串 字串, 整數 x );
+用法：
+	如果 str 是一個普通檔案的名字〈不是目錄〉，則 stat() 會傳回一個陣
+	列。此陣列含有關於此檔案的資訊。陣列的格式如下：
+
+	({ file_size, last_time_file_touched, time_object_loaded })
+
+	({ 檔案名稱, 最後一次的更動日期, 物件載入時間 })
+
+	如果 str 是一個目錄〈非一個普通檔案〉，或是第二個參數為 -1，則
+	stat() 與 get_dir 的作用相同。
+參考：
+	get_dir, file_size
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.28.	v22 版

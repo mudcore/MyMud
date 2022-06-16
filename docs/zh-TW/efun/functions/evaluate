@@ -1,0 +1,13 @@
+名稱：
+	evaluate() - 評估一個函式指標 (function pointer)。
+語法：
+	mixed evaluate(mixed f, ... );
+
+	混合 evaluate( 混合 f, ... );
+用法：
+	如果 f 是一個函式，就會以剩下的參數〈即上面 ...	的地方〉呼叫 f。
+	如果 f 不是函式，則傳回 f。evaluate( f, ...) 等於 (*f)(...)。 
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.28.	v22 版

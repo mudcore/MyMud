@@ -1,0 +1,20 @@
+名稱：
+	set_author - 設定一個物件相關的作者。
+語法：
+	void set_author( string author );
+
+	無傳回值 set_author( 字串 作者 );
+用法：
+	為了要追蹤作者和區域的統計數字，所有的物件都有相關的作者和區域。區
+	域只能由主宰物件 (master object) 的 domain_file() 函式設定。但是作
+	者不同。作者可以由主宰物件的 author_file() 設定一些預設值，也可以使
+	用 set_author() 外部函式來更改。
+
+	呼叫 set_author() 的物件，其相關的作者就會由本函式更改。所有該物件
+	影響 mudlib 的統計數字都會算到該作者身上。
+參考：
+	author_file, domain_file, author_stats, set_author, domain_stats
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.24.	v22 版

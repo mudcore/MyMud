@@ -1,0 +1,28 @@
+名稱：
+	objects - 傳回一個所有已載入物件的陣列 (array)。
+語法：
+	object array objects();
+	object array objects( string func, object ob );
+	object array objects( function f );
+
+	物件 陣列 objects();
+	物件 陣列 objects( 字串 函式, 物件 物件 );
+	物件 陣列 objects( 函式指標 f );
+用法：
+	objects() 傳回 mud 裡所有已經載入之物件的陣列。請注意，如果系統設定
+	的最大陣列長度 (maximum array size) 太小，objects() 傳回的陣列內容
+	會斷在最大長度的地方。這樣一來，objects() 就沒有什麼用處。
+
+	如果指定了可選擇的「func」和「ob」兩個參數，則會呼叫 ob->func()，並
+	以所有已載入的物件作為 func() 的參數。如果 func() 傳回非零值，此物
+	件就會被 objects() 傳回來，零則不會。
+
+	如果給予「f」，則如同上面第二種語法，把所有的已載入物件當作參數呼叫
+	函式指標 f。例如：objects( (: clonep :) ) 會傳回現存全部的複製物件
+	列表。
+參考：
+	livings, users
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

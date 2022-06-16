@@ -1,0 +1,18 @@
+名稱：
+	query_ip_port - 傳回指定玩家物件的 ip 埠 (port)。
+語法：
+	int query_ip_port( object | void );
+	
+	整數 query_ip_port( 物件 或 無參數 );
+用法：
+	傳回參數物件那邊用來連接 mud 的本地端埠 (local port)。如果沒有參數
+	，則傳回 this_player() 那邊用於連接 mud 的本地端埠。對非互動物件呼
+	叫本函式會傳回 0。
+
+	本函式需要在 options.h 定義 PACKAGE_CONTRIB。
+參考：
+	query_ip_name, query_host_name, resolve, socket_address
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

@@ -1,0 +1,18 @@
+
+	中階 LPC
+	Descartes of Borg 
+	November 1993
+
+	目錄
+
+1:  介紹
+2:  LPMud 驅動程式 (driver)
+3:  複雜資料型態 (complex data types)
+4:  LPC 前編譯程式 (pre-compiler)
+5:  高級字串處理
+6:  中級繼承 (inheritance)
+7:  除錯 (debugging)
+
+Copyright (c) George Reese 1993
+
+翻譯:	Spock of the Final Frontier		98.Mar.19.

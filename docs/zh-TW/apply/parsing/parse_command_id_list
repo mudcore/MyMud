@@ -1,0 +1,15 @@
+名稱：
+	parse_command_id_list - 傳回一份名字列表給語法分析器 (parser)。
+語法：
+	string array parse_command_id_list(); 
+
+	字串 陣列 parse_command_id_list(); 
+用法：
+	此函式用於找出物件回應哪些名詞，由語法分析套件與 parse_command()
+	外部函式使用。另外，主宰物件傳回的任何東西會在「任何」物件上生效。
+參考：
+	parse_command
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

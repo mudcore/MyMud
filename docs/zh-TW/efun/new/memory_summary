@@ -1,0 +1,29 @@
+名稱：
+        memory_summary() - 傳回記憶體使用的摘要。
+語法：
+        mapping memory_summary();
+
+        映射 memory_summary();
+用法：
+	memory_summary() 會回傳如下陣列
+        PRE(
+	    ([ 
+  		程式名稱 : ([
+    			變數名稱 : 記憶體耗費,
+    			...
+  		])
+  		...
+	    ])
+	)。
+	
+	the memory usage is the memory required to store the value divided by the
+	number of variables pointing to that particular value.  [Due to sharing
+	of values, giving an exact number for the memory usage of any
+	value is impossible]
+
+參考：
+        
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

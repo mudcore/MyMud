@@ -1,0 +1,46 @@
+
+	process_string(3)	MudOS	v21c2		(5 Sep 1994)
+
+	名稱:
+		process_string() - 在字串中以呼叫函式的結果替代某些字.
+	語法:
+		string process_string( string combinestring );
+
+		字串 process_string( 字串 combinestring );
+	用法:
+		以指定的格式替代一個字串中的某些字. 這個格式相當於呼叫
+		函式所傳回的字串.
+
+		格式如下:
+
+		"@@函式名稱[:檔案名稱][ | 參數 1 | 參數 2....| 參數 N ]@@"
+
+		上面這行可以當作是下面這行的函式呼叫:
+
+		檔案名稱->函式名稱( 參數 1, 參數 2, ....., 參數 N );
+
+		請注意, process_string()  不會接受函式遞迴 (recuse) 呼叫
+		傳回第二次以後的字串. 如果函式傳回第二次字串, 
+		process_string()  不會換掉第一次傳回的字串.
+
+		在 combinestring  中呼叫用來處理字串的函式, 如果傳回值不
+		是字串, 則關於呼叫格式的那些字都會維持不變地放在字串裡.
+
+		請注意, 物件的檔案名稱、參數都以表示可有可無的 [] 中括號
+		框起來. 請勿把這些括號也寫進字串裡.
+	參考:
+		process_value(3)
+	警告:
+		在 mud  函式庫 (mudlib) 中, 常常使用函式呼叫的傳回值.
+		最好能在使用 process_string() 之前, 設定物件的有效使
+		用者辨識名稱 (effuserid, euid)  為 0  . 
+	範例:
+		"@@query_the_name:/obj/monster#123@@正在你身後窮追不捨."
+
+		會以下面的形式替換掉一些字:
+
+		"安老大正在你身後窮追不捨."
+
+		 (假設 monster#123 的 query_the_name 函式傳回 "安老大")
+	翻譯:
+		Spock @ FF	97.Apr.25.		(printed 3/16/95)

@@ -1,0 +1,21 @@
+名稱：
+	variables - 列出指定物件的所有變數。
+語法：
+	string array variables( object, int default: 0 );
+
+	字串 陣列 variables( 物件, 整數 預設值: 0 );
+用法：
+	variables() 可以傳回兩種不同的東西。如果第二個參數為 0〈預設值〉，
+	它會傳回第一個物件參數的所有變數名稱陣列。如果第二個參數為非零值，
+	就會傳回更多變數的資訊。第二個參數為非零值時，每一個陣列元素含有以
+	下資訊：
+
+	({ 變數名稱, 變數型態 }) 
+
+	變數型態像是 "string"〈字串〉或 "private int"〈私有 整數〉等等。
+
+	本函式僅在編譯時於 options.h 定義 PACKAGE_CONTRIB 才有效。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

@@ -1,0 +1,24 @@
+名稱：
+	dump_prog - 傾印 (dump)／反組譯 (disassemble) 一個 LPC 物件。
+語法：
+	void dump_prog( object ob, int flags, string file );
+
+	無傳回值 dump_prog( 物件 物件, 整數 旗標, 字串 檔名 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_DEVELOP 才有效。
+
+	dump_prog() 傾印關於程式「ob」的資訊到檔案「file」，若沒有指定
+	「file」的話，則檔名內定為「/PROG_DUMP」。若呼叫這個函式的物件沒有
+	寫入這個檔案的權限，則此函式無效。
+
+	flags 可以是下列數值的組合：
+	1 - 包含中間碼 (i-code) 的反組譯
+	2 - 包含行號資訊
+參考：
+	debug_info, dumpallobj
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+v21 版原翻譯：
+	Kenny@Broken.History	97.Jul.26
+校訂：
+	spock@muds.net		2000.Aug.19.	v22 版

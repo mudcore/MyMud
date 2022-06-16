@@ -1,0 +1,28 @@
+名稱：
+	values - 將一個映射的 (關鍵字, 內容值)〈即 (keys, values)〉的所有內
+		 容值 (value) 以陣列型態傳回。
+語法：
+	array values( mapping m );
+
+	陣列 values( 映射 m );
+用法：
+	values() 傳回一個陣列。此陣列為映射 m 中 (關鍵字, 內容值) 的所有內
+	容值元素。
+
+	範例：
+
+	mapping m;
+
+	m = (["hp" : 35, "sp" : 42, "mass" : 100]);
+
+	則
+
+	values(m) == ({35, 42, 100})
+
+	注意：傳回的內容值陣列，其元素順序與對應關鍵字的順序一樣。
+參考：
+	keys
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.23.	v22 版

@@ -1,0 +1,31 @@
+名稱：
+	socket_close - 關閉一個 socket。
+語法：
+	int socket_close( int s );
+
+	整數 socket_close( 整數 s );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	socket_close() 會關閉 socket s。這會釋放出一個可用的 socket efun 插
+	槽 (slot)。
+
+	socket_close() 傳回：
+
+	成功時是 EESUCCESS。
+
+	失敗時是含如下意義的負值。
+
+	錯誤值 - 定義在「socket_err.h」
+
+	EEFDRANGE	描述值 (descriptor) 超出範圍。
+	EEBADF		無效的描述值。
+	EESECURITY	企圖違反安全。
+參考：
+	socket_accept, socket_create
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.27
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

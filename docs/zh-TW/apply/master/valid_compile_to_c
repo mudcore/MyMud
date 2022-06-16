@@ -1,0 +1,16 @@
+名稱：
+	valid_compile_to_c - 判斷是否可以用 LPC->C 編譯(compilation)。
+語法：
+	int valid_compile_to_c();
+
+	整數 valid_compile_to_c();
+用法：
+	當 generate_source() 外部函式用於產生 C 語言檔案或是一個物件的執行
+	時段編譯 (runtime compilation) 時，會呼叫此函式。因為此過程會耗用
+	大量的 CPU 運算，你可能會限制使用此函式。
+參考：
+	generate_source
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

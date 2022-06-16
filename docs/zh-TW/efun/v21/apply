@@ -1,0 +1,18 @@
+
+	apply(3)		MudOS v21c2		(5 Sep 1994)
+
+	名稱:
+		apply() - 處理函數指標 (function pointer).
+	語法:
+		mixed apply( mixed f, mixed *args )
+
+		混合 apply( 混合 f, 混合 *args )
+	用法:
+		如果 f 是一個函式, 就會呼叫 f 並用陣列 args 當作 f
+		的參數 (argument).
+
+		範例:
+			apply( f, ({ 1, 2, 3 }) ); 與 
+			evaluate( f, 1, 2, 3 ); 是相同的.
+	翻譯:
+		Spock @ FF   96.Oct.14.			(printed 3/16/95)

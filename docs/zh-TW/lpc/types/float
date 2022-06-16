@@ -1,0 +1,14 @@
+MudOS LPC 目前支援浮點數形態 (floating point type). 
+只需要如以下般宣告變數:
+
+float pi;
+
+一般來說, 整數的運算方式亦可用於浮點數. 浮點數常數 (constant) 可以包含小
+數點, 例如:
+
+pi = 3.14159265;
+
+LPC 的浮點數形態, 基本上是 C  提供的單精確度 (single precision) 浮點數形
+態. 在大多數的機器上會有七位數的精確度 (十進位).
+
+翻譯:	Spock @ FF	97.Aug.10.

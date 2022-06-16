@@ -1,0 +1,15 @@
+名稱：
+	clear_bit - 將一個位元字串 (bit string) 中的某一個位元設為零。
+語法：
+	string clear_bit( string str, int n );
+
+	字串 clear_bit( 字串 字串, 整數 n );
+用法：
+	傳回一個新的字串，而新字串中第 n 個位元清除為 0。注意，原來的字串
+	「str」並沒有更動內容。字串格式請參考 set_bit()。
+參考：
+	set_bit, test_bit
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

@@ -1,0 +1,24 @@
+名稱：
+	catch() - 抓出評估錯誤 (evaluation error)。
+語法：
+	mixed catch( mixed expr );
+	mixed catch { ... };
+
+	混合 catch( 混合 運算式 );
+	混合 catch { ... };
+用法：
+	注意，catch 是一個保留字，而不是一個外部函式。
+
+	評估在 { ... } 裡面的程式碼或是運算式。如果沒有錯誤，catch() 傳回
+	0。如果有錯，會傳回一個字串〈以「*」開頭〉。
+
+	也可以使用函式 throw() 以立刻傳回除了 0 以外的任何值。
+
+	catch() 有點耗費系統資源，請您別到處使用它。把 catch()
+	放在出錯時可能會摧毀系統結構 (consistency) 的地方。
+參考：
+	error, throw, error_handler
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

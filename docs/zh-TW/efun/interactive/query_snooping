@@ -1,0 +1,15 @@
+名稱：
+	query_snooping - 傳回物件正在監聽 (snoop) 的物件。
+語法：
+	object query_snooping( object ob );
+
+	物件 query_snooping( 物件 物件 );
+用法：
+	如果「ob」〈一個互動物件〉正在監聽其他互動物件，傳回被監聽的物件。
+	如果 ob 沒有，則傳回 0。
+參考：
+	snoop, query_snoop
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

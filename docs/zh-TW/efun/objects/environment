@@ -1,0 +1,15 @@
+名稱：
+	environment - 傳回一個物件所處的環境。
+語法：
+	object environment( object ob );
+
+	物件 environment( 物件 物件 );
+用法：
+	本函式僅在編譯時不定義 NO_ENVIRONMENT 才有效。
+
+	傳回含有物件「ob」的環境物件。如果不指定參數，「ob」預設為 
+	this_object()。如果該物件並不在任何物件裡面，則傳回 0。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

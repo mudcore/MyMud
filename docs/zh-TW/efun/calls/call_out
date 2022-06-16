@@ -1,0 +1,28 @@
+名稱：
+	call_out() - 在同一個物件中延遲函式呼叫。
+語法：
+	void call_out( function fun, int delay,	mixed arg, ... );
+
+	無傳回值 call_out( 函式指標 函式, 整數 延遲, 混合 參數, ... );
+用法：
+	設定呼叫 fun 函式。如果 fun 是一個字串，則視為 this_object() 中的
+	函式名。此呼叫會延遲 delay 秒，以 arg 與其之後作為參數。
+
+	請注意，除非你定義 THIS_PLAYER_IN_CALL_OUT，你不能在 fun 中呼叫
+	write() 或 say()，因為 this_player() 被設定成 0。請用 tell_object()
+	代替。
+
+	如果定義了 THIS_PLAYER_IN_CALL_OUT，則 this_player() 就如同
+	call_out() 呼叫時。
+譯註：
+	在 v22a28 版之後，如果定義了 CALLOUT_HANDLES，則 call_out() 傳回一
+	個整數，可用於以下兩個外部函式：
+	remove_call_out(int handle)
+	find_call_out(int handle)
+	使用整數控制 call_out 要比使用函式名稱來得有效率。
+參考：
+	remove_call_out, call_out_info, find_call_out
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

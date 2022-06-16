@@ -1,0 +1,34 @@
+名稱：
+	localtime - 轉換成本地時間 (local time)。
+語法：
+	array localtime( int time );
+
+	陣列 localtime( 整數 時間 );
+用法：
+	localtime() 轉換一個整數的時間值〈如同 time() 的傳回值〉成為一個陣
+	列。這個陣列就是本地時間。在以前 time() 函式用來取得格林威治時間
+	 (GMT (UTC))，而本地時間的定義是與格林威治時間的差值。現在這種換算
+	 的方法已經沒有必要了。localtime() 傳回秒數、分鐘、小時、日期、月數
+	 、年數、星期幾、一年中的第幾天、本地的時區名稱、本地時區與格林威治
+	 時區的差值。這些時間的資訊直接由作業系統取得，而且使驅動程式不需要
+	用到 mud 本身的設定檔案。
+
+	localtime() 傳回一個包含上述時間資訊值的陣列。每一個時間值的索引 
+	(index) 由 localtime.h 定義。下表整理出 localtime() 傳回的陣列內容。
+
+	int	LT_SEC		秒數 (0..59)
+	int	LT_MIN		分鐘 (0..59)
+	int	LT_HOUR		小時 (0..23)
+	int	LT_MDAY		日數 (1..31)
+	int	LT_MON		月數 (0..11)
+	int	LT_YEAR		年份 (必須大於 1900)
+	int	LT_WDAY		星期幾 (0..6)
+	int	LT_YDAY		一年中的第幾天 (0..365)
+	int	LT_GMTOFF 	格林威治時間相差的秒數 (UTC)
+	string	LT_ZONE		本地時區的名稱
+參考：
+	ctime, time, time_expression, uptime
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

@@ -1,0 +1,15 @@
+名稱：
+	error - 產生一個執行時段 (run-time) 錯誤。
+語法：
+	void error( string err );
+
+	無傳回值 error( 字串 錯誤 );
+用法：
+	呼叫 error() 時，會產生一個執行時段錯誤「err」。這樣會中止目前正在
+	執行的執行緒 (thread)，並將追蹤資料紀錄在除錯紀錄 (debug log) 中。
+參考：
+	catch, throw, error_handler
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

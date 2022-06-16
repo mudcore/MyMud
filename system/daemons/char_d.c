@@ -1,3 +1,12 @@
+/*****************************************************************************
+Copyright: 2019, Mud.Ren
+File name: char_d.c
+Description: 角色系统守护进程 CHAR_D
+Author: xuefeng
+Version: v1.0
+Date: 2019-03-12
+History:
+*****************************************************************************/
 // 初始化玩家角色
 void init_player(object user)
 {

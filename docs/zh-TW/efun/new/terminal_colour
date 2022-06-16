@@ -1,0 +1,22 @@
+名稱：
+        terminal_colour() - 替代一字串中的字碼。
+語法：
+        string terminal_colour(string str, mapping m, int wrap, int indent);
+
+        字串 terminal_colour( 字串 str , 映射 m , 整數 wrap, 整數 indent );
+用法：
+        terminal_colour() 可將一字串 str 中的  %^key%^ 字碼替換成映射 m 中
+        對應於 key 的元素 ( value )。
+	
+	'wrap' is the optional column number to wrap at, and 'indent' is the
+	amount to indent the second and following lines.  Codes are assumed to
+	change the mode of the terminal and not generate any printable
+	characters for the purposes of wrapping.
+	
+	使用此 efun 必須先定義 PACKAGE_CONTRIB
+參考：
+        
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

@@ -1,0 +1,19 @@
+名稱：
+	deep_inventory - 傳回一個物件的巢狀 (nested) 內容物品。
+			〈譯按：不同於 inventory()，如果第一層物品中還含有
+			其他物品，將會一層層繼續尋找下去，直到傳回所有的物
+			件為止。這種一層層循序漸進的結構稱為「巢狀」。〉
+語法：
+	object array deep_inventory( object ob );
+
+	物件 陣列 deep_inventory( 物件 物件 );
+用法：
+	本函式僅在編譯時不定義 NO_ENVIRONMENT 才有效。
+
+	傳回包含「ob」內容物品的陣列，亦包含每個內容物品的內容物品。
+參考：
+	all_inventory
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

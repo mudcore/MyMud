@@ -1,0 +1,19 @@
+名稱：
+	swap - 直接把一個檔案交換 (swap) 出去〈譯按：扔到硬碟的交換檔裡頭〉。
+語法：
+	void swap( object );
+
+	無傳回值 swap( 物件 );
+用法：
+	本函式僅在編譯驅動程式時使用 -DDEBUG 參數方能生效。
+	
+	這個外部函式應該只保留在除錯用途。swap() 讓一個物件直接被交換出去。
+	如果要使用 swap()，建議最好使用 simul_efun 越權	(override) 處理 
+	swap() 以防止濫用。
+
+	注意：如果物件已經被摧毀了、已經被交換出去、有心跳、
+	、被其他物件複製、被其他物件繼承、可互動，則無法交換出去。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.20.	v22 版

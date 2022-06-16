@@ -1,0 +1,15 @@
+名稱：
+	write - 對目前的玩家送出訊息。
+語法：
+	void write( mixed str );
+
+	無傳回值 write( 混合 字串 );
+用法：
+	將訊息「str」寫給目前的玩家。str 可以是一個數字，而此數字會轉成字串
+	送出。
+參考：
+	message, tell_object, tell_room, shout, say
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

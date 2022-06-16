@@ -1,0 +1,18 @@
+名稱：
+	find_living - 找出一個指定 id 〈識別名稱〉的活 (living) 物件。
+語法：
+	object find_living( string str );
+
+	物件 find_living( 字串 字串 );
+用法：
+	找第一個標記為活的 (living)，並符合 id 為「str」的物件。已經呼叫過 
+	enable_commands() 的物件才視為活物件。並且此物件必須以 
+	set_living_name() 設定名稱，此名稱才會放進搜尋表 (hash table) 中以
+	提昇尋找活物件的速度。
+參考：
+	living, livings, users, disable_commands, enable_commands, 
+	set_living_name
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.23.	v22 版

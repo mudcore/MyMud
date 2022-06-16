@@ -1,0 +1,59 @@
+名稱：
+	socket_create - 建立一個 efun socket。
+語法：
+	int socket_create( int mode, string | function read_callback );
+	int socket_create( int mode, string | function read_callback, 
+		string | function close_callback );
+
+	整數 socket_create( 整數 模式, 字串 或 函式指標 讀取回呼 );
+	整數 socket_create( 整數 模式, 字串 或 函式指標 讀取回呼,
+		字串 或 函式指標 關閉回呼 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	socket_create() 建立一個 efun socket。mode 決定了要建立哪種型態的 
+	socket。目前支援的 socket 型態有：
+
+	MUD		以 TCP 協定傳送 LPC 型態資料。
+	STREAM		以 TCP 協定傳送原始 (raw) 資料。
+	DATAGRAM	以 UDP 協定傳送資料。
+
+	read_callback 這個參數是給驅動程式在 socket 由對方接到資料時呼叫用
+	的函式名稱。這個讀取回呼 (callback) 函式應該是如下格式：
+
+	void read_callback( int fd, mixed message )
+
+	這裡的 fd 是接收資料的 socket，而 message 是接收到的資料。
+
+	close_callback 這個參數是給驅動程式在 socket 不正常關閉時呼叫的函式
+	名稱，不是 socket_close() 的呼叫結果。這個關閉回呼函式應該是如下格
+	式：
+
+	void close_callback( int fd )
+
+	這裡的 fd 是已被關閉的 socket。
+	注意：close_callback 不用於 DATAGRAM 型態的 socket 上。
+
+	socket_create() 傳回：
+
+	成功時是一個非負的描述值 (descriptor)。
+
+	失敗時是一個下列意義的負值。
+
+	錯誤值 - 定義在「socket_err.h」
+
+	EEMODENOTSUPP	不支援此 socket 型態。
+	EESOCKET	建立 socket 時的問題。
+	EESETSOCKOPT	setsockopt 的問題。
+	EENONBLOCK	設定非停滯 (non-blocking) 模式的問題。
+	EENOSOCKS	沒有多餘的 efun sockets。
+	EESECURITY	企圖違反安全。
+參考：
+	socket_accept, socket_bind, socket_close, socket_connect, 
+	socket_listen, socket_write
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.26
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

@@ -1,0 +1,15 @@
+名稱：
+	save_variable - 將變數值儲存為一個字串。
+語法：
+	string save_variable( mixed var );
+
+	字串 save_variable( 混合 變數 );
+用法：
+	把 LPC 值儲存成一個字串。儲存變數的格式跟 save/restore_object 函式
+	一樣。
+參考：
+	restore_variable, restore_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.24.	v22 版

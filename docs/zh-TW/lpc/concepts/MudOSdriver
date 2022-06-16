@@ -1,0 +1,27 @@
+* MudOS 是啥 ?
+
+MudOS 驅動程式 (driver) 是提供 mud  低階支援的程式 (以 C  撰寫的 LPmud).
+這個程式包括以下的許多功能:
+
+0)  透過一個通訊埠接受遠端機器 (remote machines)  連線, 並將這些連線接上
+    連線物件 (login object)  (在 TMI 中是 /adm/login.c).
+
+1)  提供一套外部的函式 (external functions, efuns), 可以在 LPC  物件中呼
+    叫使用.
+
+2)  透過 new(檔案名稱)  或 clone_object(檔案名稱) 外部函式, 編譯檔案為簡
+    潔的內部表徵形式 (compact internal tokenized form)
+
+3)  解譯 (interpret)﹝或執行 (execute)﹞已成為表徵形式 (tokenized form) 
+    的物件. 執行程式碼有以下兩種方法:
+
+    a)  驅動程式以使用者的輸入為準 (透過通訊埠) , 呼叫物件中的函式. 這些
+	特定的函式呼叫, 根據 mud  的物件所指定的使用者指令 (command)  和
+	函式間的關係為準﹝透過 add_action(函式名稱, 指令名稱) ﹞. 在 LPC
+	物件中, 驅動程式也會因為特定的外部函式 (像 init, create, clean_up
+	等等) .
+    b)  物件可以透過 call_other(物件, 函式名稱, 參數...)  外部函式, 讓驅
+	動程式執行其他物件中的程式碼. 與 call_other() 等效的另一種寫法是
+	物件->函式名稱( 參數... ).
+
+翻譯:	Spock @ FF	97.Aug.8.

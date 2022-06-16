@@ -1,0 +1,17 @@
+名稱：
+	memory_info - 取得一個物件或整個 mud 記憶體使用的資訊。
+語法：
+	varargs int memory_info( object ob );
+
+	不定參數 整數 memory_info( 物件 物件 );
+用法：
+	如果指定 ob，memory_info() 傳回 ob 正在使用的記憶體量。如果不指定參
+	數，則傳回整個 mud 的記憶體使用量。請注意，整個 mud 的記憶體使用量
+	不見得是實際上系統配置給 mud 的記憶體量，而且所有物件所使用的記憶體
+	加起來也不等於記憶體的總使用量，因為物件彼此之間會共享一些結構。
+參考：
+	debug_info, malloc_status, mud_status
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

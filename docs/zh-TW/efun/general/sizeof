@@ -1,0 +1,15 @@
+名稱：
+	sizeof - 傳回一個陣列的元素數目。
+語法：
+	int sizeof( mixed var );
+
+	整數 sizeof( 混合 變數 );
+用法：
+	傳回 var 中元素的數目, var 可以是陣列、映射、字串、暫存區。如果 var 
+	不屬於以上四種型態，就傳回 0。
+參考：
+	strlen
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.24.	v22 版

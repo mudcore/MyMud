@@ -1,0 +1,28 @@
+名稱：
+	m_delete - 從一個映射當中刪除一個關鍵字 (key)。
+語法：
+	mapping m_delete(mapping m, mixed element);
+
+	映射 m_delete( 映射 m, 混合 元素 );
+用法：
+	本外部函式僅在定義 COMPAT_32 時有效。
+
+	本函式的作用如同 map_delete()，唯一不同之處是它傳回第一個參數。
+
+	注意：3.2 版實際上複製並傳回該映射，以嚴格的相容性來說，我們建議使
+	用如下的模擬函式：
+
+	mapping m_delete(mapping m, mixed element) 
+	{
+		mapping ret = copy(m);
+		map_delete(ret, element);
+		return ret;
+	}
+
+	不過，此版的函式不複製一份該映射，因此會快上許多。
+參考：
+	map_delete
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.23.	v22 版

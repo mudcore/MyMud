@@ -1,0 +1,19 @@
+嘿
+	floor() - т程綼疊翴计俱计┪单疊翴计種р疊翴计计
+		  彼.
+粂猭
+	float floor( float f );
+
+	疊翴计 floor( 疊翴计 f );
+ノ猭
+	セㄧΑ度﹚竡 PACKAGE_MATH ネ
+
+	肚程綼疊翴计 fτ单┪ f 俱计
+亩爹
+	種р疊翴计 f 计彼
+把σ
+	ceil, to_int, to_float
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.May.28.	v22 

@@ -1,0 +1,17 @@
+名稱：
+	malloc_status - 報告記憶體使用情形的一些統計資料。
+語法：
+	string malloc_status();
+
+	字串 malloc_status();
+用法：
+	這個函式以字串型態傳回記憶體使用情形的統計資料。
+	這個函式已經取代了 vanilla 3.1.2 程式核心的 malloc 命令。
+	請注意, malloc_status() 輸出的結果，依編譯驅動程式時 options.h 中定
+	義的記憶體管理套件不同而有所差異。
+參考：
+	mud_status, dumpallobj, memory_info
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

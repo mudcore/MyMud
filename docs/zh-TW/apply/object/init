@@ -1,0 +1,30 @@
+名稱：
+	init - move_object() 呼叫物件中的 init() 以初始化 (initialize)  
+		動詞 (verb) 或動作 (action)
+語法：
+	void init();
+
+	無傳回值 init();
+用法：
+	如果編譯驅動程式時已定義 NO_ADD_FUNCTION，不會呼叫此函式。
+
+	當 mudlib 把物件 A 放入物件 B 時，驅動程式〈即 move_object() 函式〉
+	會做以下的動作：
+
+	1.  如果 A 是活的 (living)，讓 A 呼叫在 B 裡面的 init() 函式。
+
+	2.  不管 A 是否為活物件，讓 B 的內容物 (inventory) 裡頭所有的活物
+		件呼叫 A 的 init()。
+
+	3.  如果 A 是活的，讓 A 呼叫 B 的內容物裡面所有物件的 init()。
+
+	注意：一個物件必須曾呼叫過 enable_command() 才視為活物件。
+
+	一般來說，一個物件的 init() 函式用來呼叫 add_command()，添加此物件
+	自己提供的動詞命令 (command)。
+參考：
+	move_object, enable_commands, living, add_action
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

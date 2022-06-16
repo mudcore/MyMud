@@ -1,0 +1,402 @@
+			基礎 LPC
+		作者: Descartes of Borg
+		第一版: 23 april 1993
+		第二版: 10 july 1993
+
+第七章: 流程控制 (flow control)
+
+7.1 回顧變數
+
+藉由 =、+=、-=、++、--  等運算式, 可以指定或更改變數的值. 這些運算式可
+以與 -、+ 、* 、/ 、% 結合使用. 但是, 到目前為止, 我們只告訴你如何用函
+式, 以線性的方式寫出這些. 例如:
+ 
+int hello(int x) {
+    x--;
+    write("嗨, x 是 "+x+".\n");
+    return x;
+}
+ 
+你應該知道怎麼寫出這個函式並了解它. 不過, 如果你只想於 x = 1  時顯示
+x 的值怎麼辦 ?  不然, 如果你想在傳回 x  之前, 一直顯示出 x  的值直到
+x = 1 又要怎麼做 ?  LPC 使用的流程控制與 C  和 C++  並無二致.
+
+7.2 LPC 流程控制敘述
+ 
+if(運算式) 指令;
+ 
+if(運算式) 指令;
+else 指令;
+ 
+if(運算式) 指令;
+else if(運算式) 指令;
+else 指令
+ 
+while(運算式) 指令;
+ 
+do { 指令; } while(運算式);
+ 
+switch(運算式) {
+    case (運算式): 指令; break;
+    default: 指令;
+}
+ 
+我們討論這些東西之前, 先談一下什麼是運算式和指令. 運算式是任何有值的東
+西, 像是變數、比較式 (像 x > 5, 如果 x  是 6  或 6  以上, 則其值為 1, 
+不然其值為 0) 、指定式 (像 x += 2). 而指令是任何一行單獨的 LPC  碼, 像
+是函式呼叫、值指定式 (value assignment) 、值修改式 (value modification) ......等等.
+
+你也應該知道 && 、||、==、!=、! 這些運算子. 它們是邏輯運算子. 當條件為
+真時, 它們傳回非零值, 為偽時則傳回 0. 底下是運算式值的列表: 
+ 
+(1 && 1)  值: 1	(1  和 1)
+(1 && 0)  值: 0	(1  和 0)
+(1 || 0)  值: 1	(1  或 0)
+(1 == 1)  值: 1	(1  等於 1)
+(1 != 1)  值: 0	(1  不等於 1)
+(!1)      值: 0	( 非 1)
+(!0)      值: 1	( 非 0)
+ 
+使用 && 的運算式中, 如果要比較的第一項測試值為 0, 則第二項永遠不會測試
+之. 使用 || 時, 如果第一項為真 (1), 就不會測試第二項.
+ 
+7.3 if()
+
+我們介紹第一個改變流程控制的運算式是 if().  仔細看看底下的例子:
+ 
+1 void reset() {
+2     int x;
+3
+4     ::reset();
+5     x = random(100);
+6     if(x > 50) set_search_func("floorboards", "search_floor");
+7 }
+ 
+每一行的編號僅供參考.
+在第二行, 我們宣告一個稱為 x  的整數型態變數. 第三行則優雅地留下一行空
+白, 以明示宣告結束和函式碼開始的界線. 變數 x  只能在 reset()  函式中使
+用. 
+第四行呼叫 room.c 中的 reset().
+第五行使用 driver 外部函式的 random() 以傳回一個隨機數字, 此數字介於 0
+到參數減一. 所以在此我們想得到一個介於 0  到 99 的數字.
+第六行中, 我們測試運算式 (x>50) 的值, 看它是真是偽. 如果為真, 則呼叫
+room.c  的函式 set_search_func(). 如果為偽, 就不可能執行呼叫
+set_search_func() .
+第七行, 函式將 driver 的控制權交回呼叫此函式的函式 (在這個例子中, 呼叫
+reset() 的是 driver 自己) , 也沒有傳回任何值.
+
+如果你想執行一個以上的指令, 你必須按照以下的方法來做: 
+ 
+if(x>50) {
+    set_search_func("floorboards", "search_floor");
+    if(!present("beggar", this_object())) make_beggar();
+}
+
+注意運算式為真時, 要執行的指令以 {} 包圍起來. 這個例子裡, 我們再次呼叫
+room.c  中的 set_search_func()  來設定一個函式 (search_floor()) , 這個
+函式稍後被你設定為: 玩家輸入 "search floorboards" 時, 呼叫
+search_floor().  (註: 這種例子要看 mudlib 而定. Nightmare 有這個函式呼
+叫, 其他 mudlib 可能會有類似的東西, 也可能完全沒有這一類用途的函式)
+接著, 另一個 if() 運算式檢查 (!present("beggar", this_object()))  運算
+式是否為真. 測試運算式中的 !  改變它後面運算式的真偽. 在此, 它改變外部
+函式 present()  的真偽值. 在此, 如果房間裡有個乞丐, present() 就傳回乞
+丐這個物件 (this_object()), 如果沒有乞丐, 則傳回 0. 所以, 如果房間裡面
+還有個活乞丐, (present("beggar", this_object()))  的值就會等於乞丐物件
+ (物件資料型態) , 不然它會傳回 0.  ! 會把 0  變成 1 , 把任何非零值 (像
+是乞丐物件) 變成 0. 所以, 房間裡沒有乞丐時, 運算式
+(!present("beggar", this_object())) 為真, 反之, 有乞丐為 0. 如果房間裡
+沒乞丐, 它呼叫你房間碼中定義的函式來製造一個新的乞丐, 並放進房間.  (如
+果房間中已經有一個乞丐, 我們不想多加一個 :) )
+
+當然, if() 常常和一些條件一起出現 :). LPC 裡, if()  敘述的正式寫法為: 
+ 
+if(運算式) { 一堆指令 }
+else if(運算式) { 一堆指令 }
+else { 一堆指令 }
+ 
+這樣表示:
+ 
+如果運算式為真, 執行這些指令.
+不然, 如果第二個運算式為真, 執行第二堆指令.
+如果以上皆偽, 執行最後一堆指令.
+ 
+你可以只用 if() :
+ 
+if(x>5) write("Foo,\n");
+ 
+跟著一個 else if():
+ 
+if(x > 5) write("X 大於 5.\n");
+else if(x >2) write("X 小於 6, 大於 2.\n");
+ 
+跟著 else:
+ 
+if(x>5) write("X 大於 5.\n");
+else write("X 小於 6.\n");
+ 
+或是把上面列出來的東西全寫出來. 你有幾個  else if() 都沒關係, 但是你必
+須有一個 if() (也只能有一個), 也不能有一個以上的 else . 當然, 上面那個
+乞丐的例子中, 你可以在 if() 敘述中重複使用 if() 指令. 舉例來說,
+    if(x>5) {
+        if(x==7) write("幸運數字 !\n");
+        else write("再試一次.\n");
+    }
+    else write("你輸了.\n");
+
+7.4 敘述: while() 和 do {} while()
+
+原型:
+while(運算式) { 一堆指令 }
+do { 一堆指令 } while(運算式);
+ 
+這兩者讓你在運算式為真時, 一直重複執行一套指令. 假設你想設定一個變數等
+於玩家的等級, 並持續減去隨機的金錢數量或可承受傷害值 (hp, hit points)
+直到該等級變數為 0 (這樣一來, 高等級的玩家失去的較多).  你可能會這樣做:
+ 
+1    int x;
+2
+3    x = (int)this_player()->query_level();  /* 這行內容等一下會解釋 */
+4    while(x > 0) {
+5        if(random(2)) this_player()->add_money("silver", -random(50));
+6        else this_player()->add_hp(-(random(10));
+7        x--;
+8    }
+ 
+第三行中呼叫的 this_player()->query_level() 運算式 (譯註: 之後內容遺失
+, 在此由譯者補充) 的意義: 呼叫 this_player() 外部函式, this_player() 
+傳回一個物件, 為正在呼叫此函式的玩家物件. 再呼叫此玩家物件中的
+query_level() 函式. (譯註: 補充結束)
+
+在第四行, 我們開始一個迴圈, 只要 x  大於 0  就重複執行. 
+我們可以用另一種寫法:
+    while(x) {
+(譯註: 以下遺失, 由譯者補充)
+由於 x  本身稍後會一直減 1  直到到 x = 0  , 所以 x = 0 時也是偽值 (為 0). 
+第五行以 random(2)  隨機傳回 0  或 1. 如果它傳回 1 (為真),  
+(譯註: 補充完畢)
+則呼叫玩家物件的 add_money() 將玩家身上的銀幣隨機減少 0  到 49 枚.
+在第六行, 如果 random(2)  傳回 0, 我們呼叫玩家物件中的 add_hp() 函式來
+減少 0  到 9  點的可承受傷害.
+第七行裡, 我們把 x  減 1.
+第八行執行到 while()  指令的終點, 就回到第四行看 x 是否還大於 0 . 此迴
+圈會一直持續執行到 x  小於 1  才結束.
+
+但是, 你也許想在你執行一些指令「之後」再測試一個運算式. 比如用上面的例
+子, 如果你想讓每個人至少執行到一次指令, 甚至還不到測試的等級:
+ 
+    int x;
+ 
+    x = (int)this_player()->query_level();
+    do {
+        if(random(2)) this_player()->add_money("silver", -random(50));
+        else this_player()->add_hp(-random(10));
+        x--;
+    } while(x > 0);
+ 
+這個例子真的很奇怪, 因為沒幾個 mud  會有等級為 0  的玩家. 而且, 你可以
+修改前面例子中的測試條件做到同樣的事. 不管如何, 這個例子只是要展現出
+do {} while() 的如何工作. 如你所見, 此處在迴圈開始的時候沒有初始條件
+ (在此不管 x  的值為何, 立刻執行) , 迴圈執行完之後才測試. 這樣能保證迴
+圈中的指令至少會執行一次, 無論 x  為何.
+ 
+7.5 for() 迴圈
+
+原型:
+for(初始值 ; 測試運算式 ; 指令) { 指令 }
+ 
+初始值:
+讓你設定一些變數開始的值, 用於迴圈之內. 此處可有可無.
+ 
+測試運算式:
+與 if() 和 while()  的運算式相同. 當這一個 (或一些) 運算式為真時, 執行
+迴圈. 你一定要有測試運算式.
+ 
+指令:
+一個 (或一些) 運算式, 於每個迴圈執行完畢之後執行一次. 此處可有可無.
+ 
+註:
+for(;運算式;) {}
+與
+while(expression) {}
+「  完  全  相  同  」 
+
+範例:
+ 
+1    int x;
+2
+3    for(x= (int)this_player()->query_level(); x>0; x--) {
+4        if(random(2)) this_player()->add_money("silver", -random(50));
+5        else this_player()->add_hp(-random(10));
+6    }
+ 
+這個 for()  迴圈與前面 while()  的例子「完全相同」. 還有, 如果你想初始
+化兩個變數:
+ 
+for(x=0, y=random(20); x<y; x++) { write(x+"\n"); }
+
+在此, 我們初始化 x  和 y  兩個變數, 我們把它們用逗號分開來. 你可以在
+for() 三個部分的運算式中如此使用. 
+
+7.6 敘述: switch() 
+
+原型:
+switch(運算式) {
+    case 常數: 一些指令
+    case 常數: 一些指令
+    ......
+    case 常數: 一些指令
+    default: 一些指令
+}
+ 
+這樣有點像 if() 運算式, 而且對 CPU  也好得多, 但是 switch() 很少有人使
+用它, 因為它看起來實在很複雜. 但是它並非如此.
+
+第一點, 運算式不是測試條件. case  才是測試. 用普通的話來讀:
+ 
+1    int x;
+2
+3    x = random(5);
+4    switch(x) {
+5        case 1: write("X is 1.\n");
+6        case 2: x++;
+7        default: x--;
+8    }
+9    write(x+"\n");
+ 
+就是:
+ 
+設定變數 x  為一個 0  到 4  的隨機數字.
+x = 1 的 case 中, 顯示 x  的值, 將 x  加上 1  之後再將 x  減 1.
+x = 2 的 case 中, 將 x  加上 1  之後再減 1.
+其他情形下, x 減 1.
+顯示 x  的值.
+ 
+switch(x) 基本上告訴 driver,  變數 x  的值是我們想配合各個 case 的情形.
+當 driver 找到一個能配合的 case 時, 這個 case 「以及所有在它之後」的
+case  都會執行. 你可以使用 break  指令, 在執行一個 case 之後跳出
+switch  敘述, 就像其他流程控制敘述一樣. 稍後會解釋這一點. 只要 switch()
+流程還沒中斷, 任何 x  值都會執行 default  敘述. 你可以在 switch 敘述中
+使用任何資料型態:
+
+string name;
+ 
+name = (string)this_player()->query_name();
+switch(name) {
+    case "descartes": write("You borg.\n");
+    case "flamme":
+    case "forlock":
+    case "shadowwolf": write("You are a Nightmare head arch.\n");
+    default: write("You exist.\n");
+}
+ 
+對我來說, 我會看到:
+You borg.
+You are a Nightmare head arch.
+You exist.
+ 
+Flamme、Forlock 、或 Shadowwolf 會看到:
+You are a Nightmare head arch.
+You exist.
+ 
+其他人會看到:
+You exist.
+
+7.7 改變函式的流程和流程控制敘述 
+
+以下的指令:
+
+return    continue    break
+ 
+能改變前面提過的那些東西, 它們原本的流程.
+首先,
+
+return
+一個函式中, 不管它出現在哪裡, 都會終止執行這個函式並將控制權交回呼叫這
+個函式的函式. 如果這個函式「不是」無傳回值 (void) 的型態, 就必須在
+return 敘述之後跟著一個傳回值. 一個絕對值函式長得大概像這樣:
+ 
+int absolute_value(int x) {
+    if(x>-1) return x;
+    else return -x;
+}
+
+第二行裡, 函式終止執行, 並回到呼叫它的函式. 因為在此, x  已經是正整數.
+
+continue 在 for() 和 while()  敘述中用得最多. 它停止目前執行的迴圈, 把迴
+圈送回開頭執行. 例如, 你想要避免除以 0  的情況:
+ 
+x= 4;
+while( x > -5) {
+    x--
+    if(!x) continue;
+    write((100/x)+"\n");
+}
+write("完畢.\n")
+ 
+你會看到以下的輸出:
+33
+50
+100
+-100
+-50
+-33
+-25
+完畢.
+
+為了避免錯誤, 每一次迴圈都檢查 x, 確定 x  不為 0. 如果 x  是 0, 則迴圈
+回到開頭處的測試運算式, 並不終止目前的迴圈.
+ 
+用 for()  運算式來說就是:
+ for(x=3; x>-5; x--) {
+    if(!x) continue;
+    write((100/x)+"\n");
+ }
+ write("完畢.\n");
+
+這樣執行起來差不了多少. 注意, 這樣子跟前面輸出的結果一模一樣. 當 x = 1
+, 它測試 x  是否為 0, 如果不是, 就顯示 100/x, 然後回到第一行, 將 x  減
+1, 再檢查 x  是否是 0 , 如果為 0, 回到第一行並把 x  再減 1.
+ 
+break
+它停止執行流程控制敘述. 不管它出現在敘述裡面的任何地方, 程式控制會結束
+迴圈. 所以, 如果在上面的例子中, 我們把 continue 換成 break, 則輸出的結
+果會變成像這樣:
+ 
+33
+50
+100
+完畢.
+ 
+continue 最常用於 for() 和 while()  敘述. 但是 break 常用於 switch().
+ 
+switch(name) {
+    case "descartes": write("You are borg.\n"); break;
+    case "flamme": write("You are flamme.\n"); break;
+    case "forlock": write("You are forlock.\n"); break;
+    case "shadowwolf": write("You are shadowwolf.\n"); break;
+    default: write("You will be assimilated.\n");
+}
+ 
+下面這個函式跟上面的一樣:
+ 
+if(name == "descartes") write("You are borg.\n");
+else if(name == "flamme") write("You are flamme.\n");
+else if(name == "forlock") write("You are forlock.\n");
+else if(name == "shadowwolf") write("You are shadowwolf.\n");
+else write("You will be assimilated.\n");
+ 
+但是 switch 敘述對 CPU  比較好.
+如果這些指令放在多層巢狀 (nested) 的敘述中, 它們會改變最近的敘述.
+ 
+7.8 本章總結
+
+這一章講的東西實在是太多了, 但是它們馬上就用得到. 你現在應該完全了解
+if()、for() 、while() 、do{} while()、switch()  , 也該完全了解如何使用
+return、continue、break 改變它們的流程. 使用 switch() 要比一大堆 if() 
+else if() 來得有效率, 所以應該儘量使用 switch() . 我們也向你介紹過怎麼
+呼叫其他物件中的函式. 不過, 以後會詳細解釋這個主題. 你現在應該能輕輕鬆
+鬆寫出一個簡單的房間 (如果你已經讀過你 mudlib 有關建造房間的文件) 、簡
+單的怪物、其他簡單的物件.
+
+譯者:
+	Spock of Final Frontier		98.Feb.1.

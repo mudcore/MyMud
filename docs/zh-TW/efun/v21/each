@@ -1,0 +1,36 @@
+
+	each(3)			MudOS v21c2		(5 Sep 1994)
+
+	名稱:
+		each() - 分次傳回一個映射變數 (mapping) 的各個
+			(key, value) 的內容.
+	語法:
+		mixed *each( mapping m, int reset );
+	用法:	
+		each()  函式把一個映射變數裡的每對 (key, value) 一次
+		一次地傳回. each() 傳回來的次序與 keys() 和 values()  
+		兩個函式傳回來的次序一樣. 當 each() 讀到映射變數的尾
+		端時, 會傳回一個空的向量 (null vector, 即 (0,0)). 而
+		在傳回空向量之後, 下一個 each() 傳回的內容又會從頭開
+		始. 
+
+		當不同的物件使用 each() 讀取相同的映射變數時, 一定都會
+		從頭開始. 雖然 MudOS 有單執行緒 (single thread) 的性質
+		, 但是也不致於讓 each() 執行時出現問題. ( 實際上一個物
+		件無法於使用 each() 讀取映射函數讀到一半時, 跳開目前讀
+		(key, value) 的位置)
+
+		如果指定第二個參數為 1, 則 each() 會重新從頭開始讀取.
+
+		範例:
+
+		mixed *pair;
+
+		while ((pair = each(x)) != ({})) {
+			write("key   = " + pair[0] + "\n");
+			write("value = " + pair[1] + "\n");
+		}
+	參考:
+		keys(3), values(3)
+	翻譯:
+		Spock @ FF	97.Feb.7.		(printed 3/16/95)

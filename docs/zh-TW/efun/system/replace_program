@@ -1,0 +1,19 @@
+名稱：
+	replace_program - 把 this_object() 的程式置換掉。
+語法：
+	void replace_program( string str );
+
+	無傳回值 replace_program( 字串 字串 );
+用法：
+	replace_program() 會把 this_object() 替換成這個物件所繼承的物件。字
+	串「str」是要用來置換的檔案名稱。物件進行置換之後，目前的物件就相當
+	於繼承物件的複製品。只是保留目前物件的檔案名稱和全域變數 (global 
+	variable) 不變。在物件目前的程式執行完畢以前，不會進行置換的動作。
+
+	注意置換後的影響是該物件中定義的所有函式會全數消失，由繼承之程式中
+	的函式所取代，所以如果稍後會呼叫該物件中的任何函式〈尤其是 create()
+	，如果你稍後要複製該物件〉，就不可呼叫這種置換程序。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

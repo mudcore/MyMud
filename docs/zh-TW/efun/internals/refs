@@ -1,0 +1,16 @@
+名稱：
+	refs - 傳回一個資料結構 (data structure) 的參考數 (number of 
+	       references)。
+語法：
+	int refs( mixed data );
+
+	整數 refs( 混合 資料 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_DEVELOP 生效。
+
+	refs() 會傳回「data」的參考數。常用在傳回「data」之前，判斷是否要將
+	複製一份資料結構。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.20.	v22 版

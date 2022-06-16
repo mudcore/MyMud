@@ -1,0 +1,14 @@
+名稱：
+	deep_inherit_list - 取得一個物件所繼承父物件 (ancestor) 的列表。
+語法：
+	string array deep_inherit_list( object obj );
+
+	字串 陣列 deep_inherit_list( 物件 物件 );
+用法：
+	傳回物件「obj」所直接或間接繼承之所有父物件的檔案名稱陣列。
+參考：
+	inherit_list, inherits
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

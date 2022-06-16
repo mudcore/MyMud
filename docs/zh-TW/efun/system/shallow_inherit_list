@@ -1,0 +1,16 @@
+名稱：
+	shallow_inherit_list - 取得一個物件的父物件 (parents) 列表。
+語法：
+	string array shallow_inherit_list( object obj );
+
+	字串 陣列 shallow_inherit_list( 物件 物件 );
+用法：
+	傳回「obj」繼承的物件檔名陣列。本函式僅傳回直接繼承的檔案。意即：如
+	果 A 繼承 B，B 又繼承 C，inherit_list(A) 會傳回一個含有 B 的陣列，
+	卻沒有 C。
+參考：
+	deep_inherit_list, inherit_list, inherits
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

@@ -1,4 +1,12 @@
-// 标准户外环境模板STD_OUTDOORS
+/*****************************************************************************
+Copyright: 2019, Mud.Ren
+File name: outdoors.c
+Description: 游戏户外环境（安全区）继承对象 STD_OUTDOORS
+Author: xuefeng
+Version: v1.0
+Date: 2019-03-12
+History:
+*****************************************************************************/
 inherit STD_ROOM;
 
 void create()

@@ -1,0 +1,18 @@
+名稱：
+	set_privs - 設定一個物件的隱私字串 (privs string)。
+語法：
+	void set_privs( object ob, string privs );
+
+	無傳回值 set_privs( 物件 物件, 字串 隱私字串 );
+用法：
+	本外部函式僅在編譯時定義 PRIVS 才有效。
+
+	設定「privs」為「ob」的隱私字串。
+
+	本外部函式只有在驅動程式編譯時定義 PRIVS 才有效。
+參考：
+	privs_file, query_privs
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.24.	v22 版

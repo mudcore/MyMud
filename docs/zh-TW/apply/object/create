@@ -1,0 +1,26 @@
+名稱：
+	create - 物件初始化 (initialization)
+語法：
+	void create(...);
+
+	無傳回值 create(...);
+用法：
+	如果物件是由 new() 或 clone_object() 任一外部函式載入，則傳入此函
+	式的參數，與傳入 new() 或 clone_object() 的參數相同，只是 create()
+	少傳入一個檔案名稱的參數。舉例來說：clone_object(file, 3, "hi") 
+	會在物件創造之後呼叫 create(3, "hi")
+
+	所有的物件裡頭都應該有個 create() 函式定義。在此函式裡面，應該做好
+	所有初始物件的初始化過程。「所有」的物件都會呼叫 create()。「注意」
+	──與 stock 3.1.2 LPmud 驅動程式不同。在 3.1.2 中，如果一個物件因
+	為被別人繼承而先被創造出來，就不會呼叫它裡頭的 create()。在 MudOS，
+	一個物件創造時「一定」會呼叫 create()。因此，如果你在父物件的
+	 create() 中作一次訊息顯示，你也許會看到一些奇怪的情形──你會看到
+	兩次訊息，這是因為 create() 在同一個物件中被呼叫了兩次。實際上，
+	 create()「的確」被呼叫兩次，卻是在兩個「不同」物件中：一次是父物
+	件、另一次是因為我們叫它繼承父物件而呼叫 parent::create() 的子物件。
+	〈parent 為父物件〉
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

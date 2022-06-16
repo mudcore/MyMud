@@ -1,0 +1,51 @@
+名稱：
+	dump_socket_status - 顯示每個 LPC socket 的狀態。
+用法：
+	string dump_socket_status();
+
+	字串 dump_socket_status();
+語法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	dump_socket_status() 是一個診斷工具，它顯示目前 MudOS 驅動程式設定
+	中所有的 LPC socket 狀態。本函式常用於 LPC socket 應用的除錯。顯示
+	輸出的每一行對應一個 LPC socket。第一行對應 0 號 LPC socket 描述子
+	(descriptor)，第二行對應 1 號，以此類推。當驅動程式編譯時，即已設定
+	socket 總數。
+
+	第一列「Fd」是與 LPC socket 關連的作業系統檔案描述子。「State」是
+	LPC socket 目前的運作狀態。「Mode」是 socket 模式，也是
+	socket_create() 的參數之一。「Local Address」與「Remote Address」
+	則分別是主機本身與連線端的 internet 位址及埠號。「*」代表位址的該數
+	字為 0。未使用的 LPC socket 其狀態為 CLOSED；所以未使用 socket 的顯
+	示資料可能是特異的 (idiosyncratic)。
+	
+	以下的輸出結果由 Portal mud 產生，當時執行的 socket 應用程式僅有一
+	個 MWHOD。它指出目前使用的 socket 有兩個，其中一個正在傾聽 STREAM
+	模式 socket 的連線要求。另一個正在等待 DATAGRAM 模式 socket 的輸入
+	資料。
+
+	Fd    State      Mode      Local Address      Remote Address
+	--  ---------  --------  -----------------  ------------------
+	13   LISTEN     STREAM   *.6889             *.*
+	14    BOUND    DATAGRAM  *.6888             *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+	-1    CLOSED      MUD    *.*                *.*
+參考：
+	debug_info, dump_file_descriptors
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

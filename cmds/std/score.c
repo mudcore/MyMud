@@ -1,4 +1,5 @@
 #include <ansi.h>
+#include <status.h>
 
 int top_list(string ob1, string ob2)
 {
@@ -15,8 +16,14 @@ string score(object me)
 {
     string msg;
     mapping my;
+    string *equip;
+
+    // 早期测试用户未设置职业信息
+    if (!me->query("vocation"))
+        me->set("vocation", "common");
 
     my = me->query_entire_dbase();
+    equip = VOCATION_D->vocation_info(my["vocation"])["equip"];
 
     msg = HIC "\n≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
     msg += sprintf(" |%-34s%-16s| \n", "【" + (my["title"] || "---") + "】" + me->short(),
@@ -34,9 +41,13 @@ string score(object me)
     msg += sprintf(" |%-50s| \n", "");
     msg += sprintf(" |%-15s%-15s%-20s| \n", "等级：" + my["lv"], "经验：" + my["exp"], "金币：" + my["coin"]);
     msg += sprintf(" |%-50s| \n", "");
-
+    if (my["vocation"] != "common")
+    {
+        msg += " |--------------------------------------------------| \n" NOR;
+        msg += sprintf(" |%-12s%-38s| \n", " 职业装备：", implode(map_array(equip, (: chinese($1) :)), "、"));
+    }
     msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
-    msg += YEL "  提示：使用 score -s 查看个人状态。\n" NOR;
+    msg += YEL "  提示：使用 sc -c 查看个人战斗记录。\n" NOR;
     return msg;
 }
 
@@ -66,12 +77,54 @@ string score_hp(object me)
                 status += replace_string(key, "#", "/")->query_condition_name() + "  ";
             }
         }
-
+        status += me->query_temp(STA_INVISIBLE) ? HIB "隐息  " NOR : "";
         hpbar = graph_draw(me->query_hp(),me->query_max_hp(), 2, 1, 10);
         mpbar = graph_draw(me->query_mp(),me->query_max_mp(), 4, 7, 10);
         msg = sprintf(HIG "HP：%s\t" HIB "MP：%s" NOR, hpbar, mpbar);
         msg += "\n------------------------------------------------------\n";
         msg += sprintf("状态：%s\n", status);
+    }
+
+    return msg;
+}
+
+string score_combat(object me)
+{
+    int i;
+    string msg, *list;
+    mapping my = me->query_combat_records();
+
+    if (!mapp(my))
+    {
+        msg = HIY "你还没有任何战斗记录T_T\n" NOR;
+    }
+    else
+    {
+        msg = HIC "\n≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
+        msg += sprintf(" |%|50s| \n", MAG "*" HIY "战斗履历" NOR MAG "*" NOR);
+        msg += " |--------------------------------------------------| \n" NOR;
+        msg += sprintf(" |  %-24s%-24s| \n", "讨伐魔物：" + my["kill"], "死亡次数：" + my["die"]);
+        msg += sprintf(" |  %-24s%-24s| \n", "勇者之塔：" + me->query("tower") + " 层", "宝藏迷宫：" + me->query("maze") + " 次");
+        msg += " |--------------------------------------------------| \n" NOR;
+
+        msg += sprintf(" |" YEL "   %4s   |%|22s|    %-12s" NOR "| \n", "排名", "魔物", "讨伐数量");
+        msg += " |--------------------------------------------------| \n" NOR;
+
+        if (mapp(my["mob"]))
+        {
+            list = sort_array(keys(my["mob"]), (: top_list:));
+            for (i = 0; i < 20; i++)
+            {
+                if (i >= sizeof(list) || !list[i])
+                {
+                    msg += sprintf(" |%6s%|32s  %-10s| \n", "-", "-", "-");
+                    continue;
+                }
+                msg += sprintf(" |%6d%|32s  %-10d| \n", i + 1,
+                                chinese(list[i]), my["mob"][list[i]]);
+            }
+        }
+        msg += HIC "≡" HIY "----------------------------------------------------" HIC "≡\n" NOR;
     }
 
     return msg;
@@ -86,7 +139,9 @@ int main(object me, string arg)
     case "-s":
         msg = score_hp(me);
         break;
-
+    case "-c":
+        msg = score_combat(me);
+        break;
     default:
         msg = score(me);
     }
@@ -97,9 +152,9 @@ int main(object me, string arg)
 int help(object me)
 {
     write(@HELP
-指令格式 : score [-s]
+指令格式 : sc [-c]
 
-这个指令可以让你查看个人档案资料。
+这个指令可以让你查看个人档案资料，使用 sc -c 可以查看个人战斗记录。
 
 HELP );
     return 1;

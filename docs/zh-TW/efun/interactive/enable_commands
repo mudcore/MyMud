@@ -1,0 +1,20 @@
+名稱：
+	enable_commands - 允許物件使用玩家 (player) 的命令。
+語法：
+	void enable_commands();
+
+	無傳回值 enable_commands();
+用法：
+	本函式僅在 NO_ADD_ACTION 未定義時有效。
+
+	enable_commands() 把 this_object() 標記為活物件 (living)，並允許它
+	使用 add_action() 所加入的命令〈使用 command()〉。呼叫 
+	enable_commands() 時，驅動程式會尋找物件內部的 catch_tell() 函式。
+	如果找到了，每一次有訊息傳給此物件時〈例如 say()〉，驅動程式就會呼
+	叫 catch_tell() 一次。
+參考：
+	living, add_action, command, catch_tell, say
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.25.	v22 版

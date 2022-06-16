@@ -1,0 +1,15 @@
+名稱：
+        pluralize() - 傳回一個字串的複數型。
+語法：
+        string pluralize( string str );
+
+        字串 pluralize( 字串 str );
+用法：
+        傳回字串 str 的複數型(加上 s 或 es)，僅適用於英文。
+        
+參考：
+        upper_case
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

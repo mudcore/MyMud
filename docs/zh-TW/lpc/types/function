@@ -1,0 +1,178 @@
+一般概念 :
+----------
+
+MudOS 有一種稱為 function  (函式指標) 的變數型態. 這種型態的變數可以用來
+指向各種不同的函式. 您也許早已熟悉把一個函式當作某些外部函式 (efuns)  參
+數. 舉例來說, 像是過濾陣列的外部函式. 它讀入一個陣列, 並經由一個函式過濾
+陣列中的元素. 讓此函式傳回非零值 (non-zero) 的元素就保留下來, 結果傳回一
+個新的陣列. 傳統上, 這樣做要傳入一個物件和函式的名稱. 現在, 可以用函式指
+標這種變數型態做到. 函數指標只含有一個函式的資訊, 可以在稍後執行其函式.
+
+函式指標可以創造並指定為變數:
+
+function f = (: local_func :);
+
+上面的 f  可以用於其他程式流程或外部函式中, 如同普通的變數值:
+
+foo(f);  map_array( ({ 1, 2 }), f);
+
+或是稍後再執行 f:
+
+x = evaluate(f, "hi");
+
+上一行執行時, 會呼叫 f  指向的函式, 而 "hi" 當成參數傳入函式. 其效果同下: 
+
+x = local_func("hi");
+
+使用函式指標的好處是, 如果您想使用不同的函式, 只需要改變函式指標變數的值.
+
+注意 evaluate() 的參數如果不是函式, 就只會傳回參數值. 所以您可以做以下的
+事:
+
+void set_short(mixed x) { short = x; }
+mixed query_short() { return evaluate(short); }
+
+這樣, 簡單的物件可以只用 set_short("Whatever"); 以達成
+set_short( (: short_func :) ); 的效果.
+
+
+目前函式指標的種類 :
+--------------------
+
+最簡單的函式指標如上面所述. 只是簡單地指向同一個物件中的一個區域函式
+(local function), 即 (: function_name :). 函式指標的值可以包括函式的參數,
+例如:
+
+string foo( string a, string b ) {
+   return "(" + a "," + b + ")";
+}
+
+void create() {
+    function f = (: foo, "left" :);
+
+    printf( "%s %s\n", evaluate(f), evaluate(f, "right") );
+}
+
+會印出: (left,0) (left,right)
+
+
+
+第二種的函式指標是外部函式指標, 就是 (: efun_name :). 這樣與區域函式指標
+很類似. 譬如說, objects() 外部函式要傳入函式, 並傳回任何使函式為真值的物
+件. 所以:
+
+objects( (: clonep :) )
+
+會傳回遊戲中所有的複製物件 (clones). 您也可以使用參數:
+
+void create() {
+    int i;
+    function f = (: write, "Hello, world!\n" :);
+
+    for (i=0; i<3; i++) { evaluate(f); }
+}
+
+就會印出:
+
+Hello, world!
+Hello, world!
+Hello, world!
+
+注意, 對函式指標來說, simul_efuns  (模擬外部函式) 與外部函式是相同的.
+
+
+第三種形式是 call_other 函式指標, 與以前 MudOS  所使用的函式指標型態類似.
+其形式為 (: object, function :).  要使用參數的話, 應將函式名稱與參數的陣
+列併用. 以下是範例:
+
+void create()
+{
+     string *ret;
+     function f = (: this_player(), "query" :);    
+
+     ret = map( ({ "name", "short", "long" }), f );     
+     write(implode(ret, "\n"));
+}
+
+這樣會印出與 this_player()->query("name"), this_player()->query("short"),
+和 this_player()->query("long") 相同的結果.
+
+要使一個函式指標直接呼叫 query("short") :
+
+f = (: this_player(), ({ "query", "short" }) :)
+
+以下是達到同樣目的的做法參考:
+
+f = (: call_other, this_player(), "query", "short" :)  // 一個外部函式指標,
+                                                       // 使用 call_other
+f = (: this_player()->query("short") :)  // 有效的運算式; 請見下文.
+
+
+
+第四種形式是運算式 (expression) 函式指標. 就是 (: 運算式 :).  在一個運算
+式函式指標中, 參數可以用 $1, $2, $3 ... 代表, 舉例如下:
+
+evaluate( (: $1 + $2 :), 3, 4)  // 傳回 7.
+
+這可以用於 sort_array, 範例如下:
+
+top_ten = sort_array( player_list, 
+	  (: $2->query_level() - $1->query_level :) )[0..9];
+
+
+第五種形式是不知名 (anonymous)  函式:
+
+void create() {
+    function f = function(int x) {
+        int y;
+
+        switch(x) {
+        case 1: y = 3;
+        case 2: y = 5;
+        }
+        return y - 2;
+    };
+
+    printf("%i %i %i\n", (*f)(1), (*f)(2), (*f)(3));
+}
+
+會印出: 1 3 -2
+
+注意, (*f)(...) 等於 evaluate(f, ...) , 保留這種語法是為了與舊版相容.
+任何普通函式合法 (legal)  的寫法, 都可以用於不知名函式.
+
+
+什麼時候執行 (evaluate) 函式 ?
+------------------------------
+
+創造帶有參數的外部函式、區域函式、模擬外部函式指標時, 會執行函式. 而運算
+式和功能性 (functional) 函式指標, 只有在使用函式指標時執行函式:
+
+(: destruct, this_player() :)  // 創造這個函式指標時, 就會摧毀 this_player()
+                               // . 函式於創造時執行.
+(: destruct(this_player()) :)  // 在稍後使用此函式指標時, 才會摧毀
+                               // this_player()"
+
+在此, 不可以在運算式函式指標裡, 使用一個區域變數. 因為執行這個函式指標之
+後, 這個區域變數就不存在了. 但是可以用下面這個方法解決:
+
+(: destruct( $(this_player) ) :) // 與上面第一個範例相同.
+
+$(whatever) 表示要執行 whatever, 並保留其值. 當執行此函式時, 再傳入這個值.
+這樣一來可以更有效率:
+
+map_array(listeners, 
+          (: tell_object($1, $(this_player()->query_name()) + " bows.\n") :) );
+
+只做一次 call_other , 而不需要每個訊息都做. 也可以事先合併字串:
+
+map_array(listeners, 
+          (: tell_object($1, $(this_player()->query_name() + " bows.\n")) :) );
+
+注意, 在這個情形下, 也可以這樣做:
+
+map_array(listeners, 
+          (: tell_object, this_player()->query_name() + " bows.\n" :) );
+
+
+翻譯:	Spock @ FF	97.Aug.10.

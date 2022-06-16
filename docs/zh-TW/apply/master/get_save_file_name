@@ -1,0 +1,18 @@
+名稱：
+	get_save_file_name - 使用者不正常斷線時，備份其編輯內容。
+語法：
+	string get_save_file_name( string file, object who );
+
+	字串 get_save_file_name( 字串 檔名, 物件 誰 );
+用法：
+	當一個玩家於編輯程式中編輯檔案時斷線，ed() 函式會呼叫此主宰物件應
+	用函式 (master apply)。此函式應傳回與原來檔案不同的另一個名稱，以
+	免覆寫原來的檔案。
+注意：
+	此應用函式以前名為 get_ed_buffer_save_file_name()。
+參考：
+	ed
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

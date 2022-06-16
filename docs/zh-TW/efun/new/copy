@@ -1,0 +1,29 @@
+名稱：
+        copy() - 傳回一個完全複製的變數。
+語法：
+        mixed copy( mixed arg );
+
+        混合 copy( 混合 arg );
+用法：
+        copy() 傳回一個與參數 arg 完全一樣的值，其回傳之變數型態與輸入之
+        參數類型相同。
+        例：
+        mapping a, b = ({ 1 });
+	a = b;
+	a[0] = 2;
+	printf("%O %O\n", a, b);
+	則顯示出 ({ 2 }) and ({ 2 }),
+	
+	另外：
+	mapping a, b = ({ 1 });
+	a = copy(b);
+	a[0] = 2;
+	printf("%O %O\n", a, b);
+	則為 ({ 2 }) and ({ 1 }).
+
+參考：
+        
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

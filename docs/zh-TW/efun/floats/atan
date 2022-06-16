@@ -1,0 +1,16 @@
+嘿
+	atan() - 肚疊翴计タち (tangent)
+粂猭
+	float atan( float f );
+
+	疊翴计 atan( 疊翴计 f );
+ノ猭
+	セㄧΑ度﹚竡 PACKAGE_MATH ネ
+
+	肚把计 f はタちf 虫琌褃 (radians)
+把σ
+	acos, asin, cos, sin, tan
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.May.28.	v22 

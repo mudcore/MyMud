@@ -1,0 +1,15 @@
+名稱：
+	id - 此函式被 present() 呼叫，以鑑定一個物件的名稱。
+語法：
+	int id( string an_id );
+
+	整數 id( 字串 一個名稱 );
+用法：
+	present() 外部函式 (efunction) 呼叫 id() 以判斷一個指定的物件是否
+	以字串 an_id 為名稱。如果此物件可以此為名，就傳回 1，不然則傳回 0。
+參考：
+	present
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

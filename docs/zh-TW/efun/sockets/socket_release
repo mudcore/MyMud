@@ -1,0 +1,35 @@
+名稱：
+	socket_release - 釋放一個 socket 的所有權 (ownership) 給另一物件。
+語法：
+	int socket_release( int socket, object ob, string release_callback );
+
+	整數 socket_release( 整數 socket, 物件 物件, 字串 釋放回呼 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	socket_release() 是用來轉移一個 socket 的所有權（和控制權）給另一物
+	件。它常用於 daemon 物件〈像是 inetd〉，控制建立連線 (connection 
+	set-up) 之後轉移一個已連線的 socket 給其他物件以作進一步處理。
+
+	socket 所有權的轉移包括了一個目前擁有所有權的物件和這個物件想轉移 
+	socket 的物件間的握手程序 (handshake)。這個握手程序是由呼叫 
+	socket_release() 開始的。socket_release() 作適當的安全性／完整性 
+	(integrity) 檢查後，再呼叫物件 ob 的 release_callback 函式。這個函
+	式是用來通知 ob socket 所有權將要轉移給它。然後 ob 有責任在釋放回呼 
+	(callback) 函式中呼叫 socket_acquire()。如果呼叫了 socket_acquire()
+	，握手程序就完成了，而 socket 的所有權就成功地轉移給 ob。ob 也可以
+	不呼叫 socket_acquire() 而拒絕接受這個 socket，此時所有權不會改變，
+	而原來的 socket 所有者必須決定如何回應這個情況。
+
+	如果 socket 所有者成功地轉移，則 socket_release() 會傳回 EESUCCESS
+	。如果 ob 不接受這個 socket 的所有權的話，則會傳回 EESOCKNOTRLSD。
+	〈都定義在「socket_err.h」〉其他基於違反安全、錯誤的 socket 描述值 
+	(descriptor) 等等的錯誤碼也可能傳回。
+參照：
+	socket_acquire
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.27
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

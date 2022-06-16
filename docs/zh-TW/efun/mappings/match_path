@@ -1,0 +1,15 @@
+名稱：
+	match_path - 在一個映射之中尋找一個路徑 (path)。
+語法：
+	mixed match_path( mapping m, string str );
+
+	混合 match_path( 映射 m, 字串 字串 );
+語法：
+	match_path() 在一個映射之中尋找一個路徑。映射中所有的關鍵字 (key) 
+	都視為字串。內容值 (value) 則可為任何東西。本外部函式尋找映射中符合
+	的最長路徑。以「/」結尾的關鍵字則視為比對「/」之後的字元，也就是說
+	「/」是個萬用字元 (wildcard)，等於該目錄底下的任何東西。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.23.	v22 版

@@ -1,0 +1,17 @@
+名稱：
+	receive_snoop - 抓住送進來的窺視 (snoop) 文字.
+語法：
+	void receive_snoop( string message) ;
+
+	無傳回值 receive_snoop( 字串 訊息 );
+用法：
+	如果 options.h 或 local_options 中定義 RECEIVE_SNOOP，則一個使用者
+	窺視另一個使用者時，所有窺視的文字會送給使用者物件中的
+	receive_snoop() 函式。在此函式中，您可以隨意處理這些文字。
+	receive_snoop() 函式的內容，通常僅把這些文字再送給 receive() 函式。
+參考：
+	catch_tell, receive
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

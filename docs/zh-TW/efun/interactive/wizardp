@@ -1,0 +1,16 @@
+名稱：
+	wizardp - 判斷指定的物件是否曾在其中執行過 enable_wizard()。
+語法：
+	int wizardp( object );
+
+	整數 wizardp( 物件 );
+用法：
+	本函式僅在未定義 NO_WIZARD 時有效。
+	
+	如果參數物件曾執行過 enable_wizard()，就傳回 1。
+參考：
+	disable_wizard, enable_wizard
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

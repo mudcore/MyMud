@@ -1,0 +1,16 @@
+嘿
+	asin() - 肚疊翴计 (float) はタ┒ (arcsine)
+粂猭
+	flaot asin( float f );
+
+	疊翴计 asin( 疊翴计 f );
+ノ猭
+	セㄧΑ度﹚竡 PACKAGE_MATH ネ
+
+	肚把计 f はタ┒f 虫琌褃 (radians)
+把σ
+	acos, atan, cos, sin, tan
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.May.28.	v22 

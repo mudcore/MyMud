@@ -1,0 +1,21 @@
+名稱：
+	strcmp - 判斷兩個字串間的語句關係 (lexical relationship)。
+語法：
+	int strcmp( string one, string two );
+
+	整數 strcmp( 字串 一, 字串 二 );
+用法：
+	此處使用的 strcmp() 與 C 函式庫的 strcmp() 相同。如果字串「one」語
+	句上在「two」之前〈即「one」在英文字典中的順序在「two」之前〉，則 
+	strcmp() 傳回比 0 小的值。如果兩個字串相同，則傳回 0。如果「two」語
+	句順序在「one」之前，則 strcmp() 傳回比 0 大的值。這個外部函式的比
+	較功能在使用 sort_array() 排序時特別有用。
+	
+	注意，關係操作子 (relational operators)〈例如：&lt;、&gt; 等等〉也
+	可以用於比較字串。
+參考：
+	sort_array
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

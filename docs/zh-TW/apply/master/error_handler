@@ -1,0 +1,42 @@
+名稱：
+	error_handler - 主宰物件中處理錯誤的函式。
+語法：
+	void error_handler( mapping error, int caught );
+
+	無傳回值 error_handler( 映射 錯誤, 整數 抓到 );
+用法：
+	定義 MUDLIB_ERROR_HANDLER 時才會呼叫此函式。
+
+	此函式讓 mudlib 處理執行時段錯誤 (runtime error)。映射變數 error
+	的內容為:
+
+	([
+		"error"   : 字串,	// 錯誤名稱
+		"program" : 字串,	// 出錯的程式
+		"object"  : 物件,	// 目前的物件
+		"line"    : 整數,	// 錯誤出現在第幾行
+		"trace"   : 映射 陣列	// 追蹤回溯
+	])
+
+	追蹤回溯的每一行都是映射，包含以下資料：
+
+	([
+		"function"  : 字串,	// 函式名稱
+		"program"   : 字串,	// 出錯的程式
+		"object"    : 物件,	// 物件
+		"file"      : 字串,	// 行數所在的檔案名稱
+		"line"      : 整數,	// 行數
+	        "arguments" : 陣列,	// 函式的參數
+        	"locals"    : 陣列	// 區域變數
+	])
+
+	參數與區域變數只有在定義了 ARGUMENTS_IN_TRACEBACK 與
+	LOCALS_IN_TRACEBACK 時才有。
+
+	如果錯誤被 catch() 函式抓到，caught 旗標 (flag) 為 1。
+參考：
+	catch, error, throw, log_error
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

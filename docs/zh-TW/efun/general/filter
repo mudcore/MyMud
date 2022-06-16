@@ -1,0 +1,20 @@
+名稱：
+	filter - 選出某些元素。
+語法：
+	mixed filter( mixed x, string fun, object ob, mixed extra, ... );
+	mixed filter( mixed x, function f, mixed extra, ... );
+
+	混合 filter( 混合 x, 字串 fun, 物件 ob, 混合 extra, ... );
+	混合 filter( 混合 x, 函式指標 f, 混合 其他, ... );
+用法：
+	第一種 (ob, fun) 的語法與第二種拿 (: call_other, ob, fun :) 當作 f 
+	的語法相同。filter 函式傳回一個新的變數結構，其中只含有函式 fun 或
+	函式指標 f 傳回非零值的元素 (element)。目前它只能用於陣列與映射。用
+	於映射時，關鍵字 (key) 與內容值 (value) 都會傳入該函式。extra 與其
+	後面其他的參數 (argument) 在元素之後傳入。舉例來說，
+	filter(arr, fun, 2, 3) 首先會呼叫 fun(arr[0], 2, 3)，之後呼叫 
+	fun(arr[1], 2, 3)。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.24.	v22 版

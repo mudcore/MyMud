@@ -1,0 +1,16 @@
+名稱：
+	call_out_info - 取得延遲中的 call_out() 資訊。
+語法：
+	array call_out_info();
+	
+	陣列 call_out_info();
+用法：
+	取得所有延遲中的外部呼叫 (call out) 資訊。這樣傳回一個陣列，陣列的
+	每一個項目有四個元素 (element)：物件 (object)、函數 (function)、延
+	遲時間 (the delay to go)，可選擇的參數 (the optional argument)。
+參考：
+	call_out, remove_call_out
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

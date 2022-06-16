@@ -1,0 +1,19 @@
+名稱：
+	set_light - 更改或詢問一個物件的照明度 (light level)。
+語法：
+	int set_light( int light_level_adjustment );
+
+	整數 set_light( 整數 照明調整度 );
+用法：
+	本外部函式僅在編譯時不定義 NO_LIGHT 才有效。
+
+	將 light_level_adjustment 指定為 0，表示詢問物件目前的照明程度。指
+	定正整數則增加照明度，負整數降低。
+	
+	注意物件目前的照明度也包括它自己看其他物件的照明。
+	
+	本外部函式主要是提供舊版的相容性；實際上這種設定應該由 mudlib 控制。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.24.	v22 版

@@ -1,0 +1,18 @@
+名稱：
+	privs_file - 為新創造的物件指定一個隱私字串 (privs string)。
+語法：
+	string privs_file( string filename );
+
+	字串 privs_file( 字串 檔名 );
+用法：
+	當新檔案創造出來時，會呼叫主宰物件 (master object) 中的
+	privs_file() 函式。物件的檔案名稱為其參數，而 privs_file() 傳回的
+	字串就作為新物件的隱私字串。
+
+	只有在定義 PRIVS 選項時，privs_file() 才有作用。
+參考：
+	query_privs, set_privs
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

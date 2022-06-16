@@ -1,0 +1,14 @@
+名稱：
+	heart_beat() - 啟動心跳的物件定期呼叫此函式。
+語法：
+	void heart_beat();
+
+	無傳回值 heart_beat();
+用法：
+	如果一個物件曾呼叫 set_heart_beat()，此函式會被定期呼叫。
+參考：
+	set_heart_beat 
+作者：
+	Tim Hollebeek  Beek @ZorkMUD, Lima Bean, IdeaExchange, TMI-2, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.21.	v22 版

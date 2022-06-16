@@ -1,0 +1,17 @@
+名稱：
+	save_ed_setup - 儲存一個使用者的編輯程式設定或組態設定。
+語法：
+	int save_ed_setup( object user, int config );
+
+	整數 save_ed_setup( 物件 使用者, 整數 組態 );
+用法：
+	ed() 外部函式呼叫此主宰物件應用函式 (master apply) ，以儲存一個使
+	用者的編輯程式設定／組態設定〈存於一個整數中〉。儲存成功時，此函式
+	應傳回 1 或「真」(TRUE) 值〈譯按：即非零值〉。反之則傳回 0 或「偽」
+	(FALSE) 值〈譯按：即零值〉。
+參考：
+	retrieve_ed_setup
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

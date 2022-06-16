@@ -1,0 +1,44 @@
+名稱：
+	socket_listen - 傾聽 (listen) 一個 socket 的連接 (connection)。
+語法：
+	int socket_listen( int s, string listen_callback );
+
+	整數 socket_listen( 整數 s, 字串 傾聽回呼 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	為了要接受連接，首先要以 socket_create() 建立一個 socket，再以 
+	socket_listen() 將這個 socket 放到傾聽模式，最後才以 socket_accept() 
+	接受這個連接。socket_listen() 呼叫只能作用於 STREAM 或是 MUD 型態的 
+	sockets。
+
+	listen_callback 參數是給驅動程式在得到正傾聽中 socket 的連接時呼叫
+	的函式名稱。這個傾聽回呼 (callback) 函式應該是這個格式：
+
+	void listen_callback(int fd)
+
+	這裡的 fd 是正傾聽中的 socket。
+
+	socket_listen() 傳回：
+
+	成功時是 EESUCCESS。
+
+	失敗時是一個含有如下意義的負值。
+
+	錯誤值 - 定義於「socket_err.h」
+
+	EEFDRANGE	描述值 (descriptor) 超出範圍。
+	EEBADF		無效的描述值。
+	EESECURITY	企圖違反安全。
+	EEMODENOTSUPP	不支援此 socket 型態。
+	EENOADDR	socket 尚未設定位址。
+	EEISCONN	socket 已連接。
+	EELISTEN	傾聽的問題。
+參考：
+	socket_accept, socket_connect, socket_create
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.27
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

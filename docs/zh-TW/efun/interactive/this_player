@@ -1,0 +1,14 @@
+名稱：
+	this_player - 傳回代表目前玩家的物件。
+語法：
+	object this_player( int flag );
+
+	物件 this_player( 整數 旗標 );
+用法：
+	本函式與 this_user() 相同。
+參考：
+	this_user
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

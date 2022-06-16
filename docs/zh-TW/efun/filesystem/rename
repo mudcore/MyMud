@@ -1,0 +1,16 @@
+名稱：
+	rename() - 更改一個檔案的名稱。
+語法：
+	int rename( string src, string dst );
+
+	整數 rename( 字串 來源, 字串 目標 );
+用法：
+	把叫做 src 的檔案改名叫做 dst。
+
+	rename() 改名成功傳回 0。失敗則傳回非零值。
+參考：
+	rm, rmdir, cp, link
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.28.	v22 版

@@ -1,0 +1,17 @@
+名稱：
+	export_uid - 設定一個物件的 uid (user id，使用者識別名稱)。
+用法：
+	int export_uid( object ob );
+
+	整數 export_uid( 物件 物件 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_UIDS 才有效。
+
+	設定「ob」的 uid 為 this_object() 的 euid〈effective uid，有效使用
+	者識別名稱〉。只有在「ob」的 euid 為 0 時才能如此設定。
+參考：
+	seteuid, getuid, geteuid, valid_seteuid
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.23.	v22 版

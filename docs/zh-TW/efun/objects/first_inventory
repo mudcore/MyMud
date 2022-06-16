@@ -1,0 +1,17 @@
+名稱：
+	first_inventory - 傳回一個物件的內容物品中所含的第一件物品。
+語法：
+	object first_inventory( mixed ob );
+
+	物件 first_inventory( 混合 物件 );
+用法：
+	本函式僅在編譯時不定義 NO_ENVIRONMENT 才有效。
+
+	傳回物件「ob」內容物品中的第一件物品，「ob」可以是物件或物件檔案名
+	稱。
+參考：
+	file_name, next_inventory, all_inventory, deep_inventory
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

@@ -1,0 +1,22 @@
+名稱：
+	typeof - 傳回一個式子 (expression) 的資料型態 (type)。
+語法：
+	int typeof( mixed var );
+
+	整數 typeof( 混合 變數 );
+用法：
+	傳回一個式子的資料型態。驅動程式中的 typeof.h 定義傳回值為：
+
+	INT		"int"		整數
+	STRING		"string"	字串
+	ARRAY		"array"		陣列
+	OBJECT		"object"	物件
+	MAPPING		"mapping"	映射
+	FUNCTION	"function"	函式指標
+	FLOAT		"float"		浮點數
+	BUFFER		"buffer"	暫存區
+	CLASS		"class"		類別
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.24.	v22 版

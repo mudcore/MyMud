@@ -1,0 +1,19 @@
+名稱：
+	log_error - 聰明地紀錄錯誤。
+語法：
+	void log_error( string file, string message );
+
+	無傳回值 log_error( 字串 檔名, 字串 訊息 );
+用法：
+	無論編譯時 (compilation) 發生任何錯誤，驅動程式都會以發生錯誤的檔
+	案名稱為 file 參數、錯誤訊息為 message 參數，呼叫主宰物件 (master
+	object) 中的 log_error 函式。之後 log_error 可以此資料自由做它認為
+	該做的事。通常 log_error() 根據發生錯誤的檔案名稱，決定該紀錄要寫
+	入哪裡，再寫入該檔案。警告訊息也會傳入此函式，可以「Warning:」開頭
+	區別之。
+參考：
+	error_handler
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

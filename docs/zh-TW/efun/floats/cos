@@ -1,0 +1,16 @@
+嘿
+	cos() - 肚疊翴计緇┒ (cosine)
+粂猭
+	float cos( float f );
+
+	疊翴计 cos( 疊翴计 f );
+ノ猭
+	セㄧΑ度﹚竡 PACKAGE_MATH ネ
+
+	肚把计 f 緇┒f 褃 (radians) 虫
+把σ
+	acos, asin, atan, sin, tan
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.May.28.	v22 

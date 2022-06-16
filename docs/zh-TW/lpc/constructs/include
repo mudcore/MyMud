@@ -1,0 +1,18 @@
+LPC 的 #include 命令:
+
+語法: #include <file.h>
+另一種語法: #include "file.h"
+
+說明: #include "file.h" 在目前的目錄中尋找 file.h.
+      #include <file.h> 則在標準的系統引用目錄 (standard system include
+      directories) 中尋找 file.h (TMI mudlib  中, 此種目錄是 /include
+      和 /local/include).
+
+熟悉 C  的人應該知道, LPC 的 #include 敘述與 C  的相同. 而對於不熟悉的人
+來說, #include  是引用 (include)  其他檔案內容的方法. 把 #include "file.h"
+放在一個檔案中, 等於把 file.h 的內容全部寫在您擺 #include "file.h"  的位
+置. 每次物件重新編譯時, 物件的引用檔也會重新編譯一次. 如果引用檔裡面有變
+數或函式名稱與物件中的一樣, 編譯時會產生雙重命名 (duplicated-name error)
+的錯誤 (如果您把 file.h 中的內容全部寫在物件中, 結果一樣).
+
+翻譯:	Spock @ FF	97.Aug.9.

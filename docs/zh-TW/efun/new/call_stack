@@ -1,0 +1,17 @@
+名稱：
+        call_stack() - 傳回影響呼叫此函式的一些資訊。
+語法：
+        array call_stack( int flag );
+
+        陣列 call_stack( 整數 旗標 );
+用法：
+        若 flag 值為 0 ，call_stack() 則傳回所有呼叫堆疊中的名稱，第一個名稱
+        是最接近呼叫此函式的，若 flag 值為 1 ，則傳回程式執行堆疊中所有的物
+        件，若 flag 值為 2 ，則回傳堆疊中函式名稱，若 flag 值為 3 則傳回堆疊
+        中各部份的呼叫方式 origin()。
+參考：
+        previous_object, origin
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

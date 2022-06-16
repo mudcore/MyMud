@@ -1,5 +1,12 @@
-// 标准NPC对象模板
-
+/*****************************************************************************
+Copyright: 2019, Mud.Ren
+File name: room.c
+Description: NPC标准继承对象 STD_NPC
+Author: xuefeng
+Version: v1.0
+Date: 2019-03-12
+History:
+*****************************************************************************/
 inherit NPC;
 
 varargs void create(string vocation, int lvl)

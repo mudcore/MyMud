@@ -1,0 +1,19 @@
+名稱：
+	save_object - 將一個物件的變數值儲存到一個檔案中。
+語法：
+	int save_object( string name, int flag );
+
+	整數 save_object( 字串 名稱, 整數 旗標 );
+用法：
+	把這個物件所有的非靜態 (non-static) 變數儲存到名叫「name」的檔案中。
+	主宰物件 (master object) 中的 valid_write() 函式會檢查是否允許這個
+	物件寫入。
+	如果可選擇的第二個參數為 1，則變數值為零的的變數也會儲存進去〈一般
+	說來不會為零〉。物件型態的變數和函式指標則一定會儲存為 0。
+	save_object() 成功則傳回 1，失敗傳回 0。
+參考：
+	restore_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

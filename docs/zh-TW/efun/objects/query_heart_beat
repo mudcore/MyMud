@@ -1,0 +1,15 @@
+名稱：
+	query_heart_beat - 詢問一個物件的心跳 (heart beat) 狀況。
+語法：
+	int query_heart_beat( object );
+
+	整數 query_heart_beat( 物件 );
+用法：
+	傳回該物件當初呼叫 set_heart_beat() 函式時所設定的心跳值。如果不指
+	定物件，則預設為目前的物件。沒有心跳的物件則傳回 0。
+參考：
+	heart_beat(4), set_heart_beat(3)
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

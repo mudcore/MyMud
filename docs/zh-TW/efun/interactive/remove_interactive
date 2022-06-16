@@ -1,0 +1,16 @@
+名稱：
+	remove_interactive - 讓一個互動物件斷線。
+語法：
+	int remove_interactive( object );
+
+	整數 remove_interactive( 物件 );
+用法：
+	如果參數物件是互動的，也沒有被摧毀，則讓它斷線。〈也就是讓它喪失互
+	動狀態〉。如果斷線成功則傳回 1，失敗則傳回 0〈物件已被摧毀，或物件
+	不是互動的〉。
+
+	本函式需要在 options.h 定義 PACKAGE_CONTRIB。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

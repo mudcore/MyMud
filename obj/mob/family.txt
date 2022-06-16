@@ -1,0 +1,334 @@
+Slime Family
+  1 - Slime
+ 14 - She-slime
+ 16 - Bubble slime
+ 29 - Healslime
+ 46 - Metal slime
+ 48 - Slime knight
+ 51 - Slime stack
+ 75 - Metal slime knight
+ 83 - Medislime
+ 89 - Metal medley
+ 90 - King slime
+131 - Sootheslime
+153 - Liquid metal slime
+195 - Cureslime
+206 - King cureslime
+207 - Gem jamboree
+214 - Metal king slime
+215 - Slionheart
+220 - Darkonium slime
+226 - Gem slime
+229 - Platinum king jewel
+252 - Prime slime
+285 - Shogum
+
+Beast Family
+ 19 - Meowgician
+ 23 - Boppin' badger
+ 26 - Ram rider
+ 40 - Badger mager
+ 50 - Badboon
+ 67 - Bewarewolf
+ 68 - Clawcerer
+ 69 - Rampage
+ 72 - Trigertaur
+ 81 - Scarewolf
+ 82 - Big badboon
+ 97 - Expload
+102 - Purrestidgitator
+108 - Badja
+113 - Swinoceros
+115 - Battering ram
+117 - Brainy badboon
+118 - Drackal
+126 - Tearwolf
+130 - White trigertaur
+141 - Splatterhorn
+155 - Drastic drackal
+175 - Dreadful drackal
+180 - Blastoad
+203 - Sick trigertaur
+211 - Wishmaster
+216 - Godsteed
+219 - Octagoon
+225 - Alphyn
+233 - Grrrgoyle
+239 - Tantamount
+243 - Hell's gatekeeper
+246 - Vermil lion
+251 - Bling badger
+257 - Hexagoon
+268 - Gadrongo
+270 - Goreham-Hogg
+272 - Goresby-Purrvis
+279 - Rover
+282 - Nodoph
+283 - Equinox
+284 - Nemean
+290 - Hammibal
+292 - Excalipurr
+
+Dragon Family
+ 39 - Flython
+101 - Diethon
+104 - Mandrake major
+106 - Wyrtle
+138 - Sail serpent
+152 - Drakularge
+166 - Mandrake marauder
+169 - Green dragon
+185 - Mandrake marshal
+187 - Wyrtoise
+191 - Red dragon
+200 - Drakulard
+217 - Wonder wyrtle
+244 - Rashaverak
+250 - Mandrake monarch
+254 - Drakulord
+265 - Grand Lizzier
+269 - Greygnarl
+275 - Barbarus
+287 - Elusid
+294 - Greygnarl
+
+Bug Family
+  5 - Batteryfly
+ 18 - Betterfly
+ 21 - Gastropog
+ 32 - Lunatick
+ 35 - Slugger
+ 41 - Crabid
+ 63 - Dread admiral
+ 86 - Raving lunatick
+109 - Giddy gastropog
+140 - Sluggernaut
+172 - Gloomy gastropog
+208 - Sluggerslaught
+218 - Widow's pique
+224 - Cyber spider
+264 - Tyrantula
+
+Bird Family
+  6 - Dracky
+ 24 - Drackmage
+ 54 - Drackyma
+ 59 - Chimaera
+ 70 - Beakon
+ 76 - Hocus chimaera
+ 85 - Weaken beakon
+ 94 - Parched peckerel
+114 - Peckerel
+128 - Apeckalypse
+156 - Terrorhawk
+193 - Belisha beakon
+198 - Prism peacock
+210 - Cosmic chimaera
+241 - Bird of terrordise
+271 - Hootingham-Gore
+291 - Fowleye
+
+Plant Family
+  2 - Cruelcumber
+ 15 - Funghoul
+ 33 - Leafy larrikin
+ 37 - Morphean mushroom
+ 53 - Mushroom mage
+ 64 - Zumeanie
+ 65 - Bud brother
+ 77 - Treeface
+105 - Scourgette
+110 - Treevil
+
+Material Family
+  4 - Sacksquatch
+  8 - Bag o' laughs
+ 20 - Ragged reaper
+ 45 - Earthenwarrior
+ 57 - Restless armour
+ 71 - Mad moai
+ 73 - Grinade
+ 78 - Stone golem
+ 96 - Gold golem
+116 - Rockbomb
+121 - Cheeky tiki
+123 - Infernal armour
+127 - Brrearthenwarrior
+133 - Teaky mask
+134 - Raving reaper
+147 - Harmour
+149 - Sculpture vulture
+150 - Living statue
+151 - Goodybag
+159 - Bomboulder
+160 - Bagma
+161 - Golem
+167 - Mega moai
+176 - Lethal armour
+178 - Stone guardian
+186 - Bad karmour
+194 - Charmour
+204 - Cannibox
+205 - Mimic
+221 - Freaky tiki
+222 - Alarmour
+231 - Grim reaper
+234 - Pandora's box
+240 - Barriearthenwarrior
+248 - Moai minstrel
+263 - Garth Goyle
+
+Machine Family
+  9 - Mecha-mynah
+ 34 - Clockwork cuckoo
+ 87 - Hunter mech
+ 92 - Shocktopus
+112 - Robo-robin
+174 - Killing machine
+227 - AU-1000
+228 - Void droid
+286 - Trauminator
+
+Zombie Family
+ 11 - Spirit
+ 28 - Skeleton
+ 42 - Mean spirit
+ 44 - Mummy boy
+ 55 - Walking corpse
+ 74 - Toxic zombie
+ 98 - Mummy
+100 - Legionnaire
+111 - Ghoul
+122 - Deadcurion
+135 - Wight priest
+144 - Skeleton soldier
+146 - Blood mummy
+171 - Stenchurion
+173 - Dark skeleton
+181 - Fright knight
+182 - Wight king
+199 - Night knight
+232 - Wight emperor
+237 - Blight knight
+258 - Wight knight
+288 - Sir Sanguinus
+
+Demon Family
+  3 - Teeny sanguini
+ 12 - Winkster
+ 30 - Blinkster
+ 56 - Jinkster
+ 80 - Pink sanguini
+103 - Manguini
+119 - Gruffon
+124 - Troll
+129 - Great gruffon
+136 - Sculptrice
+143 - Gramarye gruffon
+145 - Bloody manguini
+148 - Python priest
+154 - Moosifer
+157 - Cyclops
+179 - Boss troll
+184 - Aggrosculpture
+189 - Genie sanguini
+192 - Gigantes
+196 - Great troll
+197 - Cobra cardinal
+201 - Barbatos
+209 - Terror troll
+223 - Boa bishop
+230 - Cannibelle
+245 - Master moosifer
+247 - Slugly betsy
+249 - Boogie manguini
+259 - Morag
+266 - Larstastnaras
+289 - Atlas
+
+Elemental Family
+ 10 - Firespirit
+ 27 - Cumaulus
+ 38 - Lost soul
+ 49 - Cyclown
+ 52 - Mudraker
+ 99 - Admirer
+125 - Shivery shrubbery
+142 - Whirly girly
+158 - Cumulus rex
+163 - Hell niзв0зм9o
+165 - Live lava
+168 - Magmalice
+177 - Freezing fog
+190 - Cumulus vex
+202 - Firn fiend
+212 - Cumulus hex
+235 - Uncommon cold
+236 - Geothaum
+242 - Scarlet fever
+260 - Ragin' Contagion
+
+Humanoid Family
+  7 - Bodkin archer
+ 13 - Hammerhood
+ 22 - Brownie
+ 25 - Bodkin fletcher
+ 31 - Leery lout
+ 36 - Chariot chappie
+ 43 - Magus
+ 47 - Bodkin bowyer
+ 79 - Gum shield
+ 84 - Shaman
+120 - Sorcerer
+132 - Icikiller
+139 - Grim ginner
+164 - Corrupt carter
+183 - Claws
+238 - Flamin' drayman
+267 - Dreadmaster
+
+Aquatic Family
+ 17 - Wooper trooper
+ 58 - Knocktopus
+ 60 - Salamarauder
+ 61 - Man o' war
+ 62 - Mortoad
+ 66 - Spinchilla
+ 88 - Riptide
+ 91 - Claw hammer
+ 93 - Axolhotl
+ 95 - Power hammer
+107 - Crabber dabber doo
+137 - Handsome crab
+162 - Seasaur
+170 - Abyss diver
+188 - King crab
+213 - Stale whale
+253 - Hammer horror
+255 - Pale whale
+256 - Seavern
+262 - Lleviathan
+
+??? Family
+261 - Master of Nu'un
+273 - King Godwyn
+274 - King Godwyn
+276 - Corvus
+277 - Corvus
+278 - Yore
+280 - King Godfrey
+281 - Tyrannosaura Wrecks
+293 - Tyrannosaurus Wrecks
+295 - Dragonlord
+296 - Malroth
+297 - Baramos
+298 - Zoma
+299 - Psaro
+300 - Estark
+301 - Nimzo
+302 - Murdaw
+303 - Mortamor
+304 - Nokturnus
+305 - Orgodemir
+306 - Dhoulmagus
+307 - Rhapthorne

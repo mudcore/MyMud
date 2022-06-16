@@ -1,0 +1,17 @@
+名稱：
+	living - 判斷指定的一個物件是否「活著」。
+語法：
+	int living( object ob );
+
+	整數 living( 物件 ob );
+用法：
+	本函式僅在編譯時不定義 NO_ADD_ACTION 才有效。
+
+	如果「ob」是一個活物件則傳回真值。〈也就是說，「ob」曾經呼叫過 
+	enable_commands()〉。
+參考：
+	enable_commands
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.24.	v22 版

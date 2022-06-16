@@ -1,0 +1,16 @@
+名稱：
+	repeat_string - 重複一個字串幾次。
+語法：
+	string repeat_string( string, int );
+
+	字串 repeat_string( 字串, 整數 );
+用法：
+	repeat_string 傳回一個把第一個參數重複 n 次的字串，「n」是第二個參
+	數。
+	所以 repeat_string( "foo", 3 ) 會傳回 "foofoofoo"。
+
+	本函式需要在 options.h 中定義 PACKAGE_CONTRIB。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

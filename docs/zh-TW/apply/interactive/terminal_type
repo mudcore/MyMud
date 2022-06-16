@@ -1,0 +1,14 @@
+名稱：
+	terminal_type - 告知 mudlib 使用者的終端機型態 (terminal type)
+語法：
+	void terminal_type( string term );
+
+	無傳回值 terminal_type( 字串 型態 );
+用法：
+	為使用者設定終端機型態規則時，會呼叫互動物件裡頭的此函式。此型態與
+	telnet 交涉 (negotiation) 時所報告的相同。如果使用者端的程式一直沒
+	有回應〈例如此程式不是 telnet〉，則以後不再呼叫此函式。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

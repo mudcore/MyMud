@@ -1,4 +1,5 @@
-*
-!.gitignore
-!e2c_dict.o
-!emote_d.o
+.env
+db.sqlite
+dbase_d.o
+name_d.o
+quest_d.o

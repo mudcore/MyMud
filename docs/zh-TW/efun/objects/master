@@ -1,0 +1,14 @@
+名稱：
+	master - 傳回主宰物件 (master object)。
+語法：
+	object master();
+
+	物件 master();
+用法：
+	傳回一個指向主宰物件 (master object) 的指標 (pointer)。
+參考：
+	find_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

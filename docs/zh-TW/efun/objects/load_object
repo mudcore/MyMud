@@ -1,0 +1,15 @@
+名稱：
+	load_object - 以檔案名稱來尋找或載入一個物件。
+語法：
+	object load_object( string str );
+
+	物件 load_object( 字串 字串 );
+用法：
+	用檔案名稱「str」尋找物件。如果檔案存在而且物件尚未載入就載入檔案。
+	否則傳回 0。如果該物件編譯出錯會出現錯誤。
+參考：
+	file_name, find_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

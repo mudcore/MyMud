@@ -1,0 +1,35 @@
+名稱：
+	notify_fail - 傳回一段錯誤訊息。
+語法：
+	int notify_fail( string | function str );
+
+	整數 notify_fail( 字串 或 函式指標 字串 );
+用法：
+	本函式僅在未定義 NO_ADD_ACTION 時生效。
+
+	以 str 代替系統在命令錯誤時傳回的錯誤訊息：「什麼？」當 add_action()
+	加入的動作傳回 0 時，就顯示此段 str 訊息。使用 notify_fail() 顯示錯
+	誤訊息是一個比較合適的方法，因為此函式可讓其他的物件對同一個動詞〈
+	命令〉作出反應。別用 write() 來顯示一段錯誤訊息，因為這樣做需要傳回 
+	1〈除非你想在看到「什麼？」之後再看到 write() 的結果〉。如果你傳回 
+	1，其他的物件就沒有機會對使用者的命令作出反應。
+
+	於多重錯誤情況使用本函式時，至少需要一點技巧。你可以改用函式指標，
+	並運用程式流程來解決衝突的地方。
+
+	如果參數用的不是字串而是一個函式指標，則會呼叫指定的函式，而非印出
+	字串。如果該函式傳回一個字串，此字串就會當作錯誤訊息。只要正確地設
+	定 this_player()，也可以使用 write()。
+
+	如果 notify_fail() 被呼叫一次以上，只有最後一次呼叫有效。
+
+	這個函式主要的用意是傳回比「什麼 ?」來得清楚的錯誤訊息。
+
+	提醒一下，notify_fail() 永遠傳回 0，所以 return notify_fail(...) 
+	的作用一如預期。
+參考：
+	add_action
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.26.	v22 版

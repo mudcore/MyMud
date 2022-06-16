@@ -1,0 +1,30 @@
+名稱：
+	enable_wizard - 將巫師的特權給予一個物件。
+語法：
+	void enable_wizard();
+
+	無傳回值 enable_wizard();
+用法：
+	僅在未定義 NO_WIZARD 時生效。
+
+	任何呼叫 enable_wizard() 的互動物件 (interactive)，會讓 wizardp() 
+	對此物件傳回真值 (true)。而 enable_wizard() 可以讓這個物件有以下三
+	項特權：
+
+	1. 如果編譯驅動程式時定義 RESTRICTED_ED 選項，可以使用 ed 的限制模
+	   式 (restricted modes)。
+
+	2. 可以收到詳細的執行時段 (runtime) 錯誤訊息。
+
+	3. 可以使用 trace() 和 traceprefix() 函式。
+	
+	如果你不使用這個函式，就有必要明確地限制 ed()、如果你不想讓所有的使
+	用者收到詳細的錯誤追蹤訊息，mudlib 的錯誤控制程式 (error_handler) 
+	必須在此時顯示適當的訊息、如果必要，要經由模擬外部函式 (simul_efuns) 
+	限制 trace() 與 traceprefix() 的功能。
+參考：
+	disable_wizard, wizardp
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.25.	v22 版

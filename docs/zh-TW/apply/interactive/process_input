@@ -1,0 +1,22 @@
+名稱：
+	process_input - 查看〈並可能修改〉使用者的輸入
+語法：
+	mixed process_input( string );
+
+	混合 process_input( 字串 );
+用法：
+	如果玩家物件中有 process_input()，則 MudOS  驅動程式則會將玩家所輸
+	入的每行資料傳入本函式。 如果本函式傳回一個字串，則此字串就取代使
+	用者原先輸入的資料，用於往後的處理。如果本函式傳回一個非零、非字串
+	的值，就不會再作處理。如果傳回零，則以原來輸入的資料作處理。在此之
+	後才會看使用者輸入是否符合 add_actions 當時添加的動詞。
+
+	注意：如果已定義 NO_ADD_ACTION，則本函式之後就沒有進一步的處理。在
+	此，則忽略本函式的傳回值，而 mudlib 要負責解釋這些字串為命令〈或其
+	他非命令用途的使用者輸入〉。
+參考：
+	add_action
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

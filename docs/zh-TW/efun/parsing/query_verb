@@ -1,0 +1,18 @@
+名稱：
+	query_verb - 傳回現在正在執行的命令名稱。
+語法：
+	string query_verb();
+
+	字串 query_verb();
+用法：
+	本外部函式僅在編譯時不定義 NO_ADD_ACTION 才有效。
+
+	傳回目前命令的名稱，如果沒有被任何命令執行則傳回 0。這個函式的用途
+	是當好幾個命令〈動詞〉都會執行同一個函式時，判斷到底是哪一個動詞呼
+	叫該函式。
+參考：
+	add_action
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

@@ -1,0 +1,16 @@
+名稱：
+	net_dead - 當一個互動 (interactive) 物件斷線時，MudOS 驅動程式呼叫
+		此函式
+語法：
+	void net_dead();
+
+	無傳回值 net_dead();
+用法：
+	如果一個互動物件〈即玩家物件〉突然斷線〈即成了「網路死亡」(net
+	 dead) 狀態〉，則驅動程式對此物件呼叫本函式，讓此物件有機會被清理
+	掉 (clean up)、將斷線狀態告知環境物件等等。請小心，物件處於互動狀
+	態時才有作用的函式，將不會如您預期般地作用。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

@@ -1,0 +1,23 @@
+名稱：
+	exec - 把一個互動玩家連線 (user (interactive) connection) 切換到另
+	       外一個物件上。
+語法：
+	int exec( object to, object from );
+
+	整數 exec( 物件 目的, 物件 原來 );
+用法：
+	這個函式允許指定的物件把互動連結 (link) 轉移到另外一個物件上。也就
+	是說，成功執行 exec(to, from) 之後，interactive(to) 會傳回 1，而 
+	interactive(from) 傳回 0。而控制 from 的玩家會轉而控制 to。
+
+	請注意這是個很強大的函式，如果你想要一個安全的 mud，必須限制它的功
+	能。正確限制此函式的方法是另外寫一個相同名稱的模擬外部函式 
+	(simul_efun, simulated external function)，然後使用 
+	valid_override() 限制此一模擬外部函式的僭越 (override) 使用〈即
+	efun::exec()〉。exec() 如果轉換成功傳回 1，反之傳回 0。
+參考：
+	interactive, valid_override
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.25.	v22 版

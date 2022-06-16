@@ -1,0 +1,15 @@
+名稱：
+	query_ip_name - 傳回指定玩家物件的 ip 名稱。
+語法：	
+	string query_ip_name( object ob );
+
+	字串 query_ip_name( 物件 物件 );
+用法：
+	傳回玩家「ob」的 IP 位址。一個叫做 addr_server 的非同步程序會平行找
+	出這些名稱。如果找不到 ip 名稱，就會傳回 ip 號碼。
+參考：
+	query_ip_number, query_host_name, resolve, socket_address
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

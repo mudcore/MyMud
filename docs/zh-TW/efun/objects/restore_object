@@ -1,0 +1,18 @@
+名稱：
+	restore_object - 從一個檔案讀回一個物件的變數值。
+語法：
+	int restore_object( string name, int flag );
+
+	整數 restore_object( 字串 名稱, 整數 旗標 );
+用法：
+	從叫作「name」的檔案讀回目前物件的變數值。如果可選擇的參數「flag」
+	是 1，則所有的非靜態 (non-static) 變數不會在讀回之前清除為零〈普通
+	情況下，它們會清除為零〉。
+
+	如果讀回的過程出錯，則所有的變數都不會更動，並傳回錯誤。
+參考：
+	save_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

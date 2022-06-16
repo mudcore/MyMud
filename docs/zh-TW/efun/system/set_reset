@@ -1,0 +1,19 @@
+名稱：
+	set_reset - 更改一個物件距離下次重新設定 (reset) 的時間。
+語法：
+	varargs void set_reset( object ob, int time );
+
+	不定參數 無傳回值 set_reset( 物件 物件, 整數 時間 );
+用法：
+	本函式僅在編譯時「不」定義 NO_RESETS 才有效。
+
+	設定物件「ob」從現在開始距離下次重新設定的時間為整數「time」指定的
+	秒數。如果不給「time」，則使用驅動程式正常設定的公式：
+
+	重設時間 = 目前時間 + 重設時間 / 2 + 亂數( 重設時間 / 2)
+參考：
+	reset
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

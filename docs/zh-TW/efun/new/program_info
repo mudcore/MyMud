@@ -1,0 +1,16 @@
+名稱：
+        program_info() - 傳回程式記憶體使用的相關資訊。
+語法：
+        string program_info( object ob );
+
+        字串 program_info( 物件 ob );
+用法：
+        回傳物件 ob 中記憶體使用的摘要，若沒有指定 ob ，則傳回所有運作中
+        的程式的記憶體使用資訊。
+
+參考：
+        
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

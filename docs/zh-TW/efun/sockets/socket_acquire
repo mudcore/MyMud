@@ -1,0 +1,39 @@
+名稱：
+	socket_acquire - 接收一個 socket 的所有權 (ownership)。
+語法：
+	int socket_acquire( int socket, string | function read_callback,
+		string | function write_callback,
+		string | function close_callback );
+
+	整數 socket_acquire( 整數 socket, 字串 或 函式指標 讀取回呼,
+		字串 或 函式指標 寫入回呼,
+		字串 或 函式指標 關閉回呼 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	呼叫 socket_acquire() 是為了要完成開始自 socket_release() 要轉移一
+	個 socket 所有權（和控制權）到一個新物件上的握手程序 (handshake)。
+	socket_release() 呼叫那個將擁有所有權新物件的釋放回呼 (callback) 函
+	式以通知那個物件說它想要傳送這個 socket 的控制權過去。那個將擁有所
+	有權的新物件有責任決定它是否接受這個 socket。若它願意接受的話，則要
+	呼叫 socket_acquire() 以完成這個轉移。如果不願意的話，則這個回呼函
+	式不需完成握手程序只需返回即可。
+
+	在前一種情況下，握手程序完成並且新物件變成那個 socket 的擁有者。那
+	些讀取、寫入和關閉回呼函式參數也將參考這個新物件的函式。這些都需要
+	指定以使 MudOS 驅動程式可以知道要呼叫新物件內的哪些函式。不同意接受
+	這個 socket 將會使 socket_release() 傳回 EESOCKNOTRLSD 以至於擁有者
+	能進行適當的清除動作。
+	EESOCKNOTRLSD 定義於「socket_err.h」。
+
+	socket_acquire() 可以只由釋放回呼函式的內部呼叫，並只含有那個指定的 
+	socket。
+
+參考：
+	socket_release
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.27
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

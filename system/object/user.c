@@ -1,7 +1,44 @@
+/*****************************************************************************
+Copyright: 2019, Mud.Ren
+File name: user.c
+Description: 用户连线对象 USER_OB
+Author: xuefeng
+Version: v1.0
+Date: 2019-03-12
+History:
+*****************************************************************************/
+#include <ansi.h>
+
 inherit USER;
 
-// 判断是否 user 对象，和 efun userp() 稍有区别
-int is_user() { return 1; }
+string get_id();
+
+/*
+void init()
+{
+    // using "" as the second argument to add_action() causes the driver
+    // to call command_hook() for those user inputs not matched by other
+    // add_action defined commands (thus 'command_hook' becomes the default
+    // action for those verbs without an explicitly associated action).
+
+    debug_message("[USER_OB]->init():" + this_object() + "(" + this_user() + ")!\n");
+    if (this_object() == this_player()) {
+        add_action("command_hook", "", 1);
+    }
+}
+*/
+
+void window_size(int width, int height)
+{
+    set_temp("window_size/width", width);
+    set_temp("window_size/height", height);
+    message("system", "终端窗口大小设置为 " + width + " × " + height + "。\n", this_object());
+}
+
+void receive_environ(string var, string value)
+{
+    set_temp("env/" + var, value);
+}
 
 void net_dead()
 {
@@ -46,12 +83,4 @@ void user_dest()
         tell_room(environment(), query("name") + "断线超过 1 分钟，自动退出这个世界。\n");
     }
     command("quit");
-}
-
-// 从游戏中移除这个玩家
-void remove()
-{
-    // 玩家数据存档
-    command("save");
-    destruct(this_object());
 }

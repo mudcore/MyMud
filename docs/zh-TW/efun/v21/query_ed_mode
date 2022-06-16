@@ -1,0 +1,19 @@
+
+	query_ed_mode(3)	MudOS v21c2		(5 Sep 1994)
+
+	名稱:
+		query_ed_mode() - 詢問目前編輯程式 (ed) 執行的狀態.
+	語法:
+		int query_ed_mode()
+
+		整數 query_ed_mode()
+	用法:
+		尋問目前此物件執行編輯程式 (ed) 的狀態. query_ed_mode() 的
+		傳回值如下:
+		
+		0  - 此物件正在普通的 ed 提示符號 ( ':', 冒號) 下.
+		-1 - 此物件並沒有進入 ed 裡
+		-2 - 此物件正處於 ed 求助說明第一頁的 more 提示符號下.
+		>0 - 此物件正在編輯一行內容, 這個數字就是第幾行.
+	翻譯:
+		Spock @ FF	97.Apr.30.		(printed 3/16/95)

@@ -1,0 +1,22 @@
+暫存區 (buffer) 介於 LPC  陣列 (array) 形態和 LPC  字串形態之間.
+暫存區的目的是便於操作二進位資料. 
+暫存區不是「零值終止」(zero-terminated) ﹝就是說, buffer  有一個聯合長
+度 (associated length)﹞.
+暫存區是一個位元組 (bytes)  的陣列, 而每個元素只有一個位元組.
+
+buf[i] = x 和 x = buf[i];
+sizeof(buf);
+bufferp(buf);
+buf[i..j];
+buff = read_buffer(file_name, ...); (參數與 read_bytes 相同)
+int write_buffer(string file, int start, mixed source);
+buf = buf1 + buf2; 
+buf += buf1;
+buf = allocate_buffer(size);
+
+以上這些語法都能使用.
+
+socket 的外部函式已經過修改, 可以接受並傳回暫存區形態.
+(STREAM_BINARY (3) 和 DATAGRAM_BINARY (4)  模式.)
+
+翻譯:	Spock @ FF	97.Aug.10.

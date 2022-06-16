@@ -1,0 +1,16 @@
+名稱：
+	cache_stats() - 報告驅動程式和 mudlib 的一些統計資料。
+語法：
+	string cache_stats();
+
+	字串 cache_stats();
+用法：
+	這個函式只有在編譯驅動程式時，options.h 中定義 CACHE_STATS 才有效。
+	這個外部函式傳回一個字串，紀錄 call_other() 快取 (cache) 效率總結
+	的統計數字。
+參考：
+	opcprof, mud_status
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.2.	v22 版

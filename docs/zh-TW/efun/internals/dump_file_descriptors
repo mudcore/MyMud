@@ -1,0 +1,36 @@
+名稱：
+	dump_file_descriptors - 傾印 (dump) MudOS 執行程序 (process) 的檔案
+				描述值表 (file descriptor table)。
+語法：
+	string dump_file_descriptors();
+
+	字串 dump_file_descriptors();
+用法：
+	這個函式是為了幫助 MudOS 驅動程式除錯，而且在一些沒提供相同或更佳除
+	錯機制之 UN*X 作業系統內，協助它解決除錯功能上的不足之處。這個函式
+	輸出的結果取決於該作業系統。本函式檢查每一個檔案描述值是否參考到一
+	個已開啟的檔案。如果是的話，將會顯示由 fstat() 系統呼叫得到的「狀態
+	結構」(stat structure) 資訊。
+
+	下列輸出是由執行在 Sequent DYNIX/ptx 系統的 Lambda Realms
+	所產生的：
+
+	Fd  Device Number  Inode   Mode    Uid    Gid      Size
+	--  -------------  -----  ------  -----  -----  ----------
+	 0     3      2    10319  c  666      0      3           0
+	 1    79      7   164598  f  644   2862      1      789522
+	 2    79      7   164598  f  644   2862      1      789522
+	 3    40    33b     6925  c    0   2862      1           0
+	 4    40    2a4     6943  c    0   2862      1           0
+	 5    79      7   164599  f  600   2862      1       44784
+	 6    40    2e2   145996  c    0   2862      1           0
+	 7    79      7   164601  f  644   2862      1         506
+
+參考：
+	dump_socket_status
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.26
+校訂：
+	spock@muds.net		2000.Aug.19.	v22 版

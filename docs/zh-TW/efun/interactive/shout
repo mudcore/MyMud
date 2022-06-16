@@ -1,0 +1,14 @@
+名稱：
+	shout - 對所有的活 (living) 物件送出訊息。
+語法：
+	void shout( string str );
+
+	無傳回值 shout( 字串 字串 );
+用法：
+	除了 this_player() 以外，對所有的活物件送出字串「str」。
+參考：
+	message, write, tell_object, tell_room, say
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

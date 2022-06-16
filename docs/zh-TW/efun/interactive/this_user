@@ -1,0 +1,18 @@
+名稱：
+	this_user - 傳回代表目前互動物件的物件。
+語法：
+	object this_user( int flag );
+
+	物件 this_user( 整數 旗標 );
+用法：
+	傳回導致目前函式被呼叫，而代表使用者的物件。注意，即使是從使用者物
+	件之中呼叫本函式，this_user() 也可能傳回與 this_object() 不同的值。
+	如果以 this_user(1) 呼叫，則傳回值是導致函式被呼叫的互動物件。某些
+	情況下，this_user(1) 可能會傳回與 this_user() 不同的值〈像是管理者
+	使用 command() 強迫一個使用者執行一些命令時〉。
+參考：
+	this_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

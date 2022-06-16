@@ -1,0 +1,18 @@
+名稱：
+	set_malloc_mask - 設定記憶體配置的除錯資料顯示的控制遮罩 (the mask 
+			  controlling display of malloc debug info)。
+語法：
+	void set_malloc_mask( int mask );
+
+	無傳回值 set_malloc_mask( 整數 遮罩 );
+用法：
+	這個外部函式 (efun) 只有在編譯驅動程式時，在 options.h 中同時定義
+	PACKAGE_DEVELOP、DEBUGMALLOC、DEBUGMALLOC_EXTENSIONS 三者有效。此遮
+	罩 (mask) 控制驅動程式配置記憶體和釋放記憶體時，顯示多少與記憶體相
+	關的除錯訊息。詳細內容請參閱驅動程式原始碼中的 md.c。 
+參考：
+	debugmalloc
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.20.	v22 版

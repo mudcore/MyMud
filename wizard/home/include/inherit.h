@@ -1,0 +1,42 @@
+/** This program is a part of mudcore
+ *-----------------------------------------
+ * File   : inherit.h
+ * Author : 由 creator 產生
+ * Note   : Include File.
+ *-----------------------------------------
+ */
+#define ACTION                                   "/inherit/action.c"
+#define ATTACK                                   "/inherit/attack.c"
+#define ATTRIBUTE                                "/inherit/attribute.c"
+#define CHAR                                     "/inherit/char.c"
+#define CLEAN_UP                                 "/inherit/clean_up.c"
+#define COMMAND                                  "/inherit/command.c"
+#define CONDITION                                "/inherit/condition.c"
+#define CONDITION_MOD                            "/inherit/condition_mod.c"
+#define DAMAGE                                   "/inherit/damage.c"
+#define DBASE                                    "/inherit/dbase.c"
+#define DEALER                                   "/inherit/dealer.c"
+#define EQUIPMENT                                "/inherit/equipment.c"
+#define HEART_BEAT                               "/inherit/heart_beat.c"
+#define ITEM                                     "/inherit/item.c"
+#define MESSAGE                                  "/inherit/message.c"
+#define MOB                                      "/inherit/mob.c"
+#define MOVE                                     "/inherit/move.c"
+#define NAME                                     "/inherit/name.c"
+#define NPC                                      "/inherit/npc.c"
+#define OBSAVE                                   "/inherit/obsave.c"
+#define QUESTER                                  "/inherit/quester.c"
+#define ROOM                                     "/inherit/room.c"
+#define SAVE                                     "/inherit/save.c"
+#define TEAM                                     "/inherit/team.c"
+#define TREEMAP                                  "/inherit/treemap.c"
+#define UNIQUE                                   "/inherit/unique.c"
+#define USER                                     "/inherit/user.c"
+#define USER_COMBAT_RECORD                       "/inherit/user_combat_record.c"
+#define USER_DEPOT                               "/inherit/user_depot.c"
+#define USER_INVENTORY                           "/inherit/user_inventory.c"
+#define USER_QUEST                               "/inherit/user_quest.c"
+#define USER_SKILL                               "/inherit/user_skill.c"
+#define USER_SPELL                               "/inherit/user_spell.c"
+#define USER_TITLE                               "/inherit/user_title.c"
+#define USER_VOCATION                            "/inherit/user_vocation.c"

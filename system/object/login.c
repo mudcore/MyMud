@@ -44,3 +44,8 @@ string query_save_file()
     if (! stringp(id)) return 0;
     return sprintf(DATA_DIR "login/%s", id);
 }
+
+void terminal_type(string term)
+{
+    set_temp("terminal_type", term);
+}

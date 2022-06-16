@@ -1,0 +1,18 @@
+名稱：
+	reload_object - 把一個物件還原成剛剛載入的狀態。
+語法：
+	void reload_object( object ob );
+
+	無傳回值 reload_object( 物件 物件 );
+用法：
+	對「ob」呼叫 reload_object() 時，所有由驅動程式維護管理的物件特性〈
+	心跳 (heart_beat)、外部呼叫 (call_outs)、光線 (light)、投影 (shadow)
+	 等〉和所有的變數都會重新初始化 (re-initialized)，然後呼叫 create()
+	。這個函式的效果相當於先摧毀再載入物件，但是用不著存取磁碟或作任何
+	的語法分析 (parsing)。
+參考：
+	new, clone_object, destruct
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

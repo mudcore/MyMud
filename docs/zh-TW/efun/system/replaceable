@@ -1,0 +1,21 @@
+名稱：
+	replaceable - 判斷是否有任何函式定義於此層次 (this level)。
+語法：
+	int replaceable( object ob );
+	int replaceable( object ob, string array fnames );
+
+	整數 replaceable( 物件 物件 );
+	整數 replaceable( 物件 物件, 字串 陣列 函式名稱 );
+用法：
+	第二種語法中，如果物件「ob」的程式明確定義了任何函式，則傳回 0，相
+	對於單純的繼承。陣列「fnames」中的函式名稱會被忽略。如果沒有定義這
+	種函式，則傳回 1。如果不給第二個參數，它預設為 ({ "create" })。本外
+	部函式的功用在於協助自動判斷是否要呼叫 replace_program()。注意，預
+	設的語法忽略 create()，所以如果只有在你決不會複製該物件的情況下，將
+	replaceable() 傳回真值的物件置換掉才保證安全。
+參考：
+	replace_program, functions, function_exists, inherit_list
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

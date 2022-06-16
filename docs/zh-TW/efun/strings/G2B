@@ -1,0 +1,14 @@
+名稱：
+	G2B - 把一個 GB 編碼字串轉成 BIG5 編碼字串。
+語法：
+	string G2B(string str);
+
+	字串 G2B( 字串 );
+用法：
+	把 GB 編碼字串「str」轉成 BIG5 編碼字串,並傳回轉換後的新字串。
+
+    本函式需要在 options.h 中定義 PACKAGE_CHINESE。
+參考：
+	B2G
+作者：
+	lismo@AOH

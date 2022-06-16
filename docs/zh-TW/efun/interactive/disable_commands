@@ -1,0 +1,18 @@
+名稱：
+	disable_commands - 將一個活物件 (living) 設定為「非活著」
+			   (non-living)。
+語法：
+	void disable_commands();
+
+	無傳回值 disable_commands();
+用法：
+	本函式僅在未定義 NO_ADD_ACTION 時有效。
+
+	讓目前的物件無法執行命令。
+參考：
+	enable_commands
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.25.	v22 版
+

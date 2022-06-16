@@ -1,1 +1,6 @@
-debug*
+/*DUMP
+/cert*
+/debug*
+/driver*
+/lpcc*
+/trace*

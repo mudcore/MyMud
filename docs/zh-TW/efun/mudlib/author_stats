@@ -1,0 +1,35 @@
+名稱：
+	author_stats - 傳回作者的一些統計資料。
+語法：
+	mapping author_stats( string domain );
+
+	映射 author_stats( 字串 區域 );
+用法：
+	本外部函式僅在編譯時定義 PACKAGE_MUDLIB_STATS 才有效。
+
+	author_stats() 和 domain_stats() 都會以一個映射傳回一些資訊。如果不
+	加上參數 (argument)，就會傳回所有作者〈或所有區域〉每個人〈或每個區
+	域〉的每份映射資訊。如果指定參數，每份映射資訊包含有：移動數 (moves)
+	、耗時數 (cost)、錯誤數 (errors)、心跳數 (heart_beats)、陣列大小 
+	(array_size)、物件數 (objects)。這些都是整數。移動數是移入該區域物
+	件中的物件數。耗時數是該區域〈或作者〉裡所有物件的評估耗時 
+	(eval_cost) 總和。錯誤數是在該區域中所有物件發生的錯誤總和。心跳數
+	是在該區域中所有物件呼叫心跳的次數。陣列大小是該區域中配置給陣列的
+	記憶體大小〈位元組 (bytes)〉。物件數是該區域中創造出來的物件總數。
+	如果不指定參數，傳回的映射就是這種格式：
+
+	([ domain0 : info0, domain1 : info1, ... ])
+
+        而 info0 的內容格式為：
+
+	([ "moves" : moves, "cost" : cost, "errors" : errors,
+	   "heart_beats" : heart_beats, "worth" : worth,
+	   "array_size" : array_size, "objects" : objects ])
+
+	指定參數時，傳回映射的格式如同 info0。
+參考：
+	domain_file, author_file, set_author
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.23.	v22 版

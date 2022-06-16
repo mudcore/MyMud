@@ -1,0 +1,19 @@
+
+	moncontrol(3)		MudOS v21c2		(5 Sep 1994)
+
+	名稱:
+		moncontrol() - 開啟或關閉側寫 (profiling).
+	語法:
+		void moncontrol( int on );
+
+		無傳回值 moncontrol( 整數 on );
+	用法:
+		如果參數 on 為 1, moncontrol()  就開啟側寫. 如果 on 指定
+		為 0  , moncontrol()  會關閉側寫. 執行驅動程式 (driver)
+		時可以隨時開關側寫, 典型的用法是只想側寫某些部份執行的情形.
+		如果驅動程式編譯 (compile) 時, 沒有開啟側寫功能, 
+		moncontrol() 就沒有效果.
+	參考:
+		opcprof(3), function_profile(3)
+	翻譯:
+		Spock @ FF	97.Apr.15.		(printed 3/16/95)

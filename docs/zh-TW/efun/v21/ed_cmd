@@ -1,0 +1,17 @@
+
+	ed_cmd(3)		MudOS v21c2		(5 Sep 1994)
+
+	名稱:
+		ed_cmd() -  對一個正在執行的 ed 工作 (session)  
+			    送出一個命令.
+	語法:
+		string ed_cmd( string cmd )
+
+		字串 ed_cmd( 字串 cmd )
+	用法:
+		這個函式只有在 __OLD_ED__ 不予定義 (define) 時有效.
+
+		命令 cmd 會被送到一個正在執行的 ed 工作 (session) , 
+		並傳回命令執行後輸出的結果.
+	翻譯:
+		Spock @ FF	97.Feb.12.		(printed 3/16/95)

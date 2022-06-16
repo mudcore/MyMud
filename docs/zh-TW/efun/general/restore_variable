@@ -1,0 +1,14 @@
+名稱：
+	restore_variable - 從一個字串讀回變數值。
+語法：
+	mixed restore_variable( string value );
+
+	混合 restore_variable( 字串 值 );
+用法：
+	從一個字串讀回 LPC 值。字串的格式與 save/restore_object() 相同。
+參考：
+	save_variable, restore_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.24.	v22 版

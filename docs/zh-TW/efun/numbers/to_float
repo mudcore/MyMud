@@ -1,0 +1,14 @@
+嘿
+	to_float - 盢俱计锣传Θ疊翴计
+粂猭
+	float to_float( int i );
+
+	疊翴计 to_float( 俱计 i );
+ノ猭
+	to_float() 肚疊翴计篈计计单俱计 i
+把σ
+	to_int, read_buffer, sprintf, sscanf
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.Aug.24.	v22 

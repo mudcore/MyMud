@@ -1,0 +1,14 @@
+名稱：
+	users - 傳回一個包含所有互動 (interactive) 玩家的陣列。
+語法：
+	object array users();
+
+	物件 陣列 users();
+用法：
+	傳回一個物件陣列，包括所有的互動玩家。
+參考：
+	livings, children, objects
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

@@ -1,0 +1,28 @@
+名稱：
+	allocate_mapping - 預先配置 (pre-allocate) 一塊記憶體給一個映射變數
+			    (mapping)。
+語法：
+	mapping allocate_mapping( int size );
+
+	映射 allocate_mapping( 整數 大小 );
+用法：
+	傳回一個預先配置 size 個元素 (elements) 的映射變數。
+
+	範例：
+
+	mapping x;
+	int y = 200;
+
+	x = allocate_mapping(y);
+
+	y 是這個映射變數的初始大小。如果您已經知道映射變數有多大，使用 
+	allocate_mapping 是比較好的方法〈在範例裡是200 個元素〉，因為一次就
+	設定好要配置的記憶體，就記憶體的使用上是比較有效率的。如果您要用映
+	射儲存 200 項資料，用範例中的方法是較適合而有效率的方式。注意：上面
+	的範例並不表示該映射只能儲存 200 個元素。
+參考：
+	map_delete
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.20.	v22 版

@@ -1,0 +1,16 @@
+名稱：
+        view_erroes - 確認是否user可以看到錯誤訊息。
+語法：
+        int view_errors(object user)  
+
+        整數 view_errors(object user)
+用法：
+        假如MUDLIB_ERROR_HANDLER被關閉的話，當user遇到錯誤訊息時，view_errors(user)
+        將會被呼叫。如果返回非零值，user將會被給於詳細的錯誤訊息；反之，系統默認的
+        錯誤訊息將會被印出來。(怪怪的)
+參考：
+        MUDLIB_ERROR_HANDER() 
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        anfernee

@@ -1,0 +1,36 @@
+
+	bind(3)			MudOS v21c2		(5 Sep 1994)
+
+	名稱:
+		bind() - 變更一個函式指標 (function pointer)  所指向的
+			 函式.
+	語法:
+		function bind( function f, object ob )
+
+		函式指標 bind( 函式 f, 物件 ob )
+	用法:
+		傳回一個指向 f  的函式指標, 但是指標屬於物件 ob , 
+		而不是創造 f  的物件. 如果 f  的創造者被摧毀、f 
+		是一個外部函式 (external function,  即 efun)  的
+		指標、或是指標指向的外部函式會對 this_object  做
+		一些處理時,  bind() 就很有用.
+
+		範例:
+
+		void make_living(object ob) {
+			function f;
+
+			f = bind( (: enable_commands :), ob );
+
+			evaluate(f);
+		}
+
+		以上例子的作用, 相當於物件 ob 自己處理 
+		enable_commands() 的外部函式. 注意 !! 這個例子會引
+		發一些系統安全上的風險, 因為 bind() 可以讓你強迫其
+		他的物件執行一段程式碼. 為了要防止 bind() 被濫用,
+		有一個主宰物件函式 (master apply) valid_bind()  可
+		以用來決定 bind() 的執行與否. 呼叫 bind() 時, 如果
+		valid_bind() 傳回 1 即可執行, 傳回 0  就無法執行.
+	翻譯:
+		Spock @ FF	96.Oct.16.		(printed 3/16/95)

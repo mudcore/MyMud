@@ -1,0 +1,17 @@
+名稱：
+	file_name - 取得一個物件的檔案名稱。
+語法：
+	string file_name( object ob );
+
+	字串 file_name( 物件 ob );
+用法：
+	file_name() 傳回載入「ob」時的檔案名稱。如果物件是複製物件，則 
+	file_name() 傳回的名稱就不是磁碟中實際上所用的檔案名稱，而是在原來
+	的檔案名稱之後加上「#」號，再加上物件的複製編號。當遊戲啟動時，物件
+	的複製編號從 0 開始，每複製一個相同的物件就增加一號。所以每一個複製
+	出來的物件都有自己獨有的編號。如果不指定「ob」，則預設為 
+	this_object()。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

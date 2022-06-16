@@ -1,0 +1,14 @@
+名稱：
+	this_object() - 傳回呼叫本函式的物件本身的物件指標 (object pointer)。
+語法：
+	object this_object();
+
+	物件 this_object();
+用法：
+	傳回目前這個物件的物件指標。常用於把目前的物件傳入其他函式。
+參考：
+	this_player, previous_object, origin
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.27.	v22 版

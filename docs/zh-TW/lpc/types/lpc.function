@@ -1,0 +1,126 @@
+發信人: jinna@phoenix (吉娜), 信區: mud
+標  題: LPC 的函數 -- 1 (from wade@Fantasy.Space)
+
+function 指標與其變數型態
+-------------------------
+
+    LPC 提供了 function 這種變數型態, 可以用來方便的指向函數.
+  也許你會想要把函數傳給某些 efun, 例如某些過濾的函數. 函數的
+  指標可以用 (: 函數名稱 :) 來引用, 配合函數變數則:
+
+        function f = (: local_func :);
+
+    你可以把 f 當成變數傳給其它函數, 或者是把它當成函數指標:
+
+        foo(f);                         // 當成變數.
+        map_array( ({ 1, 2 }), f);      // 當成指標.
+
+    或者, 有一個更強的用法, 在後來的時機裡再"求值":
+
+        x = evaluate(f, "hi");
+
+When the last line is run, the function that f points to is called, and "hi"
+is passed to it.  This will create the same effect as if you had done:
+    執行到上一行的時候, 實際上會呼叫 f 所指的函數去, 並傳 "hi" 給它當參數.
+  上面的方式跟下面的程式碼意義相同:
+
+        x = local_func("hi");
+
+    以函數變數來指向函數的好處是, 你可以改變指標, 讓它指向別的函數.
+  尤其是配合 evaluate() 時, 在此, 先提醒一下, 如果傳給 evaluate() 的
+  參數不是函數指標的話, 會傳回它的值, 因此下列方式可見函數變數的優點:
+
+        void set_short(mixed x) { short = x; }
+        mixed query_short() { return evaluate(short); }
+
+    如上面的宣告, 你可以如下的使用 set_short():
+        set_short("Whatever");
+        set_short( (: short_func :) );
+
+    如此一來, 物件可以自己定義 short_func(), 可增加許多彈性.
+
+
+各種函數變數或指標
+------------------
+
+    最簡單的函數指標的使用已經如上所述, 即: (: 函數名稱 :), 這種
+  方式可以方便的用在同一物件的函數上, 也可以把參數包括進來, 如:
+
+        string foo(string a, string b)
+        {
+          return "(" + a "," + b + ")";
+        }
+
+        void create()
+        {
+          function f = (: foo, "left" :);
+
+          printf( "%s %s\n", evaluate(f), evaluate(f, "right") );
+        }
+
+        ==> 結果: (left,0) (left,right)
+
+
+    第二種用法是 efun 指標, 跟同一物件裡的局部函數指標很類似. 例如:
+  objects() 會傳回所有 mud 載入的物件, 只要該物件滿足某函數, 如:
+
+        objects( (: clonep :) )
+
+  因為所有物件都是 "clonep", 也就是, 所有物件 ob->clonep() 都傳回非 0 值,
+  因此上述例子會傳回所有的物件陣列.
+
+    底下再示範一個例子:
+
+        void create()
+        {
+          int i;
+          function f = (: write, "Hello, world!\n" :);
+
+          for (i=0; i<3; i++) { evaluate(f); }
+        }
+
+    結果是:
+        Hello, world!
+        Hello, world!
+        Hello, world!
+
+    simul_efun 會跟 efun 一樣的效果(否則怎會稱為 simul_efun?!).
+    而 efun 會跟局部的函數很像, 是因為 efun 是整體性的函數, 因此
+  可以想成是跟局部的函數同樣地位.
+
+    第三種型式的是 call_other 函數指標. 它很類似於 MudOS 所支援的函數
+  指標的用法, 格式是:
+
+        (: 物件, 函數名稱 :)
+
+  假如有參數的話, 可以把所有參數組成陣列加在函數名稱之後. 例如:
+
+        void create()
+        {
+          string *ret;
+          function f = (: this_player(), "query" :);
+
+          ret = map( ({ "name", "short", "long" }), f );
+          write(implode(ret, "\n"));
+        }
+
+    上面的程式片斷相當於:
+        this_player()->query("name");
+        this_player()->query("short");
+        this_player()->query("long");
+
+    如果要讓函數指標直接指向 query("short") 的話, 可以是:
+
+        f = (: this_player(), ({ "query", "short" }) :)
+
+    底下的例子跟上面的一模一樣, 供你做參考:
+
+        f = (: call_other, this_player(), "query", "short" :)
+        // 透過指向 call_other efun, 來呼叫定義在 this_player() 物件中
+        // 的 query("short")
+
+
+--
+
+  本份文件獲 TMI 授權翻譯並轉載
+

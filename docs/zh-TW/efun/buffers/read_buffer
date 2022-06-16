@@ -1,0 +1,25 @@
+名稱：
+	read_buffer() - 讀取檔案並傳回一個暫存區。
+語法：
+	mixed read_buffer( mixed src, int start, int len );
+
+	混合 read_buffer( 混合 來源, 整數 開始, 整數 長度 );
+用法：
+	本函式只在未定義 DISALLOW_BUFFER_TYPE 時生效。
+
+	如果 src 是一個字串〈檔案名稱〉，就會從 start 指定的第幾個位元組
+	(byte) 開始，讀取 len 長度的檔案內容。讀取的內容以暫存區的資料型態
+	傳回。如果不指定 start 和 len，則會讀取整個檔案的內容。
+
+	如果 src  是一個暫存區，就從 start 指定的第幾個位元開始讀取 len 長
+	度的內容，然後傳回一個字串。
+
+	請注意，你可以從一個檔案讀進緩衝區的資料大小，受到編譯時段組態檔案
+	(runtime config file) 中定義的 maximum byte transfer〈最大位元組傳
+	輸量〉控制。
+參考：
+	write_buffer, allocate_buffer, bufferp, read_bytes, write_bytes
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

@@ -1,0 +1,14 @@
+名稱：
+	capitalize - 把一個字串的第一個字元 (character) 轉成大寫字母。
+語法：
+	string capitalize( string str );
+
+	字串 capitalize( 字串 字串 );
+用法：
+	把字串「str」的第一個字元轉成大寫，並傳回轉換後的新字串。
+參考：
+	lower_case
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

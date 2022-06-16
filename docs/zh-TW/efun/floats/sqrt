@@ -1,0 +1,16 @@
+嘿
+	sqrt() - 肚疊翴计 (float) キよ (square root)
+粂猭
+	float sqrt( float f );
+
+	疊翴计 sqrt( 疊翴计 f );
+ノ猭
+	セㄧΑ度﹚竡 PACKAGE_MATH ネ
+
+	sqrt() 肚把计 f タキよf ぃ璽计
+把σ
+	exp, log, pow
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.May.28.	v22 

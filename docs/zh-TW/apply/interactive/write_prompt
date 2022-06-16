@@ -1,0 +1,15 @@
+名稱：
+	write_prompt - 當語法分析器 (parser) 想顯示提示符號 (prompt) 時，
+		會呼叫此函式
+語法：
+	void write_prompt();
+
+	無傳回值 write_prompt();
+用法：
+	如果在玩家物件中有 write_prompt()，則預設的提示符號該顯示時，驅動
+	程式將呼叫此函式。當玩家正處於 input_to〈輸入文字〉和 ed〈編輯程式〉
+	狀態時，驅動程式不會呼叫 write_prompt()。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

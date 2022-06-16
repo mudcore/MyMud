@@ -1,0 +1,16 @@
+名稱：
+	query_load_average - 報告 mud 的系統平均負載量 (load average)。
+語法：
+	string query_load_average();
+
+	字串 query_load_average();
+用法：
+	這個函式傳回一個字串，其中報告兩件事：
+	1) 平均每秒鐘的使用者命令數量。
+	2) 平均每秒鐘編譯的程式行數。
+參考：
+	rusage
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

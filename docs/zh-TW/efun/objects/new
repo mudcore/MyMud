@@ -1,0 +1,17 @@
+名稱：
+	new - 載入並複製一個物件。
+語法：
+	object x = new( string name, ... );
+	class foo x = new( class foo );
+
+	物件 x = new( 字串 名稱, ... );
+	類別 foo x = new( 類別 foo );
+用法：
+	如果給予字串，本函式如同複製一個物件。如果給的是一個類別型態，則它
+	創造一個新的類別型態。
+參考：
+	clone_object, destruct, move_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

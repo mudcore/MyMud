@@ -1,0 +1,61 @@
+
+發信人: jinna@phoenix (吉娜), 信區: mud
+標  題: LPC 超級短篇
+
+* 什麼是 LPC ?
+
+    LPC 是由 MudOS 所定義出來的語言, 用來寫作 LP mud 中的物件,
+LPC 是由 Lars pensj| C. 所建立起來的. LPC 它提供了 C 語言的
+"while", "for" 等迴圈, "if", "switch" 等選擇, 甚至是 sscanf 等等
+的函數, int, char 等等的資料型態(LPC 也提供 C 沒有提供的其他資料
+型態, 如物件跟對應). LPC 使用了 C 的語法來定義跟呼叫函數, 定義跟
+使用變數等等. 不過 LPC 所定義出來的字串變數的行為跟 C 有很大的不
+同. 可以參考 LPC 的其他教學說明.
+
+    底下是一些 LPC 跟 C 的相異處:
+
+   a) 物件以 create() 函數取代 main() 函數.
+
+   b) 系統函數(或稱為 efun)提供一組函數, 卻又跟 C 的系統函數庫(如 libc.a)
+      不一樣.
+
+   c) 沒有提供 malloc() 這一類的函數, 而是用有點類似的 allocate(int 個數)
+      取代, 注意, allocate() 中的大小單位不是位元組, 而是陣列元素的大小.
+
+   d) 記憶體從來不會很明顯的釋放, MudOS 驅動程式會保持這些記錄, 以
+      方便下次的使用. 它的使用方式俗稱為 "垃圾搜集法"(garbage collected).
+
+   e) LPC 所提供的字串不像 C, 反而比較類似 BASIC. 在 LPC 裡, 字串不是字元
+      陣列, 而是內定的型態, 可以使用 + 運算子, 底下舉例說明:
+
+        LPC 的下列敘述是合法的:
+
+        string ack;
+        ack = foo + bar;
+
+        約相等於下列的 C 敘述:
+
+        char *ack;
+        ack = (char *)malloc(strlen(foo) + 1);
+        strcpy(ack,foo);
+        ack = (char *)realloc(strlen(ack) + strlen(bar) + 1);
+        strcat(ack,bar);
+
+   f) LPC 是一種解譯是語言, 在執行前先翻譯成中間符號.
+
+   g) LPC 沒有結構(struct) 跟聯集(union). 事實上, "->" 運算子用來
+      指示呼叫物件中的函數, 而不是跟 C 相同的用法. LPC 所提供的對
+      應型態在某些狀況下會比使用結構更有效.
+
+   h) LPC 的 sscanf() 跟 C 所提供的 sscanf() 工作方式不太一樣. LPC 裡的
+      sscanf() 的參數不必是指標型態, 因為 LPC 就是用指標的方式引用物件.
+      此外, sscanf(arg,"%s %s",str1,str2) 這樣的用法跟 C 的結果可能會很
+      不一樣. C 裡面, 第一個"字"會被丟到 str1 中, 第二個字會被指定到 str2
+      中, 然而, 在 LPC 中, 第一個字會被丟到 str1 中, 其餘的字串會被指定
+      到 str2 中.
+
+--
+  本份文件由 wade@Fantasy.Space 提供
+  本文件由 MudOS driver v21 版裡的說明文件翻譯而得
+  本文件已獲授權翻譯並流通
+

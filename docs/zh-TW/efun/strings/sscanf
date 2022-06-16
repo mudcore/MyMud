@@ -1,0 +1,36 @@
+名稱：
+	sscanf - 從一個字串中找出相配的子字串 (substring)。
+語法：
+	int sscanf( string str, string fmt, mixed var1, mixed var2 ... );
+
+	整數 sscanf( 字串 字串, 字串 格式, 混合 變數一, 混合 變數二 ... );
+用法：
+	以格式「fmt」去解讀字串「str」。格式「fmt」中含有與「str」比對的文
+	字，由各個以「%」為首的樣式 (pattern) 分隔開來。以下是支援的樣式：
+
+	%% - 相配「%」
+	%x - 相配一個十六進位數
+	%d - 相配一個十進位數
+	%f - 相配一個浮點數
+	%(regexp) - 相配任何符合正規表示式 (regular expression)「regexp」
+		    〈詳見 regexp() 外部函式說明〉
+	%s - 相配一個字串；詳述於後
+
+	注意第三個以後的參數「不是」表示式 (expression)；它們必須是可用的位
+	置值 (lvalue)〈可以指定的記憶體位置 (location)〉。字串符合時，對應
+	值會直接放入第三個以後的參數。如果碰到問題〈樣式之間的一些文字不符
+	合，或是樣式不符合對應的輸入〉，則傳回目前為止相配符合的數目。如果
+	格式中有「%*」，就算符合該樣式也不會存入對應的變數。但是它會算入傳
+	回值的數目。
+
+	「%s」詳述如下。如果它後面是文字，「%s」一直相配到文字再次出現。舉
+	例來說，對字串「foxxybarxyz」來說，格式「%sxy%s」的第一個「%s」會相
+	配「fox」。如果「%s」碰到字串尾端，則相配剩下的字串。如果它後面馬上
+	跟著另外的樣式，則「%s」相配到後面樣式相配的部分。「%s%s」是不能使
+	用的。
+參考：
+	explode, replace_string, strsrch
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

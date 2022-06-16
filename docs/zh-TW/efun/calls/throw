@@ -1,0 +1,18 @@
+名稱：
+	throw() - 強制在一個物件中產生錯誤。
+語法：
+	void throw(mixed);
+
+	無傳回值 throw( 混合 );
+用法：
+	throw() 可以在閉合的 catch() 敘述內〈譯註：即 catch() {} 裡面〉送
+	出指定的任意值。如果你只是想產生一個普通的錯誤，請參考 error()，因
+	為 error() 產生的錯誤如果沒被抓到，它造成的結果比較好。程式的控制
+	權會立刻交到 catch() 函式手上，而 catch() 敘述的值就是 throw() 送
+	出的值。
+參考：
+	catch, error
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.27.	v22 版

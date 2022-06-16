@@ -1,0 +1,16 @@
+名稱：
+	mud_status - 報告一些驅動程式及 mudlib 的統計數字。
+語法：
+	string mud_status( int extra );
+
+	字串 mud_status( 整數 其他 );
+用法：
+	這個函式以字串型態傳回一些驅動程式及 mud 函式庫的統計數字。如果參數
+	extra 為非零值，則會多顯示一些關於內部資料表的附加資訊。這個函式取
+	代了 vanilla 3.1.2 程式核心的「status」及「status tables」指令。
+參考：
+	debug_info, dumpallobj, memory_info, uptime
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

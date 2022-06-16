@@ -1,0 +1,18 @@
+名稱：
+	reset - 讓一個物件作自我維護 (self-maintenance)
+語法：
+	void reset();
+
+	無傳回值 reset();
+用法：
+	在每次重新設定 (reset) 之後〈實際的重新設定週期取決於該 mud 的設定
+	，平均大約是每兩個小時一次〉，所有遊戲中現存的物件都會呼叫 reset()
+	函式。如果編譯驅動程式時，於 options.h 中定義了 LAZY_RESET，只有玩
+	家附近的物件才會呼叫 reset()。如此一來，沒用到的物件就不會從置換檔
+	 (swap file) 中載入並進行重新設定。
+參考：
+	set_reset
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

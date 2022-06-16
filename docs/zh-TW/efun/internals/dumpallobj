@@ -1,0 +1,18 @@
+名稱：
+	dumpallobj - 報告所有已載入之物件的一些統計資料。
+語法：
+	void dumpallobj();
+	void dumpallobj( string );
+
+	無傳回值 dumpallobj();
+	無傳回值 dumpallobj( 字串 );
+用法：
+	這個函數會傾印 (dump) 出所有已經載入之物件的統計資料列表。如果不指
+	定參數，這些資訊會傾印在 /OBJ_DUMP 這個檔案裡。如果指定參數，就是指
+	定輸出的檔案名稱。
+參考：
+	mud_status, debug_info
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

@@ -1,0 +1,268 @@
+
+                     LPC 前置處理區 (preprocessor) 手冊
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                              (93.07.17 更新)
+
+對 LPC  編譯器 (compiler) 而言, 前置處理區是程式碼的最前端, 它提供以下
+便利的特性:
+
+    o	共享的定義和程式碼 (#include)
+    o	巨集 (macros) (#define, #undef)
+    o	編譯條件 (#if, #ifdef, #ifndef, #else, #elif, #endif)
+    o	除錯 (#echo)
+    o	使用特定的編譯器功能 (#pragma)
+    o	快速的文章格式 (@, @@)
+
+前三個與 C  相同. 如果您熟悉 C  語言, 大概只會瀏覽此份文件的最後幾段文字.
+
+說明:
+    前面以 #  開頭的命令 (像是 #include), 其 #  符號必須擺在每行的第一
+    個字, 前面不可留有空白.
+
+
+共享的定義和程式碼
+~~~~~~~~~~~~~~~~~~
+#include 提供此功能.
+
+    語法 1 :   #include <file.h>
+
+    語法 2 :   #include "file.h"
+
+說明:
+    語法 1  的形式, 會在系統的標準引用 (include)  目錄中, 尋找 file.h.
+     (在 TMI  中是 /include)
+
+    語法 2  的形式, 會在程式檔案所在的同一個目錄中, 尋找欲引用的 file.h
+
+#include  敘述是以文字命令的方式, 在一個檔案中引用另一個檔案. 在一個檔案
+中放上像 #include "file.h"  的敘述, 就如同 file.h 的內容直接放入 #include
+所在的位置. 在每次物件重新編譯時, 物件所引用的檔案也會重新編譯一次. 如果
+引用的檔案裡面有變數或函式與此檔案中的相同, 編譯此檔案時會產生雙重命名的
+錯誤 (duplicate-name error)  (如果您把 file.h 的內容放在 #include 的位置
+, 一樣會產生錯誤). 
+
+
+巨集
+~~~~
+巨集定義將後面程式碼中的一些字換成定義的內容. 目的在於隱藏程式內部的細節
+、減少打字的數量、便於更改常數 (constant).
+
+    語法 1 :	#define identifier token_sequence
+
+    語法 2 :	#define identifier(id_list) token_sequence
+
+說明:
+	慣例上, 程式碼中的 identifier 使用大寫英文字母以強調它們所出現的
+	位置, 並且在程式碼開端或是所引用的表頭檔 (header file)  中定義其
+	內容.
+
+	第二種語法讓 id_list 列出的 identifier 能代換成 token_sequence.
+
+範例:
+
+    //  造出一個有 40 個元素的整數陣列, 並將所有元素的值初始化為其編號的
+    //  兩倍.
+    //  即 stack[0] = 0, stack[1] = 2, stack[2] = 4 ....以此類推.
+
+    #define STACKSIZE 40
+    #define INITCELL(x) 2*x
+
+    int *stack;
+
+    create() {
+        int i;
+
+        stack = allocate(STACKSIZE);
+        
+        for (i = 0; i < STACKSIZE; i++)
+            stack[i] = INITCELL(i);
+    }
+
+最後, 有時會用到清除定義 (undefine) ﹝讓編譯器 (compiler) 別理會此定義﹞
+. 這樣就用到下面的命令.
+
+    語法 :	#undef identifier
+
+說明:
+    #undef 可以清除一個根本不存在的 identifier.
+
+
+編譯條件
+~~~~~~~~
+這些命令可以讓您的程式更具有可塑性 (flexibility). 利用 identifier 定義與
+否, 可以為不同的目的而變化程式碼. 用途像是挑選系統管理者連線、支援多個驅
+動程式 (或不同版本的驅動程式).
+
+    語法 :	#ifdef <identifier>
+                #ifndef <identifier>
+                #if <expression>
+                #elif <expression>
+                #else
+                #endif
+
+說明:
+    <identifier>  是一個已經定義 (或應該定義) 的 identifier.  它應於您的
+    程式或是已經引用的檔案事先定義, 不然就是驅動程式已定義的符號 (symbol).
+
+    <expression>  是一個常數運算式 (constant expression), 計算布林
+    (boolean) 邏輯條件. 運算式中, 可以在合於語法的情形下, 使用下面的組合:
+
+        運算子: ||, &&, >>, <<,
+                +, -, *, /, %,
+                &, |, ^, !, ~,
+                ==, !=, <, >, <=, >=, ?:
+        用來分組的小括號: (, )
+        呼叫形式: defined(identifier)
+        以及 identifiers
+
+    #ifdef identifier
+	可以視為這行的縮寫:
+            #if defined(identifier)
+
+    #ifndef identifier
+	可以視為這行的縮寫:
+            #if !defined(identifier)
+
+    #elif expression
+	可以視為這些的縮寫:
+            #else
+            #  if expression
+            #  endif
+
+範例 1:
+
+    //  使用 #if 0  可以讓你在一段程式碼中加上註解 (comment). 這樣做的其
+	中一個理由是把舊的程式碼保留在原位, 防止新的程式失敗.
+    #if 0
+        //  在此, 常數運算式算出 (或說本來就是) 0 , 所以此段程式碼不予編
+	    譯.
+
+        write(user_name + " 有 " + total_coins + " 元.\n");
+    #else
+        //  這是另外的情形 (if 算出零值, else 就是非零值), 所以會編譯此段
+	//  程式.
+
+        printf("%s 有 %d 元\n", user_name, total_coins);
+    #endif
+
+範例 2:
+
+    //  這個範例由 TMI 的 /adm/simul_efun/system.c 改寫而來.
+    #ifdef __VERSION
+          string version() { return __VERSION__; }
+    #elif defined(MUDOS_VERSION)
+          string version() { return MUDOS_VERSION; }
+    #else
+    #  if defined(VERSION)
+          string version() { return VERSION; }
+    #  else
+          string version() { return -1; }
+    #  endif
+    #endif
+
+
+除錯
+~~~~
+#echo 命令讓您向驅動程式的 stderr (STanDard ERRor, 標準錯誤處理) 印出訊息.
+這項功能在診斷和除錯時非常有用.
+
+    語法:     #echo This is a message
+
+說明:
+    #echo 這行就是訊息的內容, 並逐字印出. 訊息前後不用加上 ". 
+
+
+特定的編輯器功能
+~~~~~~~~~~~~~~~~
+這項是驅動程式內建的功能.
+
+    語法:	#pragma keyword
+
+目前可用的 keyword 列在下面:
+
+    o   strict_types
+    o   save_binary
+    o   save_types
+    o   warnings
+    o   optimize
+    o   error_context
+
+使用 #pragma no_keyword 可以關閉指定的功能.
+
+說明:
+    'strict_types' 告訴編譯器呼叫 call_other() 的函式, 其傳回值不可忽略.
+
+    'save_binary'  告訴編譯器要儲存此物件的二進位 (binary) 檔.
+		   在重新啟動或關閉遊戲之後, 載入物件的時間會變快, 因為
+		   編譯過的物件已經儲存為二進位檔, 不必重新編譯.
+
+    'save_types' 目前停用
+
+    'warnings' 在您的 LPC  程式碼開啟一些警告措施. 這些警告不見得會依照
+	       您預料中的結果反應.
+
+    'optimize' 用一點時間改進編譯過的程式碼效率.
+    
+    'error_context'  於錯誤訊息中使用更多的文字指示哪一行發生錯誤.
+
+快速文章格式
+~~~~~~~~~~~~
+這項功能便於求助訊息、房間敘述等長篇內容使用文章格式.
+
+    語法 1 :	@marker
+                  <... text block ...>
+                marker
+    
+    語法 2 :	@@marker
+                  <... text block ...>
+                marker
+
+Notes:
+    @   - 產生一個適於 write() 的字串.
+
+    @@  - 產生一個字串陣列, 適於分頁文章 (body pager).
+produces an array of strings, suitable for the body pager
+
+在結束標記 (end marker) 之前, 使用 @marker 或 @@marker. 兩者之間是您想對
+使用者顯示的文章. 文章以 marker 作為結束, 不必加 @ 或 @@. 使用 @, 文章就
+如同一個字串, 換行處加上 \n.  使用 @@,  文章就如同一個字串陣列, 而每一行
+分別是一個字串.
+
+範例 1 :
+
+        int help() {
+            write( @ENDHELP
+        這是求助文章。
+        It's hopelessly inadequate.
+        ENDHELP
+              );
+            return 1;
+        }
+
+    與此相同:
+
+        int help() {
+            write( "這是求助文章。\nIt's hopelessly inadequate.\n" );
+            return 1;
+        }
+
+範例 2 :
+
+        int help() {
+            this_player()->more( @@ENDHELP
+        這是求助文章。
+        It's hopelessly inadequate.
+        ENDHELP
+              , 1);
+            return 1;
+        }
+
+    與底下相同:
+
+        int help() {
+            this_player()->more( ({ "這是求助文章。",
+                  "It's hopelessly inadequate." }), 1);
+            return 1;
+        }
+
+翻譯:	Spock @ FF	97.Aug.9.

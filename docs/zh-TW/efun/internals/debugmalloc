@@ -1,0 +1,19 @@
+名稱：
+	debugmalloc - 將配置記憶體 (malloc'd memory) 的資訊傾印 (dump) 到一
+		      個檔案裡。
+語法：
+	void debugmalloc( string filename, int mask );
+
+	無傳回值 debugmalloc( 字串 檔名, 整數 遮罩 );
+用法：
+	這個外部函式必須在編譯驅動程式時，於 options.h 中同時定義
+	PACKAGE_DEVELOP、DEBUGMALLOC、DEBUGMALLOC_EXTENSIONS 三項才有效。
+	debugmalloc() 會傾印 DMALLOC() 配置的記憶體區塊的資訊及相關的巨集
+	(macros)〈如果該巨集有單位元「&」符號與尾標 (tag)，即 mask & tag 不
+	是零〉。詳細情形請參閱驅動程式原始碼中的 md.c 及 config.h。
+參考：
+	set_malloc_mask
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

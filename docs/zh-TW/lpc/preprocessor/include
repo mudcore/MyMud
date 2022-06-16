@@ -1,0 +1,10 @@
+以下這行:
+
+#include "filename"
+
+會讓驅動程式編譯此檔案時, 假裝 filename 中的內容已經全數放入檔案中. 如果
+您想引用許多其他物件中的某些函式, 請用 inherit  代替 #include.  #include
+讓每個物件都有引用檔 (include file) 的一份程式碼拷貝, 而繼承讓許多物件共
+享一段程式碼.
+
+翻譯:	Spock @ FF	97.Aug.10.

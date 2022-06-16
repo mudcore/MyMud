@@ -1,0 +1,21 @@
+名稱：
+	function_exists - 在一個物件之中找出含有指定函式的檔案。
+語法：
+	string function_exists( string str, object ob );
+
+	字串 function_exists( 字串 字串, 物件 物件 );
+用法：
+	傳回物件「ob」之中定義有函式「str」之物件的檔案名稱。如果函式
+	「str」是被定義在「ob」繼承的物件中，傳回的檔案名稱可能會與 
+	「file_name(ob)」傳回的不同。
+
+	如果物件「ob」中沒有定義函式「str」則傳回 0。
+
+	注意，function_exists() 不會檢查「ob」的投影物件 (shadows) 或是無法
+	從物件外面呼叫的函式。
+參考：
+	call_other
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

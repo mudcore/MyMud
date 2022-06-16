@@ -1,0 +1,13 @@
+名稱：
+	crc32() - 計算一個暫存區或字串的循環重覆碼 (cycle redundency code)。
+語法：
+	int crc32( buffer | string x );
+
+	整數 crc32( 暫存區 | 字串 x );
+用法：
+	計算並傳回給定的暫存區或字串 x 的 CRC-32 碼。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版
+

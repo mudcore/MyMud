@@ -1,0 +1,23 @@
+名稱：
+	shutdown - 關閉驅動程式。
+語法：
+	void shutdown( int how );
+
+	無傳回值 shutdown( 整數 方法 );
+用法：
+	這個函式可以用管制的方式關閉驅動程式〈相較於 crash 關閉的方式〉。參
+	數「how」指定驅動程式要送給 exit() 函式的整數值。慣例上，當你想一起
+	關閉重新啟動驅動程式的 script 時，「how」為 -1。所以重新啟動 
+	(reboot) mud 時，reboot 指令應該使用 shutdown()，而 halt 指令〈停止 
+	mud 執行〉應該使用 shutdown(-1)。如果你想要藉由上述的方式控制 mud 
+	關閉的方式，你應該在 script 中明確檢查傳回值是否為 -1。shutdown() 
+	顯然是一個需要安全把關的函式。與 exec() 一樣，在 simul_efun 中加上 
+	同名的 shutdown() 可以對它作適當的檢查。請確定在主宰物件 (master.c)
+	中也要設定 valid_override() 以防止 efun::shutdown() 這種方式逃過檢
+	查。
+參考：
+	crash, slow_shutdown
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

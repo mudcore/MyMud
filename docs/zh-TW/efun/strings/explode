@@ -1,0 +1,18 @@
+名稱：
+	explode - 打斷一個字串。
+語法：
+	string array explode( string str, string del );
+
+	字串 陣列 explode( 字串 字串, 字串 分隔 );
+用法：
+	explode() 傳回一個字串的陣列 (array)，此陣列是字串「str」以「del」
+	分界打斷的片段。
+範例：
+	explode( str, " " ); 會傳回「str」中所有英文單字的字串陣列〈假設
+	「str」是英文句子，每一個單字由空白字元隔開〉。
+參考：
+	sscanf, replace_string, strsrch
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

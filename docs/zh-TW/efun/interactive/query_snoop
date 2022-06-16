@@ -1,0 +1,16 @@
+名稱：
+	query_snoop - 一個互動 (interactive) 物件的監聽者 (snooper)。
+語法：
+	object query_snoop( object ob );
+
+	物件 query_snoop( 物件 物件 );
+用法：
+	如果「ob」〈一個互動物件〉正被另一個互動物件監聽當中，就傳回監聽物
+	件。
+	如果沒有，則傳回 0。
+參考：
+	snoop, query_snooping
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

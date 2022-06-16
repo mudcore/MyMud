@@ -1,0 +1,17 @@
+名稱：
+	traceprefix - 設定字首 (prefix) 以決定該追蹤哪一個物件。
+語法：
+	string traceprefix( string prefix );
+
+	字串 traceprefix( 字串 字首 );
+用法：
+	本函式僅在定義 TRACE 與 PACKAGE_DEVELOP 時生效。
+
+	如果設定追蹤字首 (traceprefix)〈即不為 0〉，則追蹤時只有遇到與追蹤
+	字首同名的物件才進行追蹤。
+參考：
+	trace
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.20.	v22 版

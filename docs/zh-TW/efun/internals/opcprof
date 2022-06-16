@@ -1,0 +1,19 @@
+名稱：
+	opcprof - 報告一些外部函式 (efun) 被呼叫的頻率統計。
+語法：
+	void opcprof();
+	void opcprof( string );
+
+	無傳回值 opcprof( );
+	無傳回值 opcprof( 字串 );
+用法：
+	這個函式印出每一個外部函式 (efunction) 和外部函式操作子	(eoperator) 
+	的統計數字列表。如果不指定參數，所有的資料都會傾印到 /OPCPROF.efun 
+	和 /OPCPROF.eoper 這兩個檔案裡。如果指定了一個參數，就用作傾印的檔
+	案名稱。
+參考：
+	function_profile
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

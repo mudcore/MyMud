@@ -1,0 +1,15 @@
+名稱：
+	parse_command_all_word - 找出哪個字指所有的東西。
+語法：
+	string parse_command_all_word(); 
+
+	字串 parse_command_all_word();
+用法：
+	要找出哪個字指所有東西的意思，會呼叫在主宰物件中的此函式。此函式用
+	於 parse_command() 外部函式。
+參考：
+	parse_command
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

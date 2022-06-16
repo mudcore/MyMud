@@ -1,0 +1,19 @@
+名稱：
+	set_debug_level - 設定驅動程式的 debug() 巨集 (macro) 所使用的除錯 
+			  (debug) 等級。
+語法：
+	void set_debug_level( int level );
+
+	無傳回值 set_debug_level( 整數 等級 );
+用法：
+	這個外部函式 (efun) 只有在編譯驅動程式時使用 -DDEBUG_MACRO 參數才有
+	效。set_debug_macro() 讓驅動程式在執行時，可以從 mud 內部控制產生除
+	錯訊息的量及種類。
+
+	詳細內容請參考驅動程式原始碼中的 debug.h 標頭檔 (include)。
+參考：
+	set_malloc_mask
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.20.	v22 版

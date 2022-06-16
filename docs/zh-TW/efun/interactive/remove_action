@@ -1,0 +1,21 @@
+名稱：
+	remove_action - 解除區域函式 (local function) 與命令動詞 (command 
+			verb) 的連結。
+語法：
+	int remove_action( string fun, string cmd );
+
+	整數 remove_action( 字串 函式, 字串 命令 );
+用法：
+	本函式僅在未定義 NO_ADD_ACTION 時生效。
+
+	remove_action() 解除命令動詞與物件函式 fun 的連結。基本上，
+	remove_action() 是補充 add_action() 的函式。當您不需要一個動詞時，
+	可以用 remove_action() 解除。
+
+	remove_action() 解除成功傳回 1，失敗傳回 0。
+參考：
+	add_action, query_verb, init
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

@@ -1,0 +1,33 @@
+名稱：
+	input_to - 讓輸入的下一行內容送往一個指定的函式。
+語法：
+	varargs void input_to( string | function fun, int flag, ... );
+
+	不定參數 無傳回值 input_to( 字串 或 函式指標 函式, 整數 旗標, ... );
+用法：
+	讓使用者輸入的下一行內容作為區域函式「fun」的參數。該行的輸入內容不
+	會被驅動程式分析 (parse)。
+
+	請注意，input_to 是「非阻隔性」(non-blocking) 的，意即呼叫 input_to
+	的物件不會為此暫停下來等待輸入。物件會繼續執行 input_to 之後的程式
+	敘述。在使用者尚未輸入完畢以前，不會呼叫函式指標 fun。
+
+	如果同一次程式執行呼叫「input_to()」超過一次以上，只有第一次呼叫有
+	效。
+
+	如果可選擇的參數「flag」設定為位元 1 (has the 1 bit set)，則玩家輸
+	入的內容不會回應 (echo)在畫面上，也不會出現在監聽 (snoop) 的畫面上
+	〈常用於輸入密碼時很有用〉。
+
+	如果「flag」是位元 2，則 input_to 不能被開頭為「!」的命令跳過。其
+	他情況下，開頭為「!」的一行字會跳過 input_to 而交給正常的輸入控制程
+	式處理。
+
+	使用者輸入的一行內容會被當成呼叫函式指標 fun 時的第一個參數〈字串型
+	態〉在 flag 後面的參數會當成 fun 的第二個、第三個......等等的參數。
+參考：
+	call_other, call_out, get_char
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.26.	v22 版

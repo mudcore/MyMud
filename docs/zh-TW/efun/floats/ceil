@@ -1,0 +1,18 @@
+嘿
+	ceil() - р疊翴计秈Θ程俱计
+粂猭
+	float ceil( float f );
+
+	疊翴计 ceil( 疊翴计 f );
+ノ猭
+	セㄧΑ度﹚竡 PACKAGE_MATH ネ
+
+	肚程钡 fτ单┪ f 俱计疊翴计
+亩爹
+	 f 计礚兵ン秈Θ俱计埃獶 f 计 0
+把σ
+	floor, to_int, to_float
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.May.28.	v22 

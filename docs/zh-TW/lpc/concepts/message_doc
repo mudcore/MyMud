@@ -1,0 +1,197 @@
+
+ message() 訊息處理函式
+------------------------
+
+message() 是 MudOS  中, 新設計的外部函式 (efun).  此函式的用途是使訊息
+傳遞更簡易, 並提供訊息處理程式溝通的標準.
+
+以下是 message 的使用說明:
+=====================================================================
+語法:
+
+void message( mixed class, string message, mixed targets, mixed exclude);
+
+無傳回值 message( 混合 class, 字串 message, 混合 targets, 混合 exclude );
+
+message() 呼叫任何接收訊息之物件裡面的 
+receive_message( 混合 class, 字串 message ) 函式 (target  名單就是接收
+訊息的物件).  而 exclude  中列出不予接收訊息的物件. 基本上, 這樣會送訊
+息給目標物件.
+
+message 就是要傳達的訊息字串.
+
+class 是訊息的種類 (給訊息處理程式或其他程式分類用) 一些例子像是: 
+combat (戰鬥) 、 shout (吶喊)、  emergency (危急) 等等.
+
+target  是接收訊息的物件名單. 可以是一個物件檔案名稱的字串, 也可以是一
+個物件指標 (pointer), 亦可以是多個物件的檔案名稱或指標的陣列 (array).
+
+exclude 是不可收到訊息的物件名單. 可以是一個物件指標或是多個物件指標的
+陣列.
+======================================================================
+
+message() 函式最重要的地方應該是 class  參數. 如果能正確使用它, 您可以
+作出一個簡單的耳罩以過濾訊息, 或是讓訊息處理程式加以處理. class 定義了
+message 字串訊息的分類為何. 一開始簡單的分類應包括 shout (吶喊)、 say
+ (談話)、 write (顯示)、 tell_object (給物件的訊息)  (tell_object 由
+模擬外部函式 (simul_efun) 中的 tell_object()  函式產生, 代替傳統的外部
+函式).
+
+談到這裡, 您大概想要馬上作出一個簡單的耳罩功能 (過濾吶喊的功能).  在您
+的使用者 (玩家) 物件中, 您要有 receive_message()  函式. 以下是一個最簡
+單的作法 (隨您 mudlib 不同, 應作出一些修正以符合實際情況) :
+
+void receive_message (string msg, mixed class)
+{
+	receive(msg);
+}
+
+這樣只是收到 message()  送來的所有的訊息, 並原封不動顯示給使用者. 但是
+, 您可以想到一個簡單的耳罩:
+
+// 先初始化 muffle 陣列的值, 以預防 muffle 沒有東西時, 讓 member_array()
+   產生陣列指向錯誤的訊息.
+
+string *muffle = ({});
+
+// 呼叫 muffle_class() 可以隨時加上耳罩的種類.
+
+int muffle_class ( string arg )
+{
+	muffle += ({ arg });
+}
+
+// receive_message() 是 message() 呼叫的訊息處理函式.
+   在此檢查 muffle 陣列中是否有跟 class 相同的種類, 沒有就放行.
+
+void receive_message ( string msg, string class )
+{
+	if ( member_array( class, muffle ) == -1 )
+		receive(msg);
+}
+
+您現在可以看到, 如果特定種類的訊息被消音 (假設是「吶喊」),  則吶喊的訊
+息永遠不會顯示出來, 其他種類的訊息則正常顯示.
+
+可是, 在傳統的 mud  觀念中, 並非所有使用 shout()  的訊息都是吶喊. 譬如
+說, mud 系統管理者想對所有的使用者宣佈 mud  將於五分鐘後關閉. 如此一來
+, 可能會用 echo 指令. 而 echo 指令又使用 shout(). 如此導致使用吶喊耳罩
+的使用者聽不見重要的訊息. 這種情形表示訊息還需要再分類. 所以, 我們乾脆
+把這種訊息歸類為新的 broadcast (廣播) 分類. 而這種分類就用於每一個人都
+該聽到的重要訊息. 甚至應限制使用者使用廣播耳罩.
+
+讓我們看看另一個例子. 如果您對於塞滿你螢幕的表情敘述 (emotes) 感到厭煩
+的話, 該怎麼辦 ?  要是有個表情訊息的耳罩該有多好 ?  很顯然, 我們需要把
+這些訊息歸類為 emote (表情).  現在您也許會想到: 「喂....我可不想在每次
+寫這種表情指令的時候, 還要用那個超級複雜的 message()  函式。像 write()
+和 say()  就很簡單, 我寧願用這些。」好吧, 我也同意您的話. 要對付這個問
+題, 我將一般會用到的訊息種類寫成個別的模擬外部函式 (simul_efun) . 我新
+寫了一個名為 emote()  的模擬外部函式, 讓這些指令寫起來要方便多了. 而
+emote() 函式使用 message()  傳達 emote  種類的訊息. 我不把程式給您, 以
+下是基本的概念:
+
+varargs int emote (object emoter, string self_message, string
+	other_message, mixed emotee, string target_message, string modifier);
+
+emoter - 作出表情的物件.
+self_message - 作出表情的物件本身收到的訊息.
+other_message -  整個房間其他人收到的訊息.
+emotee - 傳達表情訊息的對象 (例如 kick huthar)
+target_message - 對象收到的訊息.
+string modifier - 任何加在訊息尾端的修飾詞. (像是副詞: smile happily,
+		  cheerfully  等等) - 這只有很複雜的表情指令用得到 (
+		  如果您想讓一個表情指令能有多個修飾詞的話).
+		   (譯按: 這是英文的文法, 與中文文法不同)
+
+在此, 有些人可能會想到: 「好....你可以作出功能強大的多用途耳罩，厲害。
+不過這玩意兒看來沒啥用處。」說得好, 目前您只能利用耳罩過濾一些訊息而已.
+有的人有辦法寫出聰明的訊息處理程式, 才是下面介紹的 message() 真正好處. 
+以下是實際的作法:
+
+基本上, 要把送給使用者的訊息按照內容分類. 所以假設您有一個 combat 分類
+、一個  stat (敘述) 分類、一個 room_description  (房間描述) 分類、一個
+help (求助資料) 分類. 在開始之前, 我們來寫一個新的 receive_message().
+
+int has_smart_client;
+
+void receive_message (string msg, string class)
+{
+	if (member_array(class,muffle) == -1) {
+		if (has_smart_client) 
+			receive (class + " : " + msg);
+		else
+			receive (msg);
+	}
+}
+
+
+好. 我們來看看這些在作什麼. 如果一個使用者物件定義了 has_smart_client > 0,
+則所有的訊息前面都會加上分類名稱. 所以, 如果您想寫一個聰明的訊息處理程
+式分析所有的訊息, 您可以把房間敘述放在一個視窗裡, 談話放在另一個視窗,
+戰鬥訊息擺在另一個視窗, 以此類推. 您甚至可以擺一個狀態列, 用來顯示目前
+身處的房間名稱 (因為您進入房間時, 收到一個 room_name (房間名稱) 分類的
+訊息) . 您可以利用 heart_beat() 函式, 在狀態列中顯示目前的體力. 這些分
+類的訊息都可以用這種方式顯示給終端的使用者.
+
+您甚至可以使用此方法寫出一個簡單的圖形介面的用戶端程式. BSX 圖形 mud  
+與用戶端程式可以用 MudOS  的 message()  函式在內部工作. 您也可以傳輸一
+張小的點陣圖案 (bitmap) 代替 BSX 的多邊形線條繪圖 (polygon-based line 
+drawing). message() 的用途極廣.
+
+但是以上所談的事情之中, 至少有個大問題在裡面. 既然每個人都要自己撰寫程
+式處理這些訊息, 也沒有人寫出這麼好的用戶端程式 (client) 以發揮這些訊息
+分類的長處. 一旦訊息處理程式寫出來了, 您的 mudlib 又憑什麼保證能與此程
+式配合 ?  好吧, 這就是這份說明文件的重點所在. 我希望能概略介紹一個簡單
+的訊息協定讓大家接受, 如果用戶端程式哪一天真的寫出來了, 只要您的 mudlib
+符合以下的協定即可.
+
+訊息協定:
+
+所有送給聰明用戶端程式的訊息格式如下:
+
+"class:msg_length:msg"
+
+msg_len 是 msg  字串的長度. 加上這個可以讓用戶端程式知道訊息到底傳送完
+畢了沒.
+
+使用底下的分類清單, 使用戶端程式分析並使用這些分類的訊息.
+
+say			使用 say  指令
+shout			使用 shout  指令
+tell			使用 tell 指令
+emote			表情指令
+broadcast		對每一個人廣播的訊息
+combat			普通的戰鬥訊息
+combat_self		使用者自己產生的戰鬥訊息
+combat_other		別人產生的戰鬥訊息
+combat_*		其他特定的戰鬥訊息
+room_description	房間或地點的長敘述
+room_name		房間的簡短名稱
+inventory		您身上帶著的東西
+item_description	物品的敘述
+status			普通的狀態訊息
+status_hp		目前的體力
+status_sp		目前的法力
+status_sobriety		目前的酒醉狀況
+status_*		其他的狀態
+score			普通的總評訊息
+score_exp		經驗值
+score_money		金錢或其他貨幣的數量
+developer		對所有巫師或發展程式者廣播
+class_fighter		給全體戰士的訊息
+class_mage		給全體法師的訊息
+class_thief		給全體賊的訊息
+class_priest		給全體主教的訊息
+class_*			給其他職業全體的訊息
+race_human		給全體人類的訊息
+race_elf		給全體精靈的訊息
+race_dwarf		給全體矮人的訊息
+race_*			給其他種族全體的訊息
+
+*** 其他內部的選項 ***
+bitmap			普通的點陣圖
+bitmap_*		特定的點陣圖
+drawing			普通的繪圖
+drawing_*		特定型態的繪圖
+
+翻譯:	Spock @ FF	97.Aug.8.

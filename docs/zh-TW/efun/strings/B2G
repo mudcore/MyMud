@@ -1,0 +1,14 @@
+名稱：
+	B2G - 把一個 BIG5 編碼字串轉成 GB 編碼字串。
+語法：
+	string B2G(string str);
+
+	字串 B2G( 字串 );
+用法：
+	把 BIG5 編碼字串「str」轉成 GB 編碼字串,並傳回轉換後的新字串。
+
+    本函式需要在 options.h 中定義 PACKAGE_CHINESE。
+參考：
+	G2B
+作者：
+	lismo@AOH

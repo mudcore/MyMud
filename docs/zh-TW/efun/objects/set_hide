@@ -1,0 +1,18 @@
+名稱：
+	set_hide - 對一個可以匿蹤的物件設定匿蹤旗標 (hide flag)。
+語法：
+	void set_hide( int flag );
+
+	無傳回值 set_hide( 整數 旗標 );
+用法：
+	以「flag」設定一個物件的匿蹤旗標，只能是 0 或 1〈分別代表取消和開始
+	匿蹤狀態〉只有在 master()->valid_hide(ob) 對該物件傳回真值時，物件
+	才能匿蹤。當物體處於藏匿狀態時，只有其他有匿蹤能力的物件才能使用 
+	find_object() 或傳回多物件的函式如 users()、children()、
+	all_inventory() 等等函式找到該物件。
+參考：
+	valid_hide
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

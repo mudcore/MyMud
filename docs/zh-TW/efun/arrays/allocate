@@ -1,0 +1,16 @@
+名稱：
+	allocate() - 配置一個陣列 (array)。
+語法：
+	array allocate( int size );
+
+	陣列 allocate( 整數 大小 );
+用法：
+	配置一個有 size 個元素 (element) 的陣列。元素的數目必須大於 0，而
+	且不可以超過系統設定的上限〈通常約 10000 左右〉。所有元素均初始化
+	 (initialized) 為 0。
+參考：
+	sizeof, allocate_mapping
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

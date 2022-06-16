@@ -1,0 +1,14 @@
+名稱：
+	virtualp - 判斷指定的變數是否指向一個虛擬 (virtual) 物件。
+語法：
+	int virtualp( object arg );
+
+	整數 virtualp( 物件 參數 );
+用法：
+	如果對「arg」來說，objectp() 為真，並設定 O_VIRTUAL 旗標，
+	virtualp() 就傳回真值。由主宰物件 (master object) 「compile_object」
+	函式所創造出來的物件，驅動程式會對它們設定 O_VIRTUAL 旗標。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

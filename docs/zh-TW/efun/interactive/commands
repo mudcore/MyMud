@@ -1,0 +1,21 @@
+名稱：
+	commands - 傳回一些資訊，有關於此使用者可以使用的命令。
+語法：
+	array commands();
+
+	陣列 commands();
+用法：
+	本函式僅在 NO_ADD_ACTION 未定義時生效。
+
+	傳回一個每個命令包含四項資料的陣列 (array)，說明 this_object() 可以
+	使用的動作 (action)。第一項資料是命令名稱〈即 add_action() 傳入的命
+	令〉。第二項是命令的旗標 (flags)〈即 add_action() 的第三個參數，一
+	般預設為 0〉。第三項資料是定義動作的物件。第四項資料是此動作所呼叫
+	的函式 (function)〈此項資料如果是個函式指標 (function pointer)
+	則傳回「&#60;function&#62;」〉。
+參考：
+	add_action, enable_commands, disable_commands
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.25.	v22 版

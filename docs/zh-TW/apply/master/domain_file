@@ -1,0 +1,17 @@
+名稱：
+	domain_file - 判斷一個指定物件所屬的區域。
+語法：
+	string domain_file ( string file );
+
+	字串 domain_file( 字串 檔名 );
+用法：
+	此函式必須存在於主宰物件中 (master object)。驅動程式中的區域統計函
+	式會呼叫此函式，以判斷指定之物件與哪一個區域有關聯。此函式的判斷依
+	據並不準確, 完全看該 mudlib 設計者的意思。在此應注意的是，物件所指
+	定的區域，會收到其一舉一動〈錯誤、心跳數等等〉。
+參考：
+	author_stats, domain_stats, author_file
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.20.	v22 版

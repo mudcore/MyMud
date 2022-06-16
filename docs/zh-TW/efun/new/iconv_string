@@ -1,0 +1,14 @@
+名稱：
+        iconv_string() - 轉換字元集語法：
+
+        string iconv_string( string, string , string );
+        字串 iconv_string( 字串 來源編碼, 字串 目的編碼, 字串　內容);
+
+用法：
+        來源編碼是指原先的來源的編碼是哪一種，如 big5。目的編碼是指想要編
+	成哪一種碼，如 gb2312 or utf8。此函式傳回的值為編碼後的字串。
+　　　  ex： iconv_string("big5","gb2312","編碼");
+        這樣就會把"編碼"這２個字轉成簡體字了。
+
+作者：         
+	whatup@wm

@@ -1,0 +1,68 @@
+名稱：
+	socket_accept - 接受一個 socket 的連線 (connection)。
+語法：
+	int socket_accept( int s, string | function read_callback, 
+		string | function write_callback );
+
+	整數 socket_accept( 整數 s, 字串 或 函式指標 讀取回呼, 
+		字串 或 函式指標 寫入回呼 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	參數 s 是一個已用 socket_create() 建立、用 socket_bind() 指定了一個
+	位址、並且正傾聽 (listen) 在 socket_listen() 之後連接的 socket。
+	socket_accept() 從未處理 (pending) 的連接序列 (queue) 中選取第一個
+	連接，建立一個和 s 相同屬性的新 socket 並且配置一個新的檔案描述值 
+	( file descriptor) 給它。如果在序列中沒有未處理的連接，
+	socket_accept() 會傳回如後面會提到的錯誤值。這個被接受的 socket 將
+	被用來從相連的另一端讀寫資料；它不能用來接受別的連接。原先的 socket 
+	s 則保持開啟以接受未來的連接。
+
+	read_callback 這個參數是給驅動程式在一個新的 socket（不是正要接受的 
+	socket）接收資料時，所呼叫的函式名稱或函式指標。
+	
+	這個讀取回呼函式 (read callback) 應該是下列格式：
+
+	void read_callback(int fd)
+
+	這裡的 fd 是準備接收資料的 socket。
+
+	write_callback 這個參數是給驅動程式在新的 socket（不是正要接受的 
+	socket）準備好寫入時，呼叫的函式名稱。這個寫入回呼函式 (write 
+	callback) 應該是下列格式：
+
+	void write_callback(int fd)
+
+	這裡的 fd 是準備好寫入的 socket。
+
+	注意：如果新 socket 不正常關閉，譬如和 socket_close() 的呼叫結果不
+	同的話，則會呼叫正要接受的 socket（不是新的 socket）的 
+	close_callback。這個關閉回呼函式 (close callback) 應該是如下格式：
+
+	void close_callback(int fd)
+
+	這裡的 fd 是已關閉的 socket。
+
+	socket_accept() 在成功時會傳回一個對於已接受 socket 的非負數描述值
+	。失敗時，它傳回一個負值。socket_error() 可以用來得到這個錯誤碼的文
+	字敘述。
+
+	錯誤值──以下定義在 socket_err.h 中：
+
+	EEFDRANGE	描述值超出範圍。
+	EEBADF		無效的描述值。
+	EESECURITY	企圖違反安全。
+	EEMODENOTSUPP	不支援此 socket 型態。
+	EENOTLISTN	socket 不在傾聽中。
+	EEWOULDBLOCK	操作將停滯(block)。
+	EEINTR		中斷的系統呼叫。
+	EEACCEPT	接受時的問題。
+	EENOSOCKS	沒有多餘的 efun sockets。
+參考：
+	socket_bind, socket_connect, socket_create, socket_listen
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.26
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

@@ -1,0 +1,14 @@
+名稱：
+	userp - 判斷指定的物件是否曾為互動 (interactive)。
+語法：
+	int userp( object );
+
+	整數 userp( 物件 );
+用法：
+	如果參數物件曾是互動物件，傳回 1。
+參考：
+	interactive, users, living
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

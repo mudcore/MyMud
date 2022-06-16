@@ -1,0 +1,14 @@
+名稱：
+	rm() - 刪除一個檔案。
+語法：
+	int rm( string file );
+
+	整數 rm( 字串 檔案 );
+用法：
+	刪除 file 這個檔案。如果失敗傳回 0，成功則傳回 1。
+參考：
+	mkdir, rmdir, link
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.28.	v22 版

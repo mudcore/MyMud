@@ -1,0 +1,25 @@
+
+	unique_mapping(3)	MudOS v21c2		(5 Sep 1994)
+
+	名稱:
+		unique_mapping() - 以一個函式為準, 從一個陣列另創
+				   一個映射 (mapping).
+	語法:
+		mapping unique_mapping( mixed *arr, string fun,
+			object ob, mixed extra, ... );
+		mapping unique_mapping( mixed *arr, function f,
+			mixed extra, ... );
+
+		映射 unique_mapping( 混合 *arr, 字串 fun,
+			物件 ob, 混合 extra, ... );
+		映射 unique_mapping( 混合 *arr, 函式指標 f,
+			混合 extra, ... );
+	用法:
+		用以下的方式做出另一個映射:
+
+		函式傳回同值的成員 (member) 分在同一組, 而以傳回值
+		作為其關鍵字 (key).
+	參考:
+		filter_array(3), sort_array(3), map(3)
+	翻譯:
+		Spock @ FF	97.jul.25.		(printed 3/16/95)

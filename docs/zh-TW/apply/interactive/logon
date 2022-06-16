@@ -1,0 +1,16 @@
+名稱:
+	logon - 初始化 (initialize) 一個連線過程 (login connection)
+語法:
+	object logon();
+
+	物件 logon();
+用法:
+	主宰物件 (master) 中 connect() 函式傳回的物件成為互動物件之後，會
+	呼叫該物件裡面的 logon()，如此該物件才能開始進行連線過程。本函式已
+	非必須存在的函式。
+參考:
+	connect
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

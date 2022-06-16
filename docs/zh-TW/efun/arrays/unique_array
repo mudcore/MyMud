@@ -1,0 +1,36 @@
+名稱：
+	unique_array() - 將一個物件陣列分組。
+語法：
+	array unique_array( object array obarr, string separator );
+	array unique_array( object array obarr, string separator, mixed skip );
+	array unique_array( array arr, function f );
+	array unique_array( array arr, function f, mixed skip );
+
+	陣列 unique_array( 物件 陣列 物件陣列, 字串 分類 );
+	陣列 unique_array( 物件 陣列 物件陣列, 字串 分類, 混合 略過 );
+	陣列 unique_array( 陣列 陣列, 函式指標 f );
+	陣列 unique_array( 陣列 陣列, 函式指標 f, 混合 略過 );
+用法：
+	由 separator 函式傳回相同值的物件／值就分為同一組。在第一種語法中
+	，separator 是一個字串函式名稱，物件陣列中的每個物件會傳入該函式。
+	第二種語法中，以物件陣列元素為參數呼叫函式指標 f。如果傳入 skip，
+	則 separator 傳回的值與 skip 相同的話，就將該物件從傳回的陣列中刪
+	除。
+
+	傳回值是陣列的陣列，格式如下：
+
+	({
+		({第一組: 1, 第一組: 2, .... 第一組: N }),
+		({第二組: 1, 第二組: 2, .... 第二組: N }),
+		({第三組: 1, 第三組: 2, .... 第三組: N }),
+			....
+			....
+		({第Ｍ組: 1, 第Ｍ組: 2, .... 第Ｍ組: N }),
+	})
+
+	此一陣列的陣列中，separator 函式傳回同值的元素就分類在同一個次陣列
+	中。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

@@ -1,0 +1,23 @@
+名稱：
+        functions() - 列出一個物件上所有的函式。
+語法：
+        string array functions( object ob , int default: 0 );
+
+        字串 陣列 functions( 物件 , 整數 );
+用法：
+        functions() 能夠回傳兩種不一樣的東西，若第二個參數值為 0 (預設值)
+        它將會回傳物件 ob 上所有函式的名稱陣列，若第二個參數為非 0 值，將
+        會提供更多的資訊，其資訊如下：
+        
+        ({ 函式名稱, 參數數量, 回傳型態, ... }). 
+        
+        其陣列中第四個元素之後乃是其參數的型態，若#pragma save_types在函
+        式被編譯時沒有生效，則參數數量會是準確的，but no types will be available.。
+        
+        注意：此 efun 只有在 PACKAGE_CONTRIB 被定義時才能使用。
+參考：
+        
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

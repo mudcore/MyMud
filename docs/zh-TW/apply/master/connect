@@ -1,0 +1,20 @@
+名稱：
+	connect - 為新的使用者取得一個物件。
+語法：
+	object connect( int port );
+
+	物件 connect( 整數 埠號 );
+用法：
+	當一個新使用者與驅動程式連線時，驅動程式會呼叫主宰物件 (master
+	object) 中的 connect()。埠號 (port) 是實際上連線的埠號。舉例來說，
+	如果你定義了兩個連線埠號為 2000 與 3000，傳入此函式的埠號值就是
+	2000 或 3000。
+
+	connect() 傳回的物件，會當作初始使用者物件 (initial user object)。
+	請注意，之後你可以使用 exec() 外部函式將改變使用者物件。
+參考：
+	logon, exec
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.20.	v22 版

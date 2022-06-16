@@ -1,0 +1,28 @@
+名稱：
+	function_profile - 對一個物件取得函式側寫 (profiling) 資訊。
+語法：
+	array function_profile( object ob );
+
+	陣列 function_profile( 物件 物件 );
+用法：
+	傳回對「ob」〈如果不予指定「ob」則是 this_object()〉的函式側寫資訊
+	。
+	本函式只有在驅動程式編譯時定義 PROFILE_FUNCTIONS 才有效。
+
+	此函式傳回一個映射變數的陣列，每個映射是在「ob」中的函式。映射的格
+	式如下：
+
+	([	"name"     : 函式的名稱,
+		"calls"    : 呼叫的次數,
+		"self"     : 自己耗費的 CPU 時間 (cpu time spent in self),
+		"children" : 子程序耗費的 CPU 時間(cpu time spent in children)
+	])
+
+	此處的用途與 CPU 時脈的解析度有關，雖然單位為微秒 (microseconds)，
+	但實際上 CPU 時鐘的解析度要差得多。
+參考：
+	rusage, time_expression
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

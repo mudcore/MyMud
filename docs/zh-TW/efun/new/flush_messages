@@ -1,0 +1,17 @@
+名稱：
+        flush_messages() - 將未送之訊息立刻送至使用者。
+語法：
+        int flush_messages( object user );
+
+        整數 flush_messages( 物件 使用者 );
+用法：
+        一般而言，訊息需要排隊等候，然後由一組最小封包一起送出，此函式可強
+        迫所有等待中的訊息立即送出，若無 user 參數，則所有使用者的訊息都將
+        使用立即送出。
+
+參考：
+        
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

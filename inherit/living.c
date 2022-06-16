@@ -1,11 +1,16 @@
-// 生物角色公共特性LIVING
-
-inherit ATTRIBUTE;
-inherit COMMAND;
-inherit DBASE;
+/*****************************************************************************
+Copyright: 2019, Mud.Ren
+File name: char.c
+Description: 所有角色父接口 LIVING - 有生命的(living)的对象：玩家／NPC/魔物等
+Author: xuefeng
+Version: v1.0
+Date: 2019-03-12
+History:
+*****************************************************************************/
 inherit HEART_BEAT;
-inherit MOVE;
+inherit COMMAND;
 inherit NAME;
+inherit TEAM;
 
 void create()
 {
@@ -20,14 +25,17 @@ void setup()
 {
     seteuid(getuid(this_object()));
     set_heart_beat(1);
-    enable_living(); // COMMAND 中定义的生物激活方法
-#ifdef CHAR_D
+    enable_living();
     CHAR_D->setup(this_object());
-#endif
 }
 
-// 从游戏中移除这个生物
+// 从游戏中移除这个角色
 void remove()
 {
     destruct(this_object());
+}
+
+void catch_tell(string message)
+{
+    // debug_message(this_object() + "-|-" + message);
 }

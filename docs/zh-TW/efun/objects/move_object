@@ -1,0 +1,12 @@
+名稱：
+	move_object - 把目前的物件搬到其他的環境 (environment) 中。
+語法：
+	void move_object( mixed dest );
+
+	無傳回值 move_object( 混合 目的地 );
+用法：
+	目前的物件搬到物件「dest」裡面。「dest」必須是一個檔案名稱或是物件。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

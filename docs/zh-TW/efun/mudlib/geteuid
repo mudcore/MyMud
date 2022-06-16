@@ -1,0 +1,19 @@
+名稱：
+	geteuid - 傳回一個物件或是一個函式的 euid〈effective user id，有效
+		  使用者識別名稱〉
+語法：
+	string geteuid( object | function );
+
+	字串 geteuid( 物件 或 函式指標 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_UIDS 才有效。
+
+	如果參數是一個物件，geteuid 傳回物件的 euid。如果參數是一個函式指標
+	，則傳回創造這個函式指標變數之物件的 euid。如果該物件創造函式指標變
+	數時沒有 euid，則使用物件的 uid〈user id，使用者識別名稱〉代替。
+參考：
+	seteuid, getuid, export_uid, valid_seteuid
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.24.	v22 版

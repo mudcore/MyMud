@@ -1,0 +1,19 @@
+名稱：
+	say - 把訊息送給所有同一個環境中的使用者。
+語法：
+	varargs void say( string str, object | object array );
+
+	不定參數 無傳回值 say( 字串 字串, 物件 或 物件 陣列 );
+用法：
+	把訊息送給發出訊息者的環境物件、所有與發出訊息者位於同一個環境的東
+	西、發出訊息者裡面的所有東西。發出訊息者是 this_player()，除非
+	this_player() == 0，此時發出訊息者是 this_object()。
+
+	第二個參數可選擇。如果指定了第二個參數「obj」，則訊息不送給 obj。如
+	果 obj 不是一個物件，而是一個物件陣列，則訊息就不會送給陣列內的物件。
+參考：
+	message, write, shout, tell_object, tell_room
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

@@ -1,0 +1,22 @@
+名稱：
+	previous_object() - 傳回呼叫目前這個函式的物件或物件列表。
+語法：
+	object previous_object();
+	mixed previous_object(int x);
+
+	物件 previous_object();
+	混合 previous_object( 整數 x );
+用法：
+	如果有物件呼叫呼叫目前的函式，傳回一個指向物件的物件指標。請注意，
+	區域函式 (local function) 呼叫不會讓 previous_object() 設定為目前
+	的物件，並不會改變 previous_object()。如果參數為一個正整數，就傳回
+	先前第幾個呼叫的物件。
+	previous_object(0) 如同 previous_object()，previous_object(1) 是
+	previous object 的 previous_object()，以此類推。previous_object(-1)
+	則傳回所有的 previous object 陣列。
+參考：
+	call_other, call_out, origin
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

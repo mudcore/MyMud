@@ -1,0 +1,1 @@
+inherit STD_STAFF;

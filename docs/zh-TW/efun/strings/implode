@@ -1,0 +1,26 @@
+名稱：
+	implode - 連結多個字串。
+語法：
+	string implode( array arr, string del );
+	mixed implode( array arr, function f);
+	mixed implode( array arr, function f, mixed start);
+
+	字串 implode( 陣列 陣列, 字串 分隔 );
+	混合 implode( 陣列 陣列, 函式指標 f );
+	混合 implode( 陣列 陣列, 函式指標 f, 混合 開始 );
+用法：
+	把陣列「arr」中可以找到的所有字串連在一起，每一個字串之間以字串
+	「del」隔開。這個函式只會使用陣列中的字串。陣列中不是字串的元素 
+	(element) 會予以忽略。
+	
+	第二種語法拿「arr」的第一個和第二個值傳入「f」，然後把結果和第三個
+	值傳入「f」，之後以此類推。本函式傳回「f」最後的呼叫結果。
+	
+	第三種語法中，第一次呼叫是 f( start, arr[0] )，之後運作的情況同第二
+	種語法。
+參考：
+	explode, sprintf
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

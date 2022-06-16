@@ -1,0 +1,14 @@
+名稱：
+	uptime - 傳回上一次驅動程式重新啟動至今的秒數。
+語法：
+	int uptime();
+
+	整數 uptime();
+用法：
+	uptime() 傳回上一次驅動程式重新啟動至今有幾秒。
+參考：
+	time, ctime, localtime, time_expression
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

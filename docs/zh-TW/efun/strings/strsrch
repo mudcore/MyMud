@@ -1,0 +1,20 @@
+嘿
+	strsrch - ﹃い碝т﹃ (substring)
+粂猭
+	int strsrch( string str, string substr | int char, int flag );
+
+	俱计 strsrch( ﹃ ,﹃ ﹃ ﹃ ┪ 俱计 じ, 俱计 篨夹 );
+ノ猭
+	strsrch() ﹃strぇい碝т材瞷substr狦匡拒
+	材把计flag -1玥碝т程瞷substr狦材
+	把计琌俱计玥碝т赣じ (character) C  strchr()〓strrchr()
+	strsrch() 礚猭碝т﹃┪ (empty string) 琌店 (null value)
+
+	セㄧΑ肚材才┪程才﹃瞷strい竚狦
+	⊿Τ才﹃玥肚 -1┪琌岿粇Τ拜肈把计单单
+把σ
+	sscanf, replace_string, regexp
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.Aug.28.	v22 

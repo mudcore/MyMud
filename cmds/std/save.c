@@ -2,10 +2,14 @@
 
 int main(object me, string arg)
 {
-    // 最后存档时间
-    me->set("last_saved_at", time());
+    // 保存个人数据
     if (me->save())
-        write(GRN "你截止目前的事迹已被历史铭记 o(^▽^)o\n" NOR);
+    {
+        if (nullp(arg))
+        {
+            write(GRN "你截止目前的事迹已被历史铭记 o(^▽^)o\n" NOR);
+        }
+    }
     else
         write(RED "【系统】档案存储失败 T_T\n" NOR);
     return 1;

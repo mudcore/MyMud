@@ -1,0 +1,14 @@
+名稱：
+	lower_case - 將一個指定的字串內容轉換為小寫。
+語法：
+	string lower_case( string str );
+
+	字串 lower_case( 字串 字串 );
+用法：
+	傳回一個指定字串的小寫樣式〈原來的字串不會變更〉。
+參考：
+	capitalize
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

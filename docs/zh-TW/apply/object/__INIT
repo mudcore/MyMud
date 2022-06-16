@@ -1,0 +1,14 @@
+名稱：
+	__INIT - 此函式已經作廢
+語法：
+	__INIT();
+
+	__INIT();
+用法：
+	以前驅動程式創造 (create) 物件之前呼叫該物件中的這個函式。初始化
+	 (initialization) 全域變數的工作目前由其他的函式取代，而此函式無法
+	插手干預初始化的過程。現在已不會呼叫 __INIT 函式。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.21.	v22 版

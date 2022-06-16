@@ -1,0 +1,19 @@
+名稱：
+        file_length() - 傳回一個檔案的程式行數。
+語法：
+        int file_length( string file );
+
+        整數 file_length( 字串 檔案 );
+用法：
+        file_length() 回傳檔案 file 中的程式行數，當回傳值為 -1 時
+        ，代表檔案 file 並不存在或是無法讀取，若回傳值為 -2 ，則代
+        表 file 為一個目錄。
+        
+        注意：此 efun 在大檔案中效能並不佳，因為計算行數必須讀取整
+              個檔案。
+參考：
+        file_size, stat, get_dir
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

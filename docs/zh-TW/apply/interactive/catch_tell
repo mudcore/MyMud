@@ -1,0 +1,18 @@
+名稱：
+	catch_tell - 提供一個與使用者互動的介面 (interface)
+語法：
+	void catch_tell( string message );
+
+	無傳回值 catch_tell( 字串 訊息 );
+用法：
+	如果於 options.h 中定義了 INTERACTIVE_CATCH_TELL，無論驅動程式對一
+	個物件送出任何訊息〈say(), shout(), tell_object() 等等，都會呼叫玩
+	家物件中的 catch_tell() 處理這些訊息。訊息可以依照需要顯示、丟棄、
+	修改或作任何處理。catch_tell() 可以當作多用途耳罩擋住某些訊息，也
+	可以用於支援智慧型使用者端程式 (intelligent clients)。
+參考：
+	message, receive, receive_message
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

@@ -1,0 +1,17 @@
+名稱：
+	receive - 對目前的物件顯示一段訊息。
+語法：
+	int receive( string message );
+
+	整數 receive( 字串 訊息 );
+用法：
+	這個外部函式是作為驅動程式裡面 add_message() 函式的介面。這個函式的
+	目的是對目前物件顯示訊息。如果目前的物件是「互動的」會傳回 1。不是
+	則傳回 0。receive() 常常在 catch_tell() 裡面或被 receive_message() 
+	呼叫。
+參考：
+	catch_tell, receive_message, message
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

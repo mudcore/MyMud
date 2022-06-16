@@ -1,0 +1,19 @@
+名稱：
+	clone_object - 載入一個物件的複製品。
+語法：
+	object clone_object( string name, ... );
+	object new( string name, ... );
+
+	物件 clone_object( 字串 名稱, ... );
+	物件 new( 字串 名稱, ... );
+用法：
+	從檔案「name」創造一個新物件，並給予它一個獨有的名稱〈在名稱後面加
+	上「#xxx」，xxx 是編號〉。本函式傳回新物件。新的物件與物件「name」
+	共享相同的程式，但是它有自己的一套變數。第二個以後的參數會傳入 
+	create()。
+參考：
+	destruct, move_object, new
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

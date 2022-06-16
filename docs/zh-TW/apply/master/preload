@@ -1,0 +1,16 @@
+名稱：
+	preload - 預先載入一個物件到記憶體中。
+語法：
+	void preload( string filename );
+
+	無傳回值 preload( 字串 檔名 );
+用法：
+	epilog 傳回的陣列中，每一個字串都會讓驅動程式呼叫 preload(filename)
+	。請注意，在驅動程式層次作這些呼叫時，會有相等的 catch()，所以
+	mudlib 不用擔心這些程序因一個錯誤而停止。
+參考：
+	epilog, load_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

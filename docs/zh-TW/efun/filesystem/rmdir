@@ -1,0 +1,16 @@
+名稱：
+	rmdir() - 刪除一個目錄。
+語法：
+	int rmdir( string dir );
+
+	整數 rmdir( 字串 目錄 );
+用法：
+	刪除 dir 這個目錄。
+
+	成功就傳回非零值，失敗則傳回 0。
+參考：
+	rm, mkdir, link
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.28.	v22 版

@@ -1,0 +1,17 @@
+名稱：
+        named_livings() - 傳回所有活著的物件與其名稱。
+語法：
+        object array named_livings();
+
+        物件 陣列 named_livings();
+用法：
+        named_livings() 傳回所有已呼叫 set_living_name() 和 enable_commands()
+        的物件，這個函式較 livings() 要來的有效率。
+        
+        注意：使用此 efun 必須先定義 PACKAGE_CONTRIB 和取消 NO_ADD_ACTION 定義。
+參考：
+        
+作者：
+        Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+        clode@RW 約略翻譯, 未經證實          2000.Oct.4.    v22 版

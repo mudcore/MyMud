@@ -1,0 +1,18 @@
+名稱：
+	reclaim_objects - 清除任何殘留在記憶體中的物件。
+語法：
+	int reclaim_objects();
+
+	整數 reclaim_objects();
+用法：
+	本函式重覆檢查每一個載入的物件，並盡力把殘留在記憶體中的物件清除掉
+	。這樣可以清出一些記憶體，清理的數量多寡要看 mud 本身寫的程式而定。
+	當其他一個以上之物件裡面有指標指向一個物件的全域變數，在物件被摧毀
+	掉之後，指向該物件的指標值再也無法存取，該物件因此殘留在記憶體中。
+	本外部函式 (efun) 傳回變數中遇到被摧毀物件的數目。
+參考：
+	destruct
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

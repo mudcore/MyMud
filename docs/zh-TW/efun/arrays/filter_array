@@ -1,0 +1,18 @@
+名稱：
+	filter_array() - 傳回一個篩選過的次陣列 (sub-array)。
+語法：
+	array filter_array( array arr, string fun, object ob, mixed extra,
+		 ... );
+	array filter_array( array arr, function f, mixed extra, ... );
+
+	陣列 filter_array( 陣列 陣列, 字串 函式, 物件 物件, 混合 其他,
+		 ... );
+	陣列 filter_array( 陣列 陣列, 函式指標 f, 混合 其他, ... );
+用法：
+	filter_array() 實際上就等於 filter() 外部函式。 
+參考：
+	filter
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

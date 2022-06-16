@@ -1,0 +1,16 @@
+名稱：
+	retrieve_ed_setup - 取得使用者的編輯程式設定 (setup) 或組態設定
+			    (configuration settings)。
+語法：
+	int retrieve_ed_setup( object user );
+
+	整數 retrieve_ed_setup( 物件 使用者 );
+用法：
+	ed() 呼叫此主宰物件應用函式 (master apply)，以取得一個使用者的編輯
+	程式設定／組態設定。此函式應傳回設定值 (設定於一個整數中)。
+參考：
+	save_ed_setup
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

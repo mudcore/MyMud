@@ -1,0 +1,23 @@
+名稱：
+	clonep - 判斷指定的一個變數是否指向一個複製物件。
+語法：
+	int clonep();
+	int clonep( mixed arg );
+
+	int clonep();
+	整數 clonep( 混合 參數 );
+用法：
+	如果參數 arg 的 objectp() 為真，並已設定 O_CLONE 旗標 (flag)，本函
+	式就傳回真值〈即 1〉。驅動程式會對藉由 new()〈或 clone_object()〉創
+	造出來的物件設定 O_CLONE 旗標。clonep() 函式對於藍本物件〈blueprint 
+	copy，經由 call_other() 或 load_object() 載入的物件〉不會傳回真值。
+
+	請注意，如果 clonep() 傳回真值，則 file_name() 對該物件傳回的檔案名
+	稱會加上 #n〈n 為編號〉。clonep() 不加上參數則預設物件為 
+	this_object()。
+參考：
+	objectp, new, clone_object, call_other, file_name
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

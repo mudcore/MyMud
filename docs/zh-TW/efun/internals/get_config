@@ -1,0 +1,13 @@
+名稱：
+	get_config - 詢問一些驅動程式的系統設定值 (config settings)。
+語法：
+	mixed get_config( int );
+
+	混合 get_config( 整數 );
+用法：
+	這個外部函式 (efun) 用來詢問一些驅動程式的系統設定值。請參考
+	runtime_config.h 標頭檔以了解目前有哪些可以使用的項目。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

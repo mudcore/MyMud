@@ -1,0 +1,24 @@
+
+	errorp(3)		MudOS v21c2		(5 Sep 1994)
+
+	名稱:
+		errorp() - 判斷一個指定的變數是否為錯誤碼 (error code).
+	語法:
+		int errorp( mixed arg );
+
+		整數 errorp( 混合 arg );
+	用法:
+		如果參數 arg  是一個整數值的錯誤碼, errorp() 傳回 1 .
+
+		您可能會修改外部函式 (external functions, efun), 而能
+		傳回一個標準的錯誤碼. 所以程式可以寫成像下面的樣子:
+
+		if (errorp(result = efun_call()))
+			printf("error = %d\n", result);
+
+		在以後的計劃中, 我們會加入一個新的函式 perror(result)
+		用來傳回整數值的錯誤代碼與一個錯誤訊息的字串.
+	參考:
+		nullp(3), undefinedp(3)
+	翻譯:
+		Spock @ FF	97.Feb.12.		(printed 3/16/95)

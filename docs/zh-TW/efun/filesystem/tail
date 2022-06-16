@@ -1,0 +1,15 @@
+名稱：
+	tail() - 顯示一個檔案的最後部份。
+語法：
+	int tail( string path );
+
+	整數 tail( 字串 路徑 );
+用法：
+	此外部函式 (efunction) 顯示檔案 path 的最後部份。成功則傳回 1，不
+	成功傳回 0。〈例如檔案讀取權限不夠〉
+參考：
+	read_file, read_buffer, file_size
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.28.	v22 版

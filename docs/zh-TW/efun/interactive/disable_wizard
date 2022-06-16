@@ -1,0 +1,16 @@
+名稱：
+	disable_wizard() - 取消一個物件的巫師特權。
+語法：
+	void disable_wizard();
+
+	無傳回值 disable_wizard();
+用法：
+	本函式僅在 NO_WIZARDS 未定義時生效。
+
+	與 enable_wizard() 函式的功用相反。取消目前物件的巫師特權。
+參考：
+	enable_wizard, wizardp
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.25.	v22 版

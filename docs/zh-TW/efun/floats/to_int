@@ -1,0 +1,16 @@
+名稱：
+	to_int - 將一個浮點數或暫存區 (buffer) 轉換為一個整數。
+語法：
+	int to_int( float | buffer x );
+
+	整數 to_int( 浮點數 或 暫存區 x );
+用法：
+	如果 x  是一個浮點數，則 to_int() 傳回相當於 x 整數〈去除所有的小
+	數〉。如果 x 是一個暫存區，則 to_int() 傳回暫存區之中的整數〈以網
+	路位元次序 (network-byte-order) 的型式〉。
+參考：
+	to_float, read_buffer
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.28.	v22 版

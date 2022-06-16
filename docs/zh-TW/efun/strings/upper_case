@@ -1,0 +1,16 @@
+名稱：
+	upper_case - 傳回指定字串的大寫形式。
+語法：
+	string upper_case( string );
+
+	字串 upper_case( 字串 );
+用法：
+	傳回指定字串的大寫形式〈原本的字串不會更動〉。
+
+	本函式需要編譯時在 options.h 中定義 PACKAGE_CONTRIB 才有效。
+參考：
+	capitalize, lower_case
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

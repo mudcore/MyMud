@@ -1,1 +1,2 @@
-/system/daemons/login_d
+# 自动载入指定目录中的守护进程（不包括子目录）
+/system/daemons/

@@ -1,0 +1,12 @@
+名稱：
+	mapp - 判斷一個指定的變數是否為映射 (mapping)。
+語法：
+	int mapp( mixed arg );
+
+	整數 mapp( 混合 參數 );
+用法：
+	如果「arg」是個映射變數，則傳回 1。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.23.	v22 版

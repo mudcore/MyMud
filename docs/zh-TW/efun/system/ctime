@@ -1,0 +1,14 @@
+名稱：
+	ctime - 傳回一個時間字串。
+語法：
+	string ctime( int clock );
+
+	字串 ctime( 整數 時鐘秒數 );
+用法：
+	傳回一個日期和時間的字串，而參數「clock」是自從 1970 年算起的秒數。
+參考：
+	time, localtime, uptime
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

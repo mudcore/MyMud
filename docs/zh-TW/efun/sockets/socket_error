@@ -1,0 +1,25 @@
+名稱：
+	socket_error - 傳回一個 socket 錯誤碼的文字敘述。
+語法：
+	string socket_error( int error );
+
+	字串 socket_error( 整數 error );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	socket_error() 傳回一個字串描述所產生的錯誤。
+
+	socket_error() 傳回：
+
+	成功時是一個描述錯誤碼的字串。
+
+	輸入值錯誤 時是 "socket_error: invalid error number"。
+	（譯注："socket_error: 無效的錯誤碼"）
+參考：
+	socket_create, socket_connect
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.27
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

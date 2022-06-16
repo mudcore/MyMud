@@ -1,0 +1,13 @@
+名稱：
+	window_size - 回報使用者的視窗大小
+語法：
+	void window_size( int width, int height );
+
+	無傳回值 window_size( 整數 寬度, 整數 長度 );
+用法：
+	window_size() 傳回 telnet 回報的使用者視窗大小。如果使用者端的程式
+	一直不回應此項詢問，就不會再呼叫此函式。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

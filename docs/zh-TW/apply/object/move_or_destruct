@@ -1,0 +1,16 @@
+名稱：
+	move_or_destruct - 詢問一個物件是否願意移動到指定的目的地
+語法：
+	int move_or_destruct( object dest );
+
+	整數 move_or_destruct( 物件 目的地 );
+用法：
+	如果一個物件的環境 (environment) 被摧毀了，其內容物就會呼叫此函式
+	。dest 是正要被摧毀的物件所處的環境，如果沒有 dest，則 dest 為 0
+	。如果該物件不把自己移出被摧毀的物件，則會被一起摧毀。
+參考：
+	destruct, move_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

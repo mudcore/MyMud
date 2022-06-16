@@ -1,0 +1,31 @@
+名稱：
+	origin() - 判斷目前的函式是如何被呼叫的。
+語法：
+	string origin();
+
+	字串 origin();
+用法：
+	傳回一個字串，指出目前的函式是如何被呼叫的。傳回值可以在驅動程式的
+	origin.h 表頭檔找到，目前使用的值如下：
+
+	driver -	由驅動程式呼叫〈應用函式 apply, 心跳 heart_beat,
+			其他〉
+	local -		區域函式呼叫 (local function call)
+	call_other -	call_other
+	simul -		用於模擬外部函式 (simul_efun)
+	call_out -	經由 call_out
+	efun -		外部函式 (efun) 呼叫，使用函式指標 (sort_array, 其他)
+譯註：
+	根據 v22.1b23 版驅動程式的 origin.h，還有以下定義：
+
+	internal -	內部
+	function_pointer - call_other 與 efun 函式指標的 psuedo frame。
+	functional -	無名的函式
+
+	而 call_out 已消失。
+參考：
+	previous_object
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

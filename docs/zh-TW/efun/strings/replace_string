@@ -1,0 +1,47 @@
+嘿
+	replace_string - ノㄤ﹃蠢传﹃い才兵ン﹃
+粂猭
+	string replace_string( string str, string pattern, string replace );
+	string replace_string( string str, string pattern, string replace, 
+		int max );
+	string replace_string( string str, string pattern, string replace, 
+		int first, int last );
+
+	﹃ replace_string( ﹃ ﹃, ﹃ 妓Α, ﹃ 蠢传 );
+	﹃ replace_string( ﹃ ﹃, ﹃ 妓Α, ﹃ 蠢传,
+		俱计 程Ω );
+	﹃ replace_string( ﹃ ﹃, ﹃ 妓Α, ﹃ 蠢传,
+		俱计 材, 俱计 程 );
+ノ猭
+	replace_string() 盢strい┮Τpattern蠢传Θreplace
+	狦pattern箂碞肚ㄓstr狦肚﹃禬筁╰
+	参﹚竡程﹃玥肚 undefindp()  1stringp()  0 
+	
+
+	replace_string() 虑パ箂replace埃﹃い
+	pattern羭ㄒㄓ弧replace_string(" 1 2 3 ", " ", "") 穦肚 
+	"123"replace_string() 磅︽硉ゑㄏノ explode()〓implode() е
+
+	材㎝材き把计匡拒甧玡セ硂ㄢ把计
+	ノ
+
+	把计
+
+	﹚程蠢传碭Ω眖 1 秨﹍衡狦﹚ 0碞讽琌场常传┮
+	 replace_string( "xyxx", "x", "z", 2 ) 穦肚 "zyzx"
+
+	き把计
+
+	材㎝材き把计才絛瞅兵ン
+
+	* first < 1眖繷秨﹍场蠢传
+	* last == 0 ┪ last > 程蔼才计 (max_matches)场蠢传程
+	* first > lastЧぃэ跑
+
+	羭ㄒreplace_string( "xyxxy", "x", "z", 2, 3 ) 肚 "xyzzy"
+把σ
+	sscanf, explode, strsrch
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.Aug.28.	v22 

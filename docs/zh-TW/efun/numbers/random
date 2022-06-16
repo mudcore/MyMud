@@ -1,0 +1,15 @@
+名稱：
+	random - 傳回一個「假」亂數 (pseudo-random number)。
+語法：
+	int random( int n );
+
+	整數 random( 整數 n );
+用法：
+	傳回一個範圍從 0 到 (n - 1) 的假亂數。
+譯按：
+	真正的亂數必須先給予一個種子數 (seed number)，再藉由查亂數表取得一
+	組亂數，而這些亂數值均介於 0 與 1 之間。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.24.	v22 版

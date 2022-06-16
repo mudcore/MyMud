@@ -1,0 +1,17 @@
+名稱：
+	livings - 傳回一個所有活物件的陣列。
+語法：
+	object array livings();
+
+	物件 陣列 livings();
+用法：
+	本函式僅在編譯時不定義 NO_ADD_ACTION 才有效。
+
+	傳回指向所有活物件之指標 (pointer) 的一個陣列。〈活物件是指曾經呼叫
+	過 enable_commands() 的物件〉。
+參考：
+	enable_commands, find_living, users
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.24.	v22 版

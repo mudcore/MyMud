@@ -1,0 +1,29 @@
+名稱：
+	socket_address - 傳回一個 efun socket 的遠端位址。
+語法：
+	string socket_address( int s | object ob );
+
+	字串 socket_address( 整數 s 或 物件 物件 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	socket_address() 傳回 efun socket s 或互動物件「ob」的遠端位址。
+	
+	傳回的位址格式如下：
+
+	"127.0.0.1 23".
+
+	socket_address() 傳回：
+
+	成功時是一個字串形式的位址。
+
+	失敗時是一個空字串。
+參考：
+	socket_connect, socket_create, resolve, query_host_name, 
+	query_ip_number
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.27
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

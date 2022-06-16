@@ -1,0 +1,19 @@
+名稱：
+	author_file - 判斷一個指定物件的作者為誰。
+語法：
+	string author_file ( string file );
+
+	字串 author_file( 字串 檔名 );
+用法：
+	此函式只有在定義 PACKAGE_MUDLIB_STATS 時生效。
+
+	此函式必須存在於主宰物件中 (master object)。驅動程式的作者統計函式
+	會呼叫此函式，以判斷指定之物件與哪個作者有關。此函式判斷的依據並不
+	可靠，完全視該 mudlib 設計者的意思。在此應注意的是, 指定給物件的作
+	者會收到該物件一舉一動的資料〈錯誤、心跳數等等〉。
+參考：
+		author_stats, domain_stats, domain_file
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.20.	v22 版

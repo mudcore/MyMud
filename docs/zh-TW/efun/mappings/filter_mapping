@@ -1,0 +1,18 @@
+名稱：
+	filter_mapping - 傳回一個挑選過的子映射 (sub-mapping)。
+語法：
+	mapping filter_mapping( mapping map, string fun, object ob, 
+		mixed extra, ...);
+	mapping filter_array( mapping map, function f, mixed extra, ...);
+
+	映射 filter_mapping( 映射 映射, 字串 函式, 物件 物件, 
+		混合 其他, ...);
+	映射 filter_array( 映射 映射, 函式指標 f, 混合 其他, ...);
+用法：
+	filter_mapping() 實際上等於 filter()。
+參考：
+	filter
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.20.	v22 版

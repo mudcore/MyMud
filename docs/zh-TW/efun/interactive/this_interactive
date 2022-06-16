@@ -1,0 +1,15 @@
+名稱：
+	this_interactive - 傳回代表目前玩家的物件。
+語法：
+	object this_interactive();
+
+	物件 this_interactive();
+用法：
+	傳回導致目前函式被呼叫，而代表目前玩家的物件。本函式傳回最原始的 
+	this_player()，不會受到	enable_commands() 或 command() 的影響。
+參考：
+	this_player
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

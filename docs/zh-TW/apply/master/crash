@@ -1,0 +1,25 @@
+名稱：
+	crash - 驅動程式掛掉 (crash) 時，呼叫主宰物件 (master) 中的此函式。
+語法：
+	void crash( string crash_message, object command_giver,
+		object current_object );
+
+	無傳回值 crash( 字串 掛掉訊息, 物件 給予指令者,
+		物件 目前物件 );
+用法：
+	當驅動程式掛掉 (crash) 時〈節段錯誤 segmentation fault、匯流排錯誤
+	bus error 等等嚴重的錯誤。譯按：最常見的原因是用 kill 指令終止驅動
+	程式執行，包括主機重新開機的情形。至於一些與驅動程式的毛病有關、原
+	因不明的錯誤，也是常有的事〉，驅動程式此時會呼叫主宰物件的 crash()
+	函式。crash() 讓 mudlib 可以在驅動程式終止之前儲存玩家和其他重要資
+	料。crash() 也可以讓你紀錄一些有用的資料，像是什麼信號 (signal) 終
+	止了驅動程式〈譯按：舉例來說，在主機上「正常」終止一個程序時，會先
+	給該執行中的程式一個信號，告訴該程式是何種狀況。所以如果使用 kill
+	指令 -9 級，驅動程式就會死得不明不白〉、哪些物件是活的〈譯按：物件
+	一旦使用 enable_command，就視同活物件〉、當時有哪些玩家等等。
+參考：
+		shutdown, slow_shutdown
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.20.	v22 版

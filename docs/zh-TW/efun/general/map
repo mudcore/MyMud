@@ -1,0 +1,19 @@
+名稱：
+	map - 修改一個映射變數。
+語法：
+	mixed map( mixed x, string fun, object ob, mixed extra, ... );
+	mixed map( mixed x, function f, mixed extra, ... );
+
+	混合 map( 混合 x, 字串 fun, 物件 ob, 混合 extra, ... );
+	混合 map( 混合 x, 函式指標 f, 混合 其他, ... );
+用法：
+	第一個 (ob, fun) 的語法與 (: call_other, ob, fun :) 當作函式指標 f 
+	的作用相同。map 傳回一個新的結構，其中含有的元素 (element) 是每個元
+	素 x 傳入 f 處理之後的傳回值。目前它只能用於陣列、映射、字串。用於
+	映射時，關鍵字 (key) 與內容值 (value) 都會傳入該函式。用於字串時，
+	每次把一個字元 (character) 以整數 (int) 型態傳入函式。extra 與其之
+	後的參數 (argument) 會在元素 x 之後傳入。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.24.	v22 版

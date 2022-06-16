@@ -20,7 +20,7 @@ int return_home(object home)
     if (!environment() || environment() == home)
         return 1;
 
-    if (!living(this_object()) || !mapp(environment()->query("exits")))
+    if (!living(this_object()) || is_fighting() || !mapp(environment()->query("exits")))
         return 0;
 
     message("vision", this_object()->name() + "急急忙忙地离开了。\n",
@@ -66,7 +66,41 @@ void exert_skill(string skill)
  */
 void action()
 {
-    // todo 行为控制，如战斗行为
+    mapping action = query("action");
+    string *msg, *spell, *skill;
+    // debug_message("[HB]ACTION:" + this_object());
+    if (mapp(action) && action["chance"] && !random(action["chance"]))
+    {
+        if (is_fighting())
+        {
+            if (query_temp("combat_status") == ROUND_ATTACK)
+            {
+                if (arrayp(spell = action["spell"]) && sizeof(spell))
+                    cast_spell(element_of(spell));
+                else if (arrayp(skill = action["skill"]) && sizeof(skill))
+                    exert_skill(element_of(skill));
+                else if (action["flee"])
+                {
+                    // NPC 逃跑
+                    say(short() + "逃跑了。\n");
+                    destruct();
+                }
+            }
+            attack();
+        }
+        else if (arrayp(msg = action["msg"]) && sizeof(msg))
+        {
+            chat(element_of(msg));
+        }
+    }
+    else if (is_fighting())
+    {
+        attack();
+    }
+    else if (!is_all_full())
+    {
+        // set_all_full();
+    }
 }
 
 // 触发任务提示

@@ -1,0 +1,23 @@
+名稱：
+	generate_source() - 產生與指定物件相對應的 C 語言碼
+語法：
+	int generate_source( string file );
+	int generate_source( string array files );
+
+	整數 generate_source( 字串 file );
+	整數 generate_source( 字串 陣列 檔案 );
+用法：
+	本函式僅在定義 LPC_TO_C 時有效。
+
+	generate_source() 呼叫 LPC->C 的編譯器，產生指定物件的原始碼。如果
+	傳入多個檔案，會在 SAVE_BINARIES 定義的目錄下，建立一個名為「mudlib」
+	的目錄，而且該目錄可以複製到驅動程式的原始程式碼目錄下，並能編譯到
+	驅動程式內。
+
+	如果指定一個檔案，則編譯該檔的 C 原始碼。如果定義了 RUNTIME_LOADING
+	，則驅動程式會嘗試將它連結到目前正在執行的可執行碼 (running
+	executable)。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.27.	v22 版

@@ -1,0 +1,36 @@
+名稱：
+	socket_bind - 命名 (bind a name) 一個 socket。
+語法：
+	int socket_bind( int s, int port );
+
+	整數 socket_bind( 整數 s, 整數 埠號 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_SOCKETS 才有效。
+
+	socket_bind() 為一個未命名的 socket 指定一個名字。當一個 socket 由 
+	socket_create() 建立後，它已存在於一個命名空間（位址族, address 
+	family）但還沒有指定名字。socket_bind() 需要埠號來為 socket s 命名。
+
+	socket_bind() 傳回：
+
+	成功時是 EESUCCESS。
+
+	失敗時是一個有如下意義的負值。
+
+	錯誤值 - 定義在「socket_err.h」
+
+	EEFDRANGE	描述值 (descriptor) 超出範圍。
+	EEBADF		無效的描述值。
+	EESECURITY	企圖違反安全。
+	EEISBOUND	socket 已命名。
+	EEADDRINUSE	此位址已被使用。
+	EEBIND		命名的問題。
+	EEGETSOCKNAME	getsockname 的問題。
+參考：
+	socket_connect, socket_create, socket_listen
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.27
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

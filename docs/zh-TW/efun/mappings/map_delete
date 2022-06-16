@@ -1,0 +1,35 @@
+名稱：
+	map_delete - 以關鍵字為準，從一個映射中刪除一對 (關鍵字, 內容值)
+		     〈即 (key, value)〉。
+語法：
+	void map_delete( mapping m, mixed element );
+
+	無傳回值 map_delete( 映射 m, 混合 元素 );
+用法：
+	map_delete 刪除映射之中關鍵字符合 element 的 (關鍵字, 內容值)。
+
+	以下是範例：
+
+	mapping names;
+
+	names = ([]);
+	names["truilkan"] = "john";
+	names["wayfarer"] = "erik";
+	names["jacques"] = "dwayne";
+
+	則：
+
+	map_delete(names,"truilkan");
+
+	會使映射「names」成為：
+
+	(["wayfarer" : "erik", "jacques" : "dwayne"])
+
+	在 map_delete( names, "truilkan" ) 之後，key(names) 就不會包含 
+	truilkan〈除非後來又把 ("truilkan", *) 把 truilkan 加回映射裡面〉。
+參考：
+	allocate_mapping
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.23.	v22 版

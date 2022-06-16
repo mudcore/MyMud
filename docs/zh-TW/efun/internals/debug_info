@@ -1,0 +1,84 @@
+名稱：
+	debug_info - 顯示除錯 (debug) 資訊。
+語法：
+	string debug_info( int operation, ... );
+	string debug_info( 0, object ob );
+	string debug_info( 1, object ob );
+	string debug_info( 2, object ob );
+
+	字串 debug_info( 整數 運作, ... );
+	字串 debug_info( 0, 物件 物件 );
+	字串 debug_info( 1, 物件 物件 );
+	字串 debug_info( 2, 物件 物件 );
+用法：
+	本函式僅在編譯時定義 PACKAGE_DEVELOP 方能生效。
+
+	debug_info() 是一個普通用途的工具，用來偵測 MudOS 程式錯誤。而所需
+	要的除錯資訊則由第一個參數決定。其餘的參數則由第一個參數指定的運作
+	(operation) 決定。
+
+	暨有的動作 (0、1、2) 需要第二個物件參數，可以用來顯示 MudOS 物件結
+	構的不同範圍 ( various fields of the MudOS object structure)。
+
+	以下的 LPC 碼產生一個簡單的輸出結果範例：
+
+	運作 0：
+
+	create() {
+		write(debug_info(0, this_object()));
+	}
+
+	輸出結果：
+
+	O_HEART_BEAT      : FALSE
+	O_IS_WIZARD       : FALSE
+	O_ENABLE_COMMANDS : FALSE
+	O_CLONE           : FALSE
+	O_DESTRUCTED      : FALSE
+	O_SWAPPED         : FALSE
+	O_ONCE_INTERACTIVE: FALSE
+	O_RESET_STATE     : FALSE
+	O_WILL_CLEAN_UP   : FALSE
+	O_WILL_RESET: TRUE
+	total light : 0
+	next_reset  : 720300560
+	time_of_ref : 720299416
+	ref         : 2
+	swap_num    : -1
+	name        : 'u/c/cynosure/di0'
+	next_all    : OBJ(bin/dev/_update)
+	This object is the head of the object list.
+
+	運作 1：
+
+	create() {
+		write(debug_info(1, this_object()));
+	}
+
+	輸出結果：
+
+	program ref's 1
+	Name u/c/cynosure/di1.c
+	program size 10
+	num func's 1 (16) 
+	num strings 0
+	num vars 0 (0)
+	num inherits 0 (0)
+	total size 104
+
+	運作 2：
+
+	create() {
+		write(debug_info(2, this_object()));
+	}
+
+	輸出結果：
+
+	x: "foo"
+
+參考：
+	dump_file_descriptors, dump_socket_status
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.19.	v22 版

@@ -1,0 +1,14 @@
+名稱：
+	time - 傳回現在時刻距離 1970 年一月一日有多少秒。
+語法：
+	int time( void );
+
+	整數 time ( 無參數 );
+用法：
+	傳回從 1970 年一月一日午夜 (格林威治時間) 開始到現在，總共過了幾秒。
+參考：
+	ctime, localtime, time_expression, uptime
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

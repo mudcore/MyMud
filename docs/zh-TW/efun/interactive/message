@@ -1,0 +1,28 @@
+名稱：
+	message - 送訊息給活物件 (living)。
+語法：
+	void message( mixed class, mixed message, mixed target,	mixed exclude );
+
+	無傳回值 message( 混合 分類, 混合 訊息, 混合 目標, 混合 例外 );
+用法：
+	message() 呼叫除了 exclude 名單以外， target 名單中所有物件的 
+	receive_message( mixed class, mixed message ) 函式。本函式基本上只
+	是告訴物件一個訊息。
+
+	class 是此段訊息的分類〈用於使用者端程式 (client) 之類的地方〉。例
+	如戰鬥、吶喊、緊急等等。不過，任何 LPC 值都可以傳入此參數。
+
+	message 通常是要送出的訊息字串，但是它也可以是任何值。
+
+	target 是欲送達訊息的物件名單。可以是一個物件或物件指標	(pointer)，
+	也可以是陣列或其他型態。如果目標是一個非活著的 (non-living) 的物件
+	，所有與此物件身處於同一環境內的物件都會收到訊息。
+
+	exclude 是不應收到此訊息的物件名單，可以是一個物件或物件陣列 
+	(array)。
+參考：
+	receive_message, say, write, shout, tell_object, tell_room
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.26.	v22 版

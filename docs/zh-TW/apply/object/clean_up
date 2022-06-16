@@ -1,0 +1,23 @@
+名稱：
+	clean_up - 在不活動的 (inactive) 物件中定期呼叫此函式
+語法：
+	int clean_up( int inherited );
+
+	整數 clean_up( 整數 繼承與否 );
+用法：
+	一段時間之內沒有活動 (inactive) 的物件，驅動程式會規律地呼叫該物件
+	中的 clean_up() 函式。此段期間的長短，定義在執行時段設定檔 (rumtime
+	 configuration file) 中。clean_up() 會收到一個旗標 (flag)，指出此
+	物件是否有別的物件繼承 (inherit) 它。如果 clean_up() 傳回 0，則驅
+	動程式將永遠不再呼叫此物件的 clean_up()。 如果傳回 1，則在指定的
+	 clean_up() 延遲時間之後物件仍沒有活動的話，會再呼叫一次 clean_up()。
+
+	通常一個物件在 clean_up() 中所作的事，是摧毀自己以節省記憶體。不過
+	，一般不會想摧毀已被別人繼承的物件，因為下一次該物件再次被繼承，就
+	需要再次載入一份新複本，造成記憶體中同時有兩份程式碼。
+參考：
+	destruct
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.21.	v22 版

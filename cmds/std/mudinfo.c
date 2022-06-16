@@ -52,7 +52,7 @@ int main(object me, string arg)
         msg += sprintf(" %-14s%-20s%-11s%-10d%-5d" NOR, MUD_NAME, duration(), "mud.ren", __PORT__, sizeof(users()));
         msg += "\n-------------------------------------------------------------\n";
         msg += " " + TIME_D->real_time_description() + "\n";
-        msg += " 游戏日历：" + TIME_D->game_time_description("黑铁") + "\n";
+        msg += " 游戏日历：" + TIME_D->game_time_description() + "\n";
         write(msg);
     }
 

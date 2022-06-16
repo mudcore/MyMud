@@ -1,0 +1,53 @@
+名稱：
+	reg_assoc - 一個正規樣式子字串擷取器 (regular pattern substring 
+		    extractor)。
+語法：
+	array reg_assoc( string str, string array pat_arr, array tok_arr );
+	array reg_assoc( string str, string array pat_arr, array tok_arr, 
+		mixed def );
+
+	陣列 reg_assoc( 字串 字串, 字串 陣列 樣式陣列, 陣列 剖析陣列 );
+	陣列 reg_assoc( 字串 字串, 字串 陣列 樣式陣列, 陣列 剖析陣列, 
+		混合 預設值 );
+用法：
+	reg_assoc 將一個字串分段 (explode) 為一些符合給定「pat_arr」正規表
+	示 (regular expression) 樣式字串的子字串 (substring)，並且和給定的
+	剖析單元 (token)「tok_arr」相聯結。如果指定「def」（預設值為 0）的
+	話，它則會和一個不符合者相聯結。傳回值是含有二個子陣列的陣列，第一
+        個是一個如下格式的陣列：
+
+	({ 不符合 1, 符合 1, 不符合 2, 符合 2, ...,
+		不符合 n, 符合 n, 不符合 n+1 })
+
+	而第二個則含有依序對應於符合者的剖析單元：
+
+	({ def, 對應於符合 1 的剖析單元, ..., def, 
+		對應於符合 n 的剖析單元, def })。
+                 
+	「pat_arr」和「tok_arr」的大小必須一樣，「tok_arr」的第 i 個元素是
+	對應於「pat_arr」的第 i 個元素。「pat_arr」只可以含有字串。
+
+	如果「pat_arr」（並且「tok_arr」）的大小是零的話，則只會傳回
+	({ ({ str }), ({ def }) })。
+例子：
+	#define STRING_PAT "\"(\\\\.|[^\\\"])*\""
+	#define NUM_PAT "[0-9]+"
+
+	#define F_STRING 1
+	#define F_NUM 2
+
+	reg_assoc("Blah \"blah\" test 203 hhh j 308 \"bacdcd\b\"acb",
+	({ STRING_PAT, NUM_PAT }), ({ F_STRING, F_NUM }), "no-match")
+
+	將會傳回
+
+	({ ({ "Blah ", "\"blah\"", " test ", "203", " hhh j ", "308", " ",
+		"\"bacdcd\b\"", "acb" }),
+	({ "no-match", F_STRING, "no-match", F_NUM, "no-match", F_NUM,
+		"no-match", F_STRING, "no-match" }) })
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+原譯：
+	Kenny@Broken.History	97.Jul.26
+校訂：
+	spock@muds.net		2000.Aug.27.	v22 版

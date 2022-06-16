@@ -1,0 +1,17 @@
+名稱：
+	set_eval_limit - 設定評估耗費 (evaluation cost) 的上限值。
+語法：
+	void set_eval_limit( int );
+
+	無傳回值 set_eval_limit( 整數 );
+用法：
+	以一個非零值的參數指定給本函式，會設定任何一個執行緒 (thread) 在發
+	生錯誤之前所允許的最高評估耗費。如果參數為 0，則將目前的評估耗費計
+	數器 (counter) 歸零，並傳回目前最高的評估耗費。set_eval_limit(-1) 
+	傳回剩下的評估耗費。
+參考：
+	eval_cost
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.28.	v22 版

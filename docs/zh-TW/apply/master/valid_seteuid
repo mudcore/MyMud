@@ -1,0 +1,18 @@
+名稱：
+	valid_seteuid - 保障 seteuid 的用途。
+語法：
+	int valid_seteuid( object obj, string euid );
+
+	整數 valid_seteuid( 物件 物件, 字串 euid );
+用法：
+	只有在定義了 PACKAGE_UIDS 時用到。
+
+	在 seteuid(euid) 外部函式裡面，驅動程式呼叫主宰物件 (master object)
+	中的 valid_seteuid(ob, euid)。如果 valid_seteuid() 傳回 0，則
+	seteuid() 呼叫失敗。如果 valid_seteuid() 傳回 1，則 seteuid() 成功。
+參考：
+	seteuid, geteuid, getuid, export_uid
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

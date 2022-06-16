@@ -1,0 +1,18 @@
+名稱：
+	time_expression - 傳回執行一個運算式 (expression) 所需的真實時間。
+語法：
+	int time_expression( mixed expr );
+	int time_expression { ... }
+
+	整數 time_expression( 混合 expr );
+	整數 time_expression { ... }
+用法：
+	評估 (evaluate) expr 或一段指定的程式碼。本函式傳回評估 expr 所用掉
+	的時間，以微秒 (microsecond) 為單位。傳回數值的精確度並不需要準確到
+	一微秒內；實際上，它的精確度比微秒還差。
+參考：
+	rusage, function_profile, time
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.20.	v22 版

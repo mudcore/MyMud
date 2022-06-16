@@ -1,0 +1,156 @@
+使用映射 (mapping)					1992 September 28
+
+MudOS 映射資料型態文件 -  撰稿: Truilkan@TMI
+
+MudOS 0.9 提供了名為「映射」的資料型態. 映射與其他語言中的聯結陣列
+(associative arrays)  一樣 (例如 Perl). 一個聯結陣列與普通的陣列類似, 但
+是聯結陣列可以使用任何資料型態 (字串、物件、整數、陣列等等) 作為索引
+(index) , 而陣列只能使用整數. 另外, 聯結陣列是疏鬆的陣列 (sparse arrays)
+, 也就是說, 您可以只指定第 1,000,000  項元素的內容, 而不必指定其他元素.
+映射有兩個實際的用途:
+1)  資料庫
+2)  代替 C  的集合資料型態 struct. 只需要把映射中的關鍵字 (key) 當作
+struct  的欄位 (field)  即可.
+
+這樣宣告一個映射:
+
+mapping x;
+
+一個映射可以用兩種方法初始化 (initialize):
+
+   x = ([關鍵字一 : 內容值一, 關鍵字二 : 內容值二, ...]);
+
+   (注意: x = ([]); 可以造出一個空的映射)
+
+請注意一個映射必須先初始化, 才能指定其中的任何元素. 有此限制是因為遊戲驅
+動程式將所有的變數初始化為 0 (不管變數是什麼型態).  如果您沒有初始化一個
+映射, 您為此陣列指定元素時, 就會看到 Indexing on illegal type  (索引指向
+的資料型態違法) 的錯誤.
+
+新的 (關鍵字, 內容值) 可以用以下的方法加進一個映射:
+
+x[key] = value;
+
+上面的敘述使驅動程式尋找在映射 x  中的特定關鍵字 (key). 如果映射 x  有此
+關鍵字, 則映射中聯結的內容值 (value)  就換成等號右邊指定的值. 如果映射並
+沒有包括這個關鍵字, 則會自動動態 (dynamically) 配置 (allocate)  另外的空
+間, 並將新的 (關鍵字, 內容值) 插入映射中.
+
+映射中的一個元素可以下行的方式讀取:
+
+   write(x[key] + "\n");
+
+一個陣列的元素可以下行的方式刪除:
+
+   map_delete(x, key);
+
+刪除之後, 會讓下面的運算式為真 (1):
+
+   undefinedp(x[key])
+
+所以您可以撰寫像以下的程式碼:
+
+if (undefinedp(value = x["MudOS"])) {
+    write("「MudOS」為映射 x 的一個元素。\n");
+} else {
+    write("關鍵值「MudOS」的值是：" + value + "。\n");
+}
+
+關鍵字 (索引) 的列表可以用 keys() 外部函式列出, 舉例如下:
+
+   mixed *idx;
+   map x;
+
+   x = ([ "x" : 3, "y" : 4]);
+   idx = keys(x);  /* idx == ({"x", "y"}) 或 ({"y", "x"}) */
+
+請注意, 看來很明顯的, keys()  會以一個隨機的順序 (random) 傳回索引的列表
+ (這種隨機的順序, 是映射儲存資料的方式的副作用 ---- 在此, 是因為可擴充式
+資料搜尋表 (extensible hash table)  順序的關係)
+
+一個映射的內容值 (values) 列表, 可以 values() 外部函式列出:
+
+   idx = values(x);
+
+使 idx 等於 ({3, 4}) 或 ({4, 3}). 注意, values() 傳回的內容值順序則跟
+keys() 傳回的順序相同.
+
+ (關鍵字, 內容值) 在一個映射中, 可以利用 each()  外部函式反覆搜尋.
+each()  在找到映射的尾端時, 就傳回一個空向量 (null vector).  each() 傳回
+ (關鍵字, 內容值) 的順序, 與 keys() 和 values()  傳回的順序相同. 舉例:
+
+   mixed *pair;
+
+   while ((pair = each(x)) != ({})) {
+      write("key   = " + pair[0] + "\n");
+      write("value = " + pair[1] + "\n");
+   }
+
+映射可以為二元 (two-dimensional) (或是更高次元的映射),  道理與 LPC  陣列
+相同:
+
+   mapping x, y;
+
+   x = ([]);
+   y = ([]);
+
+   y["a"] = "c";
+   x["b"] = y;
+
+   則 x["b"]["a"]  == "c"
+
+   映射也可以由 *  (乘法) 運算子組合得到 (數學上的組合).
+
+   mapping r1, r2, a;
+
+   r1 = ([]);
+   r2 = ([]);
+
+   r1["driver"] = "mudlib";
+   r2["mudlib"] = "castle";
+
+所以:
+
+   a = r1 * r2 
+
+定義出 a["driver"] == "castle";
+
+您也可以將兩個映射相加. 兩個映射的總和定義為兩個映射的聯集 (union).
+
+   a = r1 + r2
+
+定義出 a["driver"] == "mudlib" 和 a["mudlib"] == "castle"
+
+「+=」也可使用. 所以您可以用:
+
+   a += ([key : value]);
+
+可以代替:
+
+   a[key] = value;
+
+不過, 後面這種 a[key] = value 的形式要比前面的 a += ([key : value]) 的方
+法要來得有效率. 因為前面的方法還要創造一個新的映射﹝譯按: 指 
+([key : value]) 這個映射﹞, 而後者不用.
+
+映射不能使用 - (減號) 運算子﹝要使用 map_delete() ﹞.
+
+sizeof() 外部函式可以判斷一個映射中有多少對 (關鍵字, 內容值)  的資料.
+
+   write("映射 x 內含 " + sizeof(x) + " 個元素。\n");
+
+內部的做法 (implementation):
+
+MudOS 的映射使用可擴充式的資料搜尋表 (extensible hash table). 資料搜尋表
+的大小一定是 2  的乘冪 (power of 2).  當資料搜尋表的內容裝滿一定的程度時
+, 資料搜尋表的就增為兩倍以維持資料搜尋的效率.
+
+作者:
+
+MudOS 的映射原本由 Whiplash@TMI 所寫. 其中的一部份後來由 Truilkan@TMI 重
+寫﹝使用可擴充式的資料搜尋表以替換原來的二元樹 (binary tree)﹞.
+
+映射資料結構的一部份是基於 Larry Wall 寫的 Perl 程式語言的 hash.c 模組.
+Perl  的整套程式適用於 GNU Copyleft general public license.
+
+翻譯:	Spock @ FF	97.Aug.11.

@@ -1,0 +1,22 @@
+名稱：
+	map_mapping - 經由呼叫一個函式修改一個映射中的元素 (element)。
+語法：
+	mapping map_mapping( mapping map, string fun, object ob, 
+				mixed extra, ... );
+	mapping map_mapping( mapping map, function f, mixed extra, ... );
+
+	映射 map_mapping( 映射 映射, 字串 函式,	物件 物件, 
+				混合 其他, ... );
+	映射 map_mapping( 映射 映射, 函式指標 f, 混合 其他, ... );
+用法：
+	經由「ob->fun()」或「f」處理一個映射，並傳回一個有相同關鍵字的新映
+	射。每一個在 map 中的 (關鍵字, 內容值) 都會呼叫「ob->fun()」或「f」
+	一次，並將該函式的傳回值當作該關鍵字的新內容值。
+	「extra」與其之後的參數是呼叫「ob->fun()」或「f」時，在
+	 (關鍵字, 內容值) 之後給予的參數。
+參考：
+	filter_array, filter, sort_array, map_array, map
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.23.	v22 版

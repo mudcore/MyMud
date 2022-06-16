@@ -1,0 +1,21 @@
+名稱：
+	remove_call_out() - 取消一個延遲中的外部呼叫 (call_out)。
+語法：
+	int remove_call_out( string fun );
+
+	整數 remove_call_out( 字串 函式 );
+用法：
+	取消目前這個物件下一次延遲呼叫的外部呼叫函式 fun。傳回值就是外部呼
+	叫還剩下多少延遲時間。如果函式 fun 已經沒有延遲的外部呼叫，就傳回
+	-1。如果 fun 是 0，則取消這個物件所有的外部呼叫。
+譯註：
+	從 v22a28 版開始，如果定義 CALLOUT_HANDLES 則可以使用整數控制外部
+	呼叫，詳情請參考 call_out。
+	有此定義時，可以使用 remove_call_out(int handle); 的語法。handle
+	是代表該外部呼叫的整數。
+參考：
+	call_out, call_out_info
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.27.	v22 版

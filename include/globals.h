@@ -1,33 +1,58 @@
-// The global include file is included automatically.
-#ifndef GLOBALS_H
-#define GLOBALS_H
+// 全局包含文件
 
-// 游戏管理员帐号
-#define WIZARD "test"
+#define HTTP_PORT    8080
 
-// 系统目录
-#define WORLD_DIR "/world/"
+#define ROOT_UID      "Root"
+#define BACKBONE_UID  "Backbone"
 
-// 核心对象
-#include "object.h"
-// 功能模块
-#include "inherits.h"
-// 守护进程
-#include "daemons.h"
-// 标准继承对象
-#include "stdob.h"
+#define WORLD_DIR     "/world/"
+#define WORLD_8_DIR    "/world/dq8/"
+#define WORLD_9_DIR    "/world/dq9/"
+#define CMD_DIR       "/cmds/"
+#define CONFIG_DIR    "/system/etc/"
+#define DATA_DIR      "/data/"
+#define HELP_DIR      "/help/"
+#define LOG_DIR       "/log/"
+#define SINGLE_DIR    "/system/kernel/"
+#define ITEM_DIR      "/obj/item/"
+#define MOB_DIR       "/obj/mob/"
+#define EQUIPMENT_DIR "/obj/equipment/"
+#define ACCESSORY_DIR "/obj/equipment/accessory/"
+#define ARMOUR_DIR    "/obj/equipment/armour/"
+#define WEAPON_DIR    "/obj/equipment/weapon/"
+#define QUEST_DIR     "/feature/quest/"
 
 // 指令路径
 #define CMD_PATH_WIZ ({"/cmds/wiz/", "/mudcore/cmds/wizard/"})
 #define CMD_PATH_STD ({"/cmds/std/", "/mudcore/cmds/player/"})
+// 出生地
+#define START_ROOM    "/world/start_room/0,0,0"
+#define OCEAN         WORLD_9_DIR "43/sea"
+// 系统公告
+#define NOTICE        "/help/notice"
+// 预加载列表
+#define PRELOAD         "/system/etc/preload"
+// 欢迎界面
+#define MOTD            "/system/etc/motd"
+// 聊天NPC
+#define ROBOT_NPC       ({"/world/npc/ivy"})
 
-// 其他
-#define MOTD "/system/etc/motd"
-#define PRELOAD "/system/etc/preload"
+#define F_CONDITION(x)  ("/feature/condition/" + x)
+#define F_SKILL(x)      ("/feature/skill/" + x)
+#define F_SPELL(x)      ("/feature/spell/" + x)
+#define F_QUEST(x)      ("/feature/quest/" + x + ".c")
 
-#define START_ROOM WORLD_DIR "start_room"
+#define AUTO_LOOK
+#define WIZARD  "ivy"
 
-// mudcore框架头文件（请放在最底部）
+#define MAX_NAME_LEN 6
+
+#include "combat.h"
+#include "condition.h"
+#include "daemons.h"
+#include "inherits.h"
+#include "monster.h"
+#include "object.h"
+#include "stdob.h"
+
 #include <mudcore.h>
-
-#endif

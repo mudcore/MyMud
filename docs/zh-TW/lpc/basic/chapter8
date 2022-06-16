@@ -1,0 +1,179 @@
+			基礎 LPC
+		作者: Descartes of Borg
+		第一版: 23 april 1993
+		第二版: 12 july 1993
+
+第八章: 「物件」資料型態
+
+8.1 回顧
+
+你現在應該能從你自己的物件中呼叫函式. 你也應該清楚, 至少在一開始物件載
+入記憶體的時候, 你物件中的 create() (或 reset() ) 函式會被呼叫, 而你的
+reset() 函式會一直被重複呼叫, 讓你可以寫些程式碼來更新你的房間狀況. 注
+意一下, 你的物件中不一定要有這兩個函式. driver  會先檢查你的物件中有沒
+有這些函式. 如果沒有, 也不會怎麼樣. 你也已經認識 void  (無傳回值), int
+ (整數), string (字串) 這三種資料型態.
+ 
+8.2 物件是一種資料型態
+
+在這一章裡面, 你將會認識一種更複雜的資料型態──物件. 一個物件變數指向
+一個已經載入 driver 記憶體的真正物件. 宣告物件變數的方法跟宣告其他資料
+型態的變數一樣:
+    object ob;
+不過它不同的地方在於你不能在它身上用 +、- 、+=、-=、* 、/  (把一隻怪物
+除以另一隻怪物到底有啥意義 ? ). 而且, 像是 say()  和 write()  外部函式
+只要字串或整數, 你就不能 write()  或 say()  它們 (再次聲明, 說一隻怪物
+是啥意思 ? ). 但是你可以將它們用於其他 LPC  重要的外部函式上.
+ 
+8.3 外部函式: this_object()
+
+這個外部函式傳回一個物件, 是正在執行 this_object()  的物件. 換句話說, 
+在一個檔案裡, this_object() 就是你的檔案物件複製出去的拷貝或是繼承這個
+檔案的其他檔案. 當你正在撰寫一個會被別的檔案繼承的檔案, this_object() 
+就很有用. 假設你正在寫你自己的 living.c , user.c  和 monster.c  會繼承
+它, 但是 living.c 不可能會獨自使用, 它只用來被這兩個物件繼承. 你想要把
+設定玩家等級的 set_level()  函式記錄下來,  (但是你不想記怪物的).
+你可能會這樣做:
+ 
+void set_level(int x) {
+    if(this_object()->is_player()) log_file("levels", "foo\n");
+    level = x;
+}
+ 
+既然 living.c 或 living.c 繼承的檔案都沒有定義 is_player(), 我們就假設
+if(is_player()) 會導致一個錯誤, 因為 driver 在你的檔案裡、你繼承的
+檔案中都找不到 is_player()  函式. 因為你的檔案是被別的檔案繼承之故, 
+this_object() 讓你能使用最後成品中可能擁有 (或沒有) 的函式而不會出現錯
+誤.
+ 
+8.4 呼叫其他物件中的函式
+
+這當然是向你介紹物件資料型態最重要的特色. 它讓我們能使用其他物件中的函
+式. 前面的範例裡, 你已經能找出一個玩家的等級、減少他們身上的錢、他們有
+多少可承受傷害點數.
+有兩種方法可以呼叫其他物件中的函式:
+ 
+物件->函式(參數)
+call_other(物件, "函式", 參數);
+ 
+範例:
+this_player()->add_money("silver", -5);
+call_other(this_player(), "add_money", "silver", -5);
+ 
+某些情形下 (很概略的說法) , 遊戲只是由玩家命令觸發的一連串函式呼叫. 當
+一個玩家開始一串函式呼叫時, 這個玩家就是 this_player()  外部函式所傳回
+的物件. 所以, 因為 this_player()  可以由觸發事件的人決定, 你要小心你用
+this_player() 呼叫函式的地方在哪裡. 你通常會把它擺在最後一個重要的區域
+函式── init() 裡 (我們已經提過 create() 和 reset()  ).
+ 
+8.5 區域函式: init()
+
+任何時候, 一個活著的東西碰到一個物件 (進入一個新的房間, 或其他物件進入
+同一個房間) , 就會呼叫此物件新遇到所有物件裡面的 init() 函式. 在此, 你
+可以加上一些玩家可以使用的命令. 以下是一朵花的 init() 函式範例.
+ 
+void init() {
+    ::init();
+    add_action("smell_flower", "smell");
+}
+ 
+上面呼叫 smell_flower() 函式. 所以你應該有個 smell_flower() 函式長得像
+這樣:
+ 
+1 int smell_flower(string str);        /* 玩家動作的函式是整數型態 */
+2
+3 int smell_flower(string str) {
+4    if(str != "flower") return 0;     /* 玩家聞的不是這朵花 */
+5    write("你聞了這朵花.\n");
+6    say((string)this_player()->query_cap_name()+"聞了聞花.\n");
+7    this_player()->add_hp(random(5));
+8    return 1;
+9 }
+ 
+第一行, 我們宣告函式.
+第三行, 開始 smell_flower(). str  是跟在玩家命令之後的任何東西 (不包括
+    第一個空白字元).
+第四行, 檢查玩家輸入的是否為 "smell flower".  如果玩家輸入的是
+    "smell cheese", 則 str  就是 "cheese".  如果聞的不是花, 就傳回 0, 
+    讓 driver 知道不該呼叫這個函式. 如果玩家身上有塊乳酪, 乳酪也有個
+    smell 指令的話, driver  之後會呼叫乳酪的函式. driver  會持續呼叫同
+    樣是 smell  的命令, 直到有一個傳回 1  為止. 如果它們都傳回 0, 則玩
+    家就看到「什麼 ?」 
+第五行, 呼叫 write()  外部函式. write() 把傳入給它的字串印出來給
+    this_player() . 所以, 只要輸入 "smell flower" 的玩家都會看到「你聞
+    了這朵花.」
+第六行, 呼叫 say()  外部函式. say() 印出聞花動作的字串, 我們需要呼叫
+    this_player() 的 query_cap_name() 函式. 這樣子碰上隱形的玩家會印出
+    「某個人」 (或像是隱形的東西), 而且會把第一個字元轉為大寫
+    (capitalize).
+第七行, 我們呼叫 this_player()  物件中的 add_hp() 函式, 因為我們想在聞
+    了花之後對玩家作一點治療 (註: 別把這些程式碼寫在你的 mud  裡, 管理
+    mud 平衡的人會斃了你).
+第八行, 我們把遊戲的控制交回給 driver,  傳回 1  讓 driver 知道它呼叫的
+    函式正確.
+ 
+8.6 在你的房間加上物件
+
+現在, 使用物件資料型態, 你可以把怪物加進房間裡面:
+ 
+void create() {
+    ::create();
+    set_property("light", 3);
+    set("short", "Krasna 廣場");
+    set("long", "歡迎來到 Praxis 鎮的中央廣場.\n");
+    set_exits( ({ "d/standard/hall" }), ({ "east" }) );
+}
+ 
+void reset() {
+    object ob;
+ 
+    ::reset();
+    if(present("guard")) return;     /* 如果已經有一位警衛,  */
+    ob = new("/std/monster");        /* 就別再增加一位 */
+    ob->set_name("guard");
+    ob->set("id", ({ "guard", "town guard" }) );
+    ob->set("short", "鎮警衛");
+    ob->set("long", "它看守著 Praxis.\n");
+    ob->set_gender("male");
+    ob->set_race("human");
+    ob->set_level(10);
+    ob->set_alignment(200);
+    ob->set_humanoid();
+    ob->set_hp(150);
+    ob->set_wielding_limbs( ({ "right hand", "left hand" }) );
+    ob->move(this_object());
+}
+ 
+現在, 大多數的 mud  在此都大不相同. 前面提過, 有的 mud  把這些東西寫在
+一個獨立設定的怪物物件裡. 原始模式的 mud  最後要呼叫怪物物件中的 move()
+來把它搬進房間 (this_object() ) 裡. 在精簡模式的 mud  裡, 你呼叫需要兩
+個參數的 move_object()  外部函式, 這兩個參數是: 要搬動的物件和要放東西
+進去的物件.
+ 
+8.7 本章總結
+
+行文至此, 你現在應該有相當的知識來撰寫一些很棒的東西. 當然, 我一直強調
+你真的需要去閱讀如何在你 mud  寫程式的說明文件, 它們會詳細說明在什麼種
+類的物件裡擁有哪些函式可以呼叫. 無論你對 mudlib 的知識有多少, 你已經有
+足夠的知識了解如何給玩家一些額外的事情做, 像是聞聞花、貼東西之類的事.
+現在你應該能忙於撰寫程式. 但是此刻, 事情看起來變得枯燥沉悶, 這表示你該
+進入下一階段、更深入的時間到了. 現在讓你自己撰寫一個小區域. 儘量使用你
+mud room.c  裡頭所有的特殊函式 (找找別人覺得用都用不到的冷僻文件) . 加
+上一堆簡潔的動作. 創造一些含有魔力的武器, 其魔力會漸漸消失. 以上這些你
+現在應該都能寫得出來. 一旦這些東西對你來說都變成例行公事, 就是你開始學
+習中階課程的時候. 注意, 只有很少人能真正進入中階課程. 如果你全部都做完
+, 我告訴你, 你在 mud  中能做到的領域只在少數. 這不僅是因為其他許多領域
+很困難, 也因為有一些已經超越此領域的人充滿了傲慢, 而且極少傳播這些知識.
+秘訣在於: 強迫你自己, 並想一些你覺得不可能做到的事. 如果你問某個人怎麼
+做 X, 而他們跟你說那個不可能做到, 就自己想辦法利用實驗把它寫出來.
+
+George Reese
+Descartes of Borg
+12 july 1993
+borg@hebron.connected.com
+ (譯按: 已改為 borg@imaginary.com )
+Descartes@Nightmare (intermud)
+Descartes@Igor (not intermud)
+
+譯者:
+	Spock of Final Frontier		98.Feb.2.

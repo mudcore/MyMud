@@ -1,0 +1,31 @@
+名稱：
+	sort_array() - 將一個陣列的內容排序。
+語法：
+	array sort_array( array arr, string fun, object ob ); 
+	array sort_array( array arr, function f ); 
+	array sort_array( array arr, int direction ); 
+
+	陣列 sort_array( 陣列 陣列, 字串 函式, 物件 物件 ); 
+	陣列 sort_array( 陣列 陣列, 函式指標 f ); 
+	陣列 sort_array( 陣列 陣列, 整數 方向 );
+用法：
+	第一種 (ob, fun) 的語法如同第二種語法使用 (: call_other, ob, fun :)
+	作為函式指標 f 參數。
+
+	在前兩種語法中，傳回的陣列是以參數函式排序後的結果。該函式拿兩個元
+	素作為參數，當第一個參數小於第二個時傳回 -1，兩者相等時傳回 0，第
+	二個小於第一個時傳回 1。
+
+	第三種語法傳回一個與 arr 有著相同元素的陣列，但是以內建的排序行程
+	(built-in sort routine) 做快速排序。direction 為 1 或是 0 時，將會
+	依照上升順序快速排序, 而 direction 為 -1 時將依照下降順序
+	(descending) 排序。內建的排序行程有其限度，即所有陣列中的元素型態
+	必須一致 (homogeneous)，完全由單一的型態組成。而型態只能是字串、整
+	數、浮點數其中一種。陣列組成的陣列將依照每個陣列的第一個元素排序，
+	讓您可以對資料庫 (database) 排序。
+參考：
+	strcmp
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

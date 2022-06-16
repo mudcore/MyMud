@@ -1,0 +1,18 @@
+名稱：
+	read_file() - 把一個檔案的內容讀進一個字串裡。
+語法：
+	string read_file( string file, int start_line, int number_of_lines );
+
+	字串 read_file( 字串 檔案, 整數 起始行, 整數 行數 );
+用法：
+	從一個檔案中讀入幾行文字到一個字串中。第二個和第三個參數可以選擇。
+	如果只指定 file 的參數，整個檔案都會被讀進一個字串中。
+
+	start_line 指定你要從檔案的第幾行開始讀取。如果你指定的行數超過檔
+	案的尾端，或是指定的數字為負數，則會傳回 0。 
+參考：
+	write_file, read_buffer
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.28.	v22 版

@@ -1,0 +1,32 @@
+* switch 敘述
+
+LPC 的 switch 敘述與 C  的 switch 敘述幾乎一樣. 唯一不同的地方是 LPC  的
+switch  判斷依據的運算式可以使用字串或整數. 語法如下:
+
+switch (運算式) {
+	case 常數一 :	敘述一;
+		break;
+	case 常數二 : 	敘述二;
+		break;
+	default : 	敘述三;
+		break;
+}
+
+switch 可以代替一堆 if else if else if else 結構. 上面的 switch 等於:
+
+tmp = 運算式;
+if (tmp == 常數一) {
+	敘述一;
+	...;
+} else if (tmp == 常數二) {
+	敘述二;
+	...;
+} else {
+	敘述三;
+	...;
+}
+
+switch  與 if 敘述之間最大的不同處, 在於某個 case 最後如果沒有 break; 敘
+述, 則會執行下一個 case.
+
+翻譯:	Spock @ FF	97.Aug.10.

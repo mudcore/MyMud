@@ -1,0 +1,18 @@
+名稱：
+	slow_shutdown - 告知目前 mud 正處於緩慢關閉 (slow shutdown) 的過程。
+語法：
+	int slow_shutdown( int minutes );
+
+	整數 slow_shutdown( 整數 分鐘 );
+用法：
+	當驅動程式無法從堆 (heap) 中配置 (allocate) 更多的記憶體，而只能使
+	用它保留的記憶體區塊 (reserved memory block) 時，主宰物件會呼叫此
+	函式。此函式只有在組態檔案中設定了「記憶體區塊保留大小」(reserved
+	size) 才會被呼叫。此函數的參數為距離關閉時間還剩下幾分鐘。如果沒有
+	此函式，或是傳回 0，則驅動程式會立刻關閉。
+參考：
+	crash, shutdown
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

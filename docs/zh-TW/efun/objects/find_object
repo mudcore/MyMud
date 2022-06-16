@@ -1,0 +1,17 @@
+名稱：
+	find_object - 以檔案名稱尋找一個物件。
+語法：
+	object find_object( string str );
+
+	物件 find_object( 字串 字串 );
+用法：
+	用檔案名稱「str」尋找一個物件。如果該物件是一個複製物件，亦可以用 
+	file_name() 傳回的檔案名稱作為參數。
+	〈譯按：file_name() 對複製物件傳回的檔案名稱是檔名加上「#xxx」，xxx
+	是複製的編號〉
+參考：
+	file_name
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.26.	v22 版

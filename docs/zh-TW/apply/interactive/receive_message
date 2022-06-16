@@ -1,0 +1,17 @@
+名稱：
+	receive_message - 提供 message() 外部函式 (efun) 的介面 (interface)
+語法：
+	void receive_message( mixed class, mixed message );
+
+	無傳回值 receive_message( 混合 類別, 混合 訊息 );
+用法：
+	message() 外部函式呼叫在玩家物件中的本函式。 class 參數通常用於指
+	示訊息的種類〈說話 say、傾訴 tell、表情 emote、戰鬥 combat、房間敘
+	述 room description 等等〉。receive_message() 和 message() 的外部
+	函式結合在一起，可以提供一個介面方法與「聰明」的使用者端程式溝通。
+參考：
+	catch_tell, message, receive, receive_snoop
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

@@ -1,0 +1,15 @@
+名稱：
+	children - 傳回一個陣列，是從指定的檔案所複製出來的物件。
+語法：
+	object array children( string name );
+
+	物件 陣列 children( 字串 名稱 );
+用法：
+	本函式傳回一個物件陣列，是所有複製或載入檔案名稱「name」所產生的物
+	件。〈如果載入「name」之後，則包括它自己〉
+參考：
+	deep_inherit_list, inherit_list, objects
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.25.	v22 版

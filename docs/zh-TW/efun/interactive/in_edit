@@ -1,0 +1,17 @@
+名稱：
+	in_edit - 判斷一個玩家是否在編輯程式當中。
+語法：
+	string in_edit();
+	string in_edit( object ob );
+
+	字串 in_edit();
+	字串 in_edit( 物件 物件 );
+用法：
+	如果一個指定的物件正在編輯程式中，會傳回正在編輯的檔案名稱。如果不
+	是則傳回 0。如果不指定物件，就當作是 this_object()。
+參考：
+	ed, in_input
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.25.	v22 版

@@ -1,0 +1,18 @@
+名稱：
+	set_heart_beat - 啟動或取消一個物件的心跳 (heartbeat)。
+語法：
+	int set_heart_beat( int flag );
+
+	整數 set_heart_beat( 整數 旗標 );
+用法：
+	「flag」參數指定為 0 取消物件的心跳。「flag」參數指定為 1 會使這個
+	物件每次心跳呼叫 heart_beat() 函式一次〈心跳的時間由你的 mud 管理者
+	定義，通常是兩秒〉。「flag」參數指定為大於 1 的數字，則代表這個物件
+	每隔多少次心跳才呼叫一次 heart_beat()。但是，你的 mud  管理者可以將
+	系統設定為大於 1 的數字視為 1。
+參考：
+	heart_beat, query_heart_beat
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

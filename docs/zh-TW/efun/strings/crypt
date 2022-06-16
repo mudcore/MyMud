@@ -1,0 +1,15 @@
+名稱：
+	crypt - 對一個字串進行編碼 (encrypt)。
+語法：
+	string crypt( string str, string seed );
+
+	字串 crypt( 字串 字串, 字串 種子數 );
+用法：
+	以字串「seed」的前兩個字元當作種子數，對字串「str」進行編碼。如果 
+	「seed」為 0，就會用隨機種子數進行編碼。
+
+	前兩個字母為種子數。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.27.	v22 版

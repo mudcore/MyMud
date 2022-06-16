@@ -1,0 +1,23 @@
+名稱：
+	command - 如同該物件自己輸入一般，執行一個命令。
+語法：
+	int command( string str );
+
+	整數 command( 字串 字串 );
+用法：
+	本函式僅在 NO_ADD_ACTION 沒有定義時生效。
+
+	讓物件 this_object() 執行 str 命令〈符合 add_action() 等命令〉。此
+	物件必須已經呼叫過 enable_commands()，本函式才有效。如果失敗會傳回 
+	0，成功則傳回一個數值，即 LPC 的「評估耗時」 (evaluation cost)。較
+	大的數字代表較長的耗時，但是其量度 (scale) 是主觀 (subjective) 而不
+	可靠 (unreliable) 的。
+譯註：
+	最後一句話的意思：如果評估耗時為 2000，它不是 1000 的兩倍。唯一可以
+	確定的事就是 2000 的評估耗時一定比 1000 久。
+參考：
+	add_action, enable_commands
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.25.	v22 版

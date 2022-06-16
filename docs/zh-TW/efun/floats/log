@@ -1,0 +1,16 @@
+嘿
+	log() - 肚疊翴计礛癸计 (natural logarithm)
+粂猭
+	float log( float f );
+
+	疊翴计 log( 疊翴计 f );
+ノ猭
+	セㄧΑ度﹚竡 PACKAGE_MATH ネ
+
+	肚把计 f 礛癸计f ゲ斗タ
+把计
+	exp, pow, sqrt
+
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+陆亩
+	spock@muds.net		2000.May.28.	v22 

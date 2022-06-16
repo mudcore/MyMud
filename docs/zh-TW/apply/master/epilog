@@ -1,0 +1,19 @@
+名稱：
+	epilog - 處理初始化 (initialization)。
+語法：
+	string array epilog( int load_empty );
+
+	字串 陣列 epilog( 整數 不載入 );
+用法：
+	驅動程式於載入主宰物件 (master object)  之後，呼叫主宰物件中的
+	epilog() 函式。此時可以作任何必須的初始化工作。如果 epilog 傳回一
+	個檔案名稱的陣列，驅動程式會試著由 preload() 函式載入這些檔案。
+
+	如果啟動驅動程式時加上 -e 的選項，load_empty 參數就是非零值，以前
+	這個參數表示不預先載入物件，但是這個參數代表的意思由 mudlib 決定。
+參考：
+	preload
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.May.21.	v22 版

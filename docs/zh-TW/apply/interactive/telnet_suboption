@@ -1,0 +1,20 @@
+名稱：
+	telnet_suboption - 處理 telnet 的次選項 (suboptions)
+語法：
+	void telnet_suboption( string buffer );
+
+	無傳回值 telnet_suboption( 字串 暫存區 );
+用法：
+	
+	在 mudlib 定義的處理程序下，互動 (interactive) 物件呼叫此函式，並
+	以 SE telnet suboptions 作為參數。注意終端機型態的回應與視窗大小的
+	回應會被轉譯，再分別送入 terminal_type() 與 window_size()，而不透
+	過 telnet_suboption()。
+
+	buffer 的第一個位元組 (byte) 通常是一個型態敘述值 (type descriptor)
+	，即 TELOPT_TTYPE。第二個位元組是一個 procession option，如
+	 TELQUAL_IS。 之後是與型態相關的資料。
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Apr.26.	v22 版

@@ -1,0 +1,25 @@
+名稱：
+	resolve - 轉換一個網際網路位址 (internat address) 為網域名稱 
+		  (domain name)。
+語法：
+	int resolve( string address, string callback_func );
+
+	整數 resolve( 字串 位址, 字串 呼叫函式 );
+用法：
+	resolve() 用於轉換「位址」，這個位址應該是網際網路位址，像
+	「127.0.0.1」或網域名稱的形式，它可以在位址及名稱兩者之間互相轉換。
+	轉換完成後，會呼叫目前物件的「callback_func」。呼叫函式的格式為：
+
+	void callback( string address, string resolved, int key );
+
+	無傳回值 callback( 字串 位址, 字串 轉換後位址, 整數 關鍵 );
+
+	「key」是呼叫 resolve() 函式的傳回值。「address」是轉換後的地址或網
+	域。「resolved」是 ip 數字。如果向上詢問 (lookup) 失敗，則轉換的結
+	果為 0。
+參考：
+	query_host_name, socket_address, query_ip_name,	query_ip_number
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jul.1.	v22 版

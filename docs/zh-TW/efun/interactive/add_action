@@ -1,0 +1,47 @@
+名稱：
+	add_action - 把區域函式 (local function) 連結玩家的命令動詞 
+		     (command verb)。
+語法：
+	void add_action( string | function fun, string | string array cmd );
+	void add_action( string | function fun, string | string array cmd, 
+		int flag );
+
+	無回傳值 add_action( 字串 或 函式指標 函式, 字串 或 字串 陣列 命令 );
+	無回傳值 add_action( 字串 或 函式指標 函式, 字串 或 字串 陣列 命令, 
+		整數 旗標 );
+用法：
+	本函式僅在不定義 NO_ADD_ACTION 時生效。
+
+	設定玩家輸入命令 cmd 時，呼叫函式 fun。〈該命令的動詞是以第一個空白
+	字元之前的所有字元為準，除非該動詞不需要空白字元；見下文〉
+
+	如果 cmd 是一個陣列，則陣列中任何的命令都會呼叫同一個函式。fun 可以
+	是一個字串，這個字串是該物件加入命令的函式名稱、也可以是一個函式指
+	標。
+
+	使用者輸入的一行命令中，命令後面的內容會以字串型態傳入該命令所呼叫
+	的函式。如果命令錯誤必須傳回 0，正確傳回 1。如果傳回 1，不會作進一
+	步的語法分析 (parsing)。如果傳回的是 0，會檢查其他的命令〈可能是不
+	同物件所加入的同一個命令〉。如果找不到任何命令，就對使用者送出預設
+	的錯誤訊息〈傳統上是「什麼？」，不過可以參考 notify_fail()〉。
+
+	如果一個函式可以被多個命令呼叫，可用 query_verb() 分辨到底使用了哪
+	一個命令。
+
+	注意：add_action() 所加入的命令不是廣域的，它只對 this_user() 增加
+	命令，而使用 add_action() 增加命令的物件必須要在使用者「附近」。
+
+	因為使用者走到一個物件「附近」時，會呼叫該物件的 init()，所以這時候
+	加上命令比較方便。使用者走開之後，就會刪除該物件加入的命令〈或是該
+	物件遠離了使用者之後〉。
+
+	如果參數 flag 是 1，只要使用者輸入命令前面開頭的幾個字元 (leading 
+	characters) 符合命令 cmd 即可，而完整的命令 (entire verb) 會由 
+	query_verb() 傳回。如果參數是 2，結果同前，但是 query_verb() 只傳回 
+	cmd 後面的字元 (characters following 'cmd')。
+參考：
+	query_verb, remove_action, init
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Jun.25.	v22 版

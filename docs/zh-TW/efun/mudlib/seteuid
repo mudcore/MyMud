@@ -1,0 +1,23 @@
+名稱：
+	seteuid - 設定一個物件的 euid〈effective user id，有效使用者識別名
+		  稱〉。
+語法：
+	int seteuid( string str );
+
+	整數 seteuid( 字串 字串 );
+用法：
+	本外部函式僅在編譯時定義 PACKAGE_UIDS 才有效。
+
+	設定 euid 為「str」。在主宰物件 master.c 中的 valid_seteuid() 函式
+	控制一個物件的 euid 可以設定為何。
+
+	當一個物件的 euid 為 0，則這個物件的 uid〈user id，使用者識別名稱〉
+	只能用 export_uid() 更改。
+
+	而且 euid 為 0 時，這個物件不能載入或是複製任何物件。
+參考：
+	export_uid, getuid, geteuid, valid_seteuid
+作者：
+	Tim Hollebeek  Beek@ZorkMUD, Lima Bean, IdeaExchange, and elsewhere
+翻譯：
+	spock@muds.net		2000.Aug.24.	v22 版
