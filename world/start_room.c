@@ -26,3 +26,15 @@ varargs private void create(int x, int y, int z)
 
     setArea(0, x, y, z);
 }
+
+void virtual_start()
+{
+    if (!random(3))
+    {
+        set("objects", ([
+            WORLD_DIR "npc/angel":random(3),
+        ]));
+    }
+
+    setup();
+}

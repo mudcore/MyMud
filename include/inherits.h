@@ -12,6 +12,7 @@
 #define MESSAGE     "/inherit/message"
 #define MOVE        "/inherit/move"
 #define NAME        "/inherit/name"
+#define NPC         "/inherit/npc"
 #define ROOM        "/inherit/room"
 #define SAVE        "/inherit/save"
 #define USER        "/inherit/user"

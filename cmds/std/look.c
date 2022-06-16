@@ -1,5 +1,7 @@
 #include <ansi.h>
 
+#define SC_CMD "/cmds/std/score"
+
 int look_room(object me, object env);
 int look_item(object me, object obj);
 int look_living(object me, object obj);
@@ -72,20 +74,118 @@ int look_item(object me, object obj)
     return 1;
 }
 
+string look_equiped(object me, object ob)
+{
+    mixed *inv = all_inventory(ob);
+    string str = "", subs = "";
+    string pronoun;
+    mapping equip_info;
+    int i, n = 0;
+
+    for (i = 0; i < sizeof(inv); i++)
+    {
+        if (inv[i]->query_temp("equipped"))
+        {
+            equip_info = inv[i]->query("equip_info");
+            switch (equip_info["type"])
+            {
+            case "accessory":
+                n++;
+                subs += HIC "  [饰品]" NOR + inv[i]->short() + "\n";
+                break;
+            case "armor":
+                n++;
+                subs += HIC "  [上身]" NOR + inv[i]->short() + "\n";
+                break;
+            case "bracer":
+                n++;
+                subs += HIC "  [护腕]" NOR + inv[i]->short() + "\n";
+                break;
+            case "helmet":
+                n++;
+                subs += HIC "  [头部]" NOR + inv[i]->short() + "\n";
+                break;
+            case "shield":
+                n++;
+                subs += HIC "  [盾牌]" NOR + inv[i]->short() + "\n";
+                break;
+            case "shoe":
+                n++;
+                subs += HIC "  [脚部]" NOR + inv[i]->short() + "\n";
+                break;
+            case "trouser":
+                n++;
+                subs += HIC "  [腿部]" NOR + inv[i]->short() + "\n";
+                break;
+            case "weapon":
+                n++;
+                subs += HIC "  [武器]" NOR + inv[i]->short() + "\n";
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    if (me == ob)
+    {
+        pronoun = pronoun(2, me);
+    }
+    else
+    {
+        pronoun = pronoun(3, ob);
+    }
+    str += pronoun + "是一位 " + ob->query("lv") + " 级的" + chinese(ob->query("vocation")) + "，";
+    if (n)
+    {
+        str += pronoun + "装备着：\n" + subs;
+    }
+    else if (ob->is_npc())
+    {
+        str += pronoun + "的装备你看不出来什么属性。";
+    }
+    else
+    {
+        str += pronoun + "没有装备任何物品。\n";
+    }
+    return str;
+}
+
 int look_living(object me, object ob)
 {
-    // 先简单实现，后期扩展功能
-    string msg;
+    string msg, equip_msg;
+
+    msg = "名称：" + ob->short() + "\n";
+    msg += "说明：" + ob->query("long") + "\n";
+
+    if (ob->is_mob())
+    {
+        tell_object(me, sort_string(msg, 72, 6));
+        return 1;
+    }
+
+    equip_msg = look_equiped(me, ob);
+
+    if (ob->is_npc())
+    {
+        msg += "      " + equip_msg;
+        tell_object(me, sort_string(msg, 72, 6));
+        return 1;
+    }
+
     if (ob == me)
     {
-        return 1;
+        tell_object(me, equip_msg);
     }
     else
     {
         msg = "$ME看了看$YOU，好像对$YOU很感兴趣对样子。";
-
+        msg("vision", msg, me, ob);
+        tell_object(me, equip_msg);
+        if (wizardp(me))
+        {
+            tell_object(me, SC_CMD->score(ob));
+        }
     }
-    msg("vision", msg, me, ob);
 
     return 1;
 }

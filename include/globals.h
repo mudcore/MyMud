@@ -11,7 +11,7 @@
 // 核心对象
 #include "object.h"
 // 功能模块
-#include "inherit.h"
+#include "inherits.h"
 // 守护进程
 #include "daemons.h"
 // 标准继承对象
