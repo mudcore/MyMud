@@ -1,7 +1,7 @@
 /*****************************************************************************
 Copyright: 2020, Mud.Ren
 File name: quester.c
-Description: 标准任务发布者：STD_QUESTER
+Description: 标准任务发布者，注意此文件已弃用，任务由守护进程统一管理
 Author: xuefeng
 Version: v1.0
 Date: 2020-02-16

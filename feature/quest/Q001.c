@@ -60,7 +60,7 @@ string *getAssignMessage()
     string *msg = ({
         "$ME对$YOU說道：" HIG "你想成为冒险者吗？去帮我打败一只史莱姆吧。" NOR,
         "$ME对$YOU說道：" HIG "虽然史莱姆看起来很可爱，但也会攻击村民的呀。" NOR,
-        "$ME对$YOU說道：" HIG "为了避免迷路，一定要看看旁边的告示板(l board)记住坐标哦，也可以使用地图(help map)了解方位。" NOR,
+        "$ME对$YOU說道：" HIG "从这里一路向南可以出村，出村后记得不要跑太远哦。" NOR,
     });
     return msg;
 }
@@ -102,7 +102,7 @@ string *getRewardMessage()
     string *msg = ({
         CYN "$ME高興地跳了起来。" NOR,
         CYN "$ME對著$YOU說道：不要奇怪为什么第一个任务就是出村冒险，因为弱小的你有女神的护佑，哪怕死去也能复活。" NOR,
-        HIG "$ME想了想又对$YOU说：对了，如果你想接受更多的任务，可以去旅店(-127，35，10)，听说旅店里有客人需要帮助。" NOR,
+        HIG "$ME想了想又对$YOU说：对了，如果你想接受更多的任务，可以去旅店，听说旅店里有客人需要帮助。" NOR,
     });
     return msg;
 }

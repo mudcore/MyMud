@@ -59,7 +59,7 @@ string *getAssignMessage()
     // $ME為NPC, $YOU為player
     string *msg = ({
         "$ME对$YOU說道：" HIG "我现在受伤行动不太方便，你能帮我弄3株药草吗？" NOR,
-        "$ME对$YOU說道：" HIG "你可以去杂货铺(-127,32,10)，在那里可以买卖装备和物品。" NOR,
+        "$ME对$YOU說道：" HIG "你可以去杂货铺，在那里可以买卖装备和物品。" NOR,
         "$ME对$YOU說道：" HIG "如果你没有钱，可以去村外消灭魔物，很多魔物都喜欢收集亮晶晶的金币。" NOR,
     });
     return msg;
@@ -101,7 +101,7 @@ string *getRewardMessage()
     // $ME為NPC, $YOU為player
     string *msg = ({
         CYN "$ME非常感谢$YOU。" NOR,
-        HIG "$ME对$YOU说：感谢你的帮助，你知道吗？可以找教堂(-130,35,10)的神官查看自己升级所需的经验。" NOR,
+        HIG "$ME对$YOU说：感谢你的帮助，你知道吗？可以找教堂的神官查看自己升级所需的经验。" NOR,
         CYN "$ME对$YOU说：如果你想更强大一些，最好转职成旅艺人等职业，你会学到强力的技能(skill)和咒文(spell)。" NOR,
     });
     return msg;

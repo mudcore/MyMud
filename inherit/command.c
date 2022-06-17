@@ -5,3 +5,8 @@ Description: 角色指令控制接口
 Author: xuefeng
 *****************************************************************************/
 inherit CORE_COMMAND;
+
+mixed *commands()
+{
+    return efun::commands();
+}
