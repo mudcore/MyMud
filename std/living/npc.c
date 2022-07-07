@@ -18,11 +18,11 @@ varargs void create(string vocation, int lvl)
     }
     if (lvl < 1)
     {
-        lvl = 1;
+        lvl = 1 + random(99);
     }
     if (lvl > 99)
     {
-        lvl = 1 + random(99);
+        lvl = 99;
     }
 
     level_info = LEVEL_D->level_info(vocation);

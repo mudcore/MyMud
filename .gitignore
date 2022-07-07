@@ -4,3 +4,4 @@
 /driver*
 /lpcc*
 /trace*
+*.diff

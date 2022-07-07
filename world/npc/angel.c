@@ -17,7 +17,7 @@ private create()
         "luminary",
     });
 
-    ::create(element_of(vocation_list), 100);
+    ::create(element_of(vocation_list));
     set_name("天使", ({"angel"}));
     set("long", "这是一位守护世界的天使。");
     set("gender", random(2) ? "男性" : "女性");
