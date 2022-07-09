@@ -19,7 +19,7 @@ int main(object me, string arg)
     {
         if(mapp(settings))
         {
-            debug("你的环境变量设置如下：");
+            cecho("你的环境变量设置如下：");
             foreach(string setting, int value in settings)
             {
                 printf("%-10s = %d\n", setting, value);
@@ -31,12 +31,12 @@ int main(object me, string arg)
     else if (arg && member_array(arg, setting_list) >= 0)
     {
         me->set("settings/" + arg, 1);
-        debug("已设置完成。");
+        cecho("已设置完成。");
     }
     else if (sscanf(arg, "%s -d", arg) || sscanf(arg, "-d %s", arg))
     {
         me->set("settings/" + arg, 0);
-        debug("已取消设置。");
+        cecho("已取消设置。");
     }
 
     return 1;

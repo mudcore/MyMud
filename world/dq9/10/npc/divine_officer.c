@@ -69,7 +69,7 @@ int change_vocation(string arg)
         }
         if (VOCATION_D->change_vocation(me, arg))
         {
-            debug("恭喜你，冒险者，转职成功！");
+            cecho("恭喜你，冒险者，转职成功！");
             if (me->query("vocation") == "minstrel" && !me->query("bag"))
             {
                 me->set("bag", 1);

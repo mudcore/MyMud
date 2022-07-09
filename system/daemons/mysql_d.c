@@ -40,12 +40,12 @@ varargs void register(object ob, string host, string db, string user)
         ]));
         /* error */
         if (stringp(res))
-            debug(res);
+            cecho(res);
         else
-            debug("提示：系统已自动在bbs.mud.ren注册账号，你可以使用游戏账号和密码登录社区。");
+            cecho("提示：系统已自动在bbs.mud.ren注册账号，你可以使用游戏账号和密码登录社区。");
     }
 #else
-    debug("注意：数据库功能被禁用，无法注册论坛账号。");
+    cecho("注意：数据库功能被禁用，无法注册论坛账号。");
 #endif
 }
 
@@ -80,10 +80,10 @@ varargs void threads(int node, string host, string db, string user)
     }
     else
     {
-        debug("请指定话题分类ID~");
+        cecho("请指定话题分类ID~");
     }
 #else
-    debug("注意：数据库功能被禁用，无法读取论坛内容。");
+    cecho("注意：数据库功能被禁用，无法读取论坛内容。");
 #endif
 }
 

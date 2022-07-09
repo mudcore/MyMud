@@ -32,7 +32,7 @@ int main(object me, string arg)
     }
     else
     {
-        debug("系统还没有记录这个魔物呢。");
+        cecho("系统还没有记录这个魔物呢。");
     }
     return 1;
 }

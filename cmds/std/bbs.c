@@ -7,7 +7,7 @@ int main(object me, string arg)
     else
     {
         MYSQL_D->threads(config("MUDREN_NODE"));
-        debug("请使用`bbs 序号`查看指定主题内容！\n提示：你也可以输入非列表中的序号查看bbs.mud.ren的内容。");
+        cecho("请使用`bbs 序号`查看指定主题内容！\n提示：你也可以输入非列表中的序号查看bbs.mud.ren的内容。");
     }
 
     return 1;
