@@ -45,7 +45,7 @@ int getLevel()
  */
 int preCondition(object player)
 {
-    return player->query("lv") >= getLevel() && player->isSolved(F_QUEST("Q002")) != -1;
+    return player->query("lv") >= getLevel() && player->isSolved(F_QUEST("Q002"));
 }
 
 // 接受任務的NPC (以檔名來識別)

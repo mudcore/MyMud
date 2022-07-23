@@ -44,7 +44,7 @@ int getLevel()
  */
 int preCondition(object player)
 {
-    return player->isSolved(F_QUEST("Q001")) != -1;
+    return player->isSolved(F_QUEST("Q001"));
 }
 
 // 接受任務的NPC (以檔名來識別)
