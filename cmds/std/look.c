@@ -133,7 +133,7 @@ int look_room_item(object me, string arg)
         return 1;
     }
 
-    if (mapp(exits = env->query("exits")) && !undefinedp(exits[arg]))
+    if (mapp(exits = env->query("exits")) && stringp(exits[arg]))
     {
         if (objectp(env = load_object(exits[arg])))
         {
