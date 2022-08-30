@@ -4,14 +4,19 @@ inherit SAVE;
 void time_out();
 string query_save_file();
 
-void logon()
+void login()
 {
-    call_out("time_out", 60);
-
     if (interactive(this_object()))
         set_temp("ip_number", query_ip_number(this_object()));
 
     LOGIN_D->login(this_object());
+}
+
+void logon()
+{
+    call_out("time_out", 60);
+    // 延迟登陆，解决mudlet初次连接乱码问题
+    call_out_walltime("login", 0.25);
 }
 
 void net_dead()

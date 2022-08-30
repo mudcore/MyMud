@@ -45,6 +45,5 @@ protected void msg(mapping data)
 
 void create()
 {
-    ::create();
     verify();
 }
