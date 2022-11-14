@@ -1,5 +1,5 @@
 // kickout.c
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 void kickout_player(object me, object ob);
 

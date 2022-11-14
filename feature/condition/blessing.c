@@ -1,7 +1,7 @@
 #include <ansi.h>
 #include <buff.h>
 
-inherit CONDITION_MOD;
+inherit _CONDITION_MOD;
 
 nosave string id = "blessing";
 nosave string name = NOR HIY "女神的祝福" NOR;

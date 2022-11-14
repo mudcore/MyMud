@@ -9,7 +9,7 @@ History:
 *****************************************************************************/
 #include <ansi.h>
 
-inherit USER;
+inherit _USER;
 
 string get_id();
 

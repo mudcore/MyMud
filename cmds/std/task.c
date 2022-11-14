@@ -1,5 +1,5 @@
 #include <ansi.h>
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int help(object me);
 int finish(string questid, mapping data, int finish);

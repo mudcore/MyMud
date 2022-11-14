@@ -1,5 +1,5 @@
 #include <ansi.h>
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 #ifndef __SAVE_GZ_EXTENSION__
 #define __SAVE_GZ_EXTENSION__ ".o.gz"

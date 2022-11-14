@@ -7,10 +7,10 @@ Version: v1.0
 Date: 2019-03-14
 History:
 *****************************************************************************/
-inherit CLEAN_UP;
-inherit DBASE;
-inherit MOVE;
-inherit NAME;
+inherit _CLEAN_UP;
+inherit _DBASE;
+inherit _MOVE;
+inherit _NAME;
 
 nosave int amount;
 

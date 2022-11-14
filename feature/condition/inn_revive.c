@@ -1,7 +1,7 @@
 #include <ansi.h>
 #include <buff.h>
 
-inherit CONDITION_MOD;
+inherit _CONDITION_MOD;
 
 nosave string id = "inn_revive";
 nosave string name = NOR HIG "安逸时光" NOR;

@@ -7,7 +7,7 @@ Version: v1.0
 Date: 2019-03-15
 History:
 *****************************************************************************/
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int main(object me, string arg)
 {

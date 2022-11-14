@@ -1,4 +1,4 @@
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int do_put(object me, object obj, object dest);
 

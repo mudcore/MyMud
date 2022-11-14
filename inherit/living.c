@@ -7,10 +7,10 @@ Version: v1.0
 Date: 2019-03-12
 History:
 *****************************************************************************/
-inherit HEART_BEAT;
-inherit COMMAND;
-inherit NAME;
-inherit TEAM;
+inherit _HEART_BEAT;
+inherit _COMMAND;
+inherit _NAME;
+inherit _TEAM;
 
 void create()
 {

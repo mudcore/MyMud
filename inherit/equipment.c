@@ -7,7 +7,7 @@ Version: v1.0
 Date: 2019-03-14
 History:
 *****************************************************************************/
-inherit ITEM;
+inherit _ITEM;
 
 int is_equipment() { return 1; }
 

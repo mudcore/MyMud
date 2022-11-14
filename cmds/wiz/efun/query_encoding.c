@@ -1,5 +1,5 @@
 // 查询玩家encoding
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int main(object me, string arg)
 {

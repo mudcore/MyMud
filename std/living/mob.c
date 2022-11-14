@@ -8,7 +8,7 @@ Date: 2021-05-12
 History:
 *****************************************************************************/
 #include <ansi.h>
-inherit MOB;
+inherit _MOB;
 
 varargs void create(int index)
 {

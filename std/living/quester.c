@@ -8,7 +8,7 @@ Date: 2020-02-16
 *****************************************************************************/
 #include <ansi.h>
 inherit STD_NPC;
-inherit QUESTER;
+inherit _QUESTER;
 
 protected varargs void create(string vocation, int lvl)
 {

@@ -1,5 +1,5 @@
 #include <ansi.h>
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 string duration()
 {

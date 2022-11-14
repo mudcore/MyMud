@@ -1,1 +1,1 @@
-inherit STD_DEALER_I;
+inherit STD_ITEM_DEALER;

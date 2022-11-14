@@ -1,7 +1,7 @@
 // cache.c
 #include <ansi.h>
 
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 private void search_dir(object me);
 private void examine_player(string name, int last_touched);

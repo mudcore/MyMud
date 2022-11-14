@@ -5,7 +5,7 @@ Description: 管理员专用，显示指定对象资料
 Author: xuefeng
 Version: v1.0
 *****************************************************************************/
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int help(object me);
 

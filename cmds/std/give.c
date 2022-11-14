@@ -8,7 +8,7 @@ Date: 2019-03-18
 History:
 *****************************************************************************/
 #include <ansi.h>
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int do_give(object me, object obj, object who);
 

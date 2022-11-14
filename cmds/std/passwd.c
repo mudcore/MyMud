@@ -1,6 +1,6 @@
 // passwd.c
 #include <ansi.h>
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int main(object me, string arg)
 {

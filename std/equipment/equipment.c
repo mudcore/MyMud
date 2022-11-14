@@ -8,7 +8,7 @@ Date: 2019-03-15
 History:
     Sword/Spear/Knife/Wand/Whip/Staff/Claw/Fan/Axe/Hammer/Boomerang/Bow/Fist/Shield
 *****************************************************************************/
-inherit EQUIPMENT;
+inherit _EQUIPMENT;
 
 void create()
 {

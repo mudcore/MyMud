@@ -2,7 +2,7 @@
 
 #include <ansi.h>
 
-inherit CONDITION_MOD;
+inherit _CONDITION_MOD;
 
 nosave string id = "bonus_exp";
 nosave string name = NOR YEL "双倍经验" NOR;

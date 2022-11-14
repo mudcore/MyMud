@@ -1,5 +1,5 @@
 // chinese.c
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int help(object me);
 

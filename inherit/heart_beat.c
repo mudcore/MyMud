@@ -7,13 +7,13 @@ Version: v1.0
 Date: 2019-03-12
 History:
 *****************************************************************************/
-inherit ACTION;
-inherit ATTACK;
-inherit ATTRIBUTE;
-inherit CONDITION;
-inherit DAMAGE;
-inherit DBASE;
-inherit MOVE;
+inherit _ACTION;
+inherit _ATTACK;
+inherit _ATTRIBUTE;
+inherit _CONDITION;
+inherit _DAMAGE;
+inherit _DBASE;
+inherit _MOVE;
 
 // todo 增加指令频率限制
 private nomask void process_command_decay() {}

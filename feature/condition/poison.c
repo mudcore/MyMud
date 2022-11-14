@@ -1,6 +1,6 @@
 #include <ansi.h>
 
-inherit CONDITION_MOD;
+inherit _CONDITION_MOD;
 
 nosave string id = "posion";
 nosave string name = NOR RED "中毒" NOR;

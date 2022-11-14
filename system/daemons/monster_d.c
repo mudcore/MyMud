@@ -9,7 +9,7 @@ Version: v1.0
 #define DATA_DIR "/data/"
 #endif
 
-inherit SAVE;
+inherit _SAVE;
 
 mapping mob_desc;
 

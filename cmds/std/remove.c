@@ -1,7 +1,7 @@
 // remove.c
 
 #include <ansi.h>
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int do_remove(object me, object ob);
 

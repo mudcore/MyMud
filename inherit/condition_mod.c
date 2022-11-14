@@ -1,1 +1,0 @@
-inherit CORE_CONDITION_MOD;

@@ -9,7 +9,7 @@ History:
 *****************************************************************************/
 #include <status.h>
 
-inherit NPC;
+inherit _NPC;
 
 int is_mob() { return 1; }
 

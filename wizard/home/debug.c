@@ -11,7 +11,7 @@ History:
 #include <command.h>
 #include <runtime_config.h>
 
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int help(object me);
 void debug(string);

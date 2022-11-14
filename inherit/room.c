@@ -8,8 +8,6 @@ Date: 2019-03-12
 History:
 *****************************************************************************/
 inherit CORE_ROOM;
-inherit CLEAN_UP;
-inherit DBASE;
 
 // void create(){}
 

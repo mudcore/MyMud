@@ -9,19 +9,19 @@ History:
 *****************************************************************************/
 #include <ansi.h>
 
-inherit LIVING;
-inherit MESSAGE;
-inherit SAVE;
+inherit _LIVING;
+inherit _MESSAGE;
+inherit _SAVE;
 // 以下数据均会存档
-inherit USER_COMBAT_RECORD;
-inherit USER_DEPOT;
-inherit USER_INVENTORY;
-inherit USER_QUEST;
-inherit USER_GMCP;
-inherit USER_SKILL;
-inherit USER_SPELL;
-inherit USER_TITLE;
-inherit USER_VOCATION;
+inherit _USER_COMBAT_RECORD;
+inherit _USER_DEPOT;
+inherit _USER_INVENTORY;
+inherit _USER_QUEST;
+inherit _USER_GMCP;
+inherit _USER_SKILL;
+inherit _USER_SPELL;
+inherit _USER_TITLE;
+inherit _USER_VOCATION;
 
 // 判断是否 user 对象，和 efun userp() 稍有区别
 int is_user() { return 1; }

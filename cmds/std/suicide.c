@@ -2,7 +2,7 @@
 
 #include <ansi.h>
 
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 private int slow_suicide(object me);
 private int halt_suicide(object me);

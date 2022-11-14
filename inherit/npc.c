@@ -7,8 +7,8 @@ Version: v1.0
 Date: 2019-03-14
 History:
 *****************************************************************************/
-inherit CLEAN_UP;
-inherit LIVING;
+inherit _CLEAN_UP;
+inherit _LIVING;
 
 int is_npc() { return 1; }
 

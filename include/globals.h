@@ -47,12 +47,16 @@
 
 #define MAX_NAME_LEN 6
 
+#define DAEMON_DIR  "/system/daemons/"
+#define INHERIT_DIR "/inherit/"
+#define STD_DIR     "/std/"
+
+#include "_daemon.h"
+#include "_inherit.h"
+#include "_std.h"
 #include "combat.h"
 #include "condition.h"
-#include "daemons.h"
-#include "inherits.h"
 #include "monster.h"
 #include "object.h"
-#include "stdob.h"
 
 #include <mudcore.h>

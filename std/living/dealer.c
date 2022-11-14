@@ -9,7 +9,7 @@ History:
 *****************************************************************************/
 #include <ansi.h>
 inherit STD_NPC;
-inherit DEALER;
+inherit _DEALER;
 
 protected varargs void create(string vocation, int lvl)
 {

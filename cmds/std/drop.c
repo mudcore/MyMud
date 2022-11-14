@@ -1,7 +1,7 @@
 // drop.c
 
 #include <ansi.h>
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int do_drop(object me, object obj);
 

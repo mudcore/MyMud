@@ -1,5 +1,5 @@
 // 打印游戏所有有名字的生物
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int main(object me, string arg)
 {

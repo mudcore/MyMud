@@ -1,6 +1,6 @@
 // wield.c
 #include <ansi.h>
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int do_equip(object me, object ob);
 

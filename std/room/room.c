@@ -7,7 +7,7 @@ Version: v1.0
 Date: 2019-03-12
 History:
 *****************************************************************************/
-inherit ROOM;
+inherit _ROOM;
 
 void create()
 {

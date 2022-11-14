@@ -1,7 +1,7 @@
 #include <ansi.h>
 #include <skill.h>
 
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int main(object me, string arg)
 {

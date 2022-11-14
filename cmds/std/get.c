@@ -1,7 +1,7 @@
 // Filename : /cmds/get.c
 
 #include <ansi.h>
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int do_get(object me, object ob);
 
