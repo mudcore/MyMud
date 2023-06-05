@@ -5,3 +5,4 @@
 /lpcc*
 /trace*
 *.diff
+config.json
