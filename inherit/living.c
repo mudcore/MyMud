@@ -3,7 +3,6 @@ inherit CORE_LIVING;
 inherit _ATTRIBUTE;
 inherit _HEART_BEAT;
 
-
 void create()
 {
     seteuid(0); // export_uid
