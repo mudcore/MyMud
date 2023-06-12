@@ -1,10 +1,12 @@
-// 功能模块，必须继承使用
-#ifndef INHERIT_H
-#define INHERIT_H
-
-#define _ATTRIBUTE   "/inherit/attribute"
-#define _HEART_BEAT  "/inherit/heart_beat"
-#define _LIVING      "/inherit/living"
-#define _ROOM        "/inherit/room"
-
-#endif
+/** This program is a part of mudcore
+ *-----------------------------------------
+ * File   : _inherit.h
+ * Author : MUDCORE
+ * Note   : Include File，由 creator 自动生成
+ * Update : Mon Jun 12 13:36:29 2023
+ *-----------------------------------------
+ */
+#define _ATTRIBUTE                               "/inherit/attribute.c"
+#define _HEART_BEAT                              "/inherit/heart_beat.c"
+#define _LIVING                                  "/inherit/living.c"
+#define _ROOM                                    "/inherit/room.c"
