@@ -1,5 +1,5 @@
 // 标准室内环境模板STD_ROOM
-inherit ROOM;
+inherit _ROOM;
 
 void create()
 {

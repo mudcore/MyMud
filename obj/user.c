@@ -1,6 +1,4 @@
-inherit LIVING;
-inherit MESSAGE;
-inherit SAVE;
+inherit _LIVING;
 
 // 判断是否 user 对象，和 efun userp() 稍有区别
 int is_user() { return 1; }

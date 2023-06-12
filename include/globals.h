@@ -5,6 +5,10 @@
 // 游戏管理员帐号
 #define WIZARD "test"
 
+// 核心目录
+#define INHERIT_DIR "/inherit/"
+#define DAEMON_DIR "/system/daemons/"
+
 // 系统目录
 #define WORLD_DIR   "/world/"
 
@@ -13,9 +17,9 @@
 #define USER_OB     "/obj/user"
 
 // 功能模块
-#include "inherit.h"
+#include "_inherit.h"
 // 守护进程
-#include "daemons.h"
+#include "_daemon.h"
 // 标准继承对象
 #include "stdob.h"
 

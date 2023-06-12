@@ -4,7 +4,7 @@ File name: data.c
 Description: 管理员专用，显示指定对象资料
 Author: xuefeng
 *****************************************************************************/
-inherit CLEAN_UP;
+inherit _CLEAN_UP;
 
 int help(object me);
 
