@@ -1,5 +1,5 @@
-inherit DBASE;
-inherit SAVE;
+inherit _DBASE;
+inherit _SAVE;
 
 void time_out();
 string query_save_file();

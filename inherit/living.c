@@ -1,11 +1,7 @@
-// 生物角色公共特性LIVING
-
-inherit ATTRIBUTE;
-inherit COMMAND;
-inherit DBASE;
-inherit HEART_BEAT;
-inherit MOVE;
-inherit NAME;
+// 生物特征模块
+inherit CORE_LIVING;
+inherit _ATTRIBUTE;
+inherit _HEART_BEAT;
 
 void create()
 {
