@@ -2,6 +2,7 @@
 /cert*
 /debug*
 /driver*
+/fluffos*
 /lpcc*
 /trace*
 *.diff
